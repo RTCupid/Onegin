@@ -53,6 +53,7 @@ int main ()
                            "but harmful is the North to me."};
     }
 */
+
 // это компаратор..............................................................
 
 int comparator ( char* sFirst, char* sSecond)
