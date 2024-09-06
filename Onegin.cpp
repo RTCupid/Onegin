@@ -1,17 +1,35 @@
 #include <stdio.h>
 
-void input ();
+void Input ();
 
-int comparator ( char* sFirst, char* sSecond);
+//{
+/// @brief   Comparator - функция, которая сравнивает две строки
+///                       и выводит разницу между первыми не равными
+///                       элементами строки. То есть показывает какая
+///                       из строк должна стоять раньше
+/// @param   sFirst     - первая из сравниваемых строк
+/// @param   sSecond    - вторая из сравниваемых строк
+///
+/// @return  разницу между первыми не равными символами между строками
+///          разница отрицательна, если строка должна стоять выше,
+///          и положительна, если ниже
+/// @code
+///          Comparator (sFirst, sSecond);
+/// @endcode
+//}
+
+int Comparator (char* sFirst, char* sSecond);
 
 int main ()
     {
-    //input ();                          // теперь у меня есть массив
+    //Input ();                          // теперь у меня есть массив
 
-    char sFirst[]    = {"abcde"};
+    char sFirst[]    = {"hbcde"};
     char sSecond[]   = {"abcqg"};
 
-    int result = comparator (sFirst, sSecond);
+
+
+    int result = Comparator (sFirst, sSecond);
 
     printf ("result = %d\n", result);
 
@@ -53,9 +71,10 @@ int main ()
                            "but harmful is the North to me."};
     }
 */
+
 // это компаратор..............................................................
 
-int comparator ( char* sFirst, char* sSecond)
+int Comparator ( char* sFirst, char* sSecond)
     {
     int j = -1;
     printf ("j before the cycle = %d\n", j);
