@@ -1,17 +1,22 @@
 #include <stdio.h>
 
-void input ();
+void Input ();
 
-int comparator ( char* sFirst, char* sSecond);
+//{
+/// @brief   Comparator - функция, которая сравнивает две строки
+///                       и выводит разницу между первыми не равными
+///                       элементами строки. То есть показывает какая
+///                       из строк должна стоять раньше.
+int Comparator ( char* sFirst, char* sSecond);
 
 int main ()
     {
-    //input ();                          // теперь у меня есть массив
+    //Input ();                          // теперь у меня есть массив
 
     char sFirst[]    = {"abcde"};
     char sSecond[]   = {"abcqg"};
 
-    int result = comparator (sFirst, sSecond);
+    int result = Comparator (sFirst, sSecond);
 
     printf ("result = %d\n", result);
 
