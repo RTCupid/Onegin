@@ -1,9 +1,14 @@
 #include "TXLib.h"
 #include <stdio.h>
 #include <string.h>
+#include <stdbool.h>
 
+const int MAX_ROWS = 29;
+const int MAX_ELEM = 100;
 
-void Input (char text[28][100]);
+// I have a commit!
+
+_Bool Input (char text[MAX_ROWS][MAX_ELEM]);
 
 //{
 /// @brief   Comparator - функция, которая сравнивает две строки
@@ -23,59 +28,26 @@ void Input (char text[28][100]);
 
 int Comparator (char* sFirst, char* sSecond);
 
-const int MAX_ROWS = 29;
-const int MAX_ELEM = 100;
-
 int main ()
     {
     printf ("# The program for sorting strings\n");
-    printf ("# (c) RTCupid, 2024\n");
-
+    printf ("# (c) RTCupid, 2024\n\n");
 
     char text[MAX_ROWS][MAX_ELEM] = {};
 
-    FILE* file = fopen("Onegin.txt", "r");
-
-    /*char* sFirst  = NULL;
-    char* sSecond = NULL;
-    */
-
-    if (file == NULL)
-        {
-        printf("File opening error");
-
-        return -1;                                // main () return -1
-        }
+    _Bool inputCorrect = Input (text);
+    if (inputCorrect == 0)
+        return -1;
 
     int row = 0;
-
-    while (row < MAX_ROWS)
-        {
-        if (fgets (text[row], MAX_ELEM, file) == NULL) // считывает из файла в двумерный массив
-            break;
-        char* newLine = strchr (text[row], '\n');
-        if (newLine != NULL)
-            {
-            *newLine = '#';
-            }
-
-        row++;
-        }
-    fclose (file);
-    txDump (text);
-
-    row = 0;
 
     for (; row < MAX_ROWS; row++)
         {
         printf ("string %02d => <%s>\n", row, text[row]);
         }
 
-
-
     for (int i = 0; i < MAX_ROWS - 1; i++)
         {
-
         printf ("\nsFirst  = text[%d]\n"
                 "sSecond = text[%d]",
                 i, i+1);
@@ -88,7 +60,41 @@ int main ()
     return 0;
     }
 
+// функция считывания инфы из файла и загрузки её в двумерный массив...........
 
+_Bool Input (char text[MAX_ROWS][MAX_ELEM])
+    {
+    FILE* file = fopen("Onegin.txt", "r");
+
+    if (file == NULL)
+        {
+        printf("File opening error");
+
+        return 0;                                // main () return -1
+        }
+
+    int row = 0;
+
+    while (row < MAX_ROWS)
+        {
+        if (fgets (text[row], MAX_ELEM, file) == NULL) // считывает из файла в двумерный массив
+            break;
+
+        char* newLine = strchr (text[row], '\n');
+        if (newLine != NULL)
+            {
+            *newLine = '#';
+            }
+
+        row++;
+        }
+
+    fclose (file);
+
+    txDump (text);
+
+    return 1;
+    }
 
 // это компаратор..............................................................
 
