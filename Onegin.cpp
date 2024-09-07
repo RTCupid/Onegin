@@ -87,6 +87,7 @@ _Bool Input (char text[MAX_ROWS][MAX_ELEM])
     }
 
 // выводит текст Онегина.......................................................
+
 void OutputText (char text[MAX_ROWS][MAX_ELEM])
     {
     int row = 0;
@@ -116,7 +117,7 @@ void RunComparator (char text[MAX_ROWS][MAX_ELEM])
 int Comparator ( char* sFirst, char* sSecond)
     {
     int j = 0;
-    printf ("\nj before the cycle = %d\n", j);
+    printf ("\nj before the loop = %d\n", j);
 
     while (1)
         {
@@ -124,9 +125,9 @@ int Comparator ( char* sFirst, char* sSecond)
         if (sFirst[j] != sSecond[j] || (sFirst[j] == sSecond[j] && sSecond[j] == '\0'))
             break;
         j++;
-        }                                                    // cycle => loop
+        }                                                    // cycle => loop (est)
 
-    printf ("j after the cycle %d\n", j);
+    printf ("j after the loop %d\n", j);
 
     printf ("sFirst[%d] - sSecond[%d] = %d\n", j, j, sFirst[j] - sSecond[j]);
 
