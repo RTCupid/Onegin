@@ -14,6 +14,8 @@ void OutputText (char text[MAX_ROWS][MAX_ELEM]);
 
 void RunComparator (char text[MAX_ROWS][MAX_ELEM]);
 
+void Sorting (char text[MAX_ROWS][MAX_ELEM]);
+
 //{
 /// @brief   Comparator - функция, которая сравнивает две строки
 ///                       и выводит разницу между первыми не равными
@@ -44,6 +46,8 @@ int main ()
         return -1;
 
     OutputText (text);
+
+    Sorting (text);
 
     RunComparator (text);
 
@@ -97,6 +101,15 @@ void OutputText (char text[MAX_ROWS][MAX_ELEM])
         printf ("string %02d => <%s>\n", row, text[row]);
         }
     }
+
+// функция сортировки строчек по алфавиту......................................
+
+void Sorting (char text[MAX_ROWS][MAX_ELEM])
+    {
+
+
+
+// запускает сравнение всех соседних строчек...................................
 
 void RunComparator (char text[MAX_ROWS][MAX_ELEM])
     {
