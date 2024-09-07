@@ -71,6 +71,7 @@ _Bool Input (char text[MAX_ROWS][MAX_ELEM])
 
     while (row < MAX_ROWS)
         {
+        assert (row < MAX_ROWS);
         if (fgets (text[row], MAX_ELEM, file) == NULL) // считывает из файла в двумерный массив
             break;
 
@@ -98,6 +99,7 @@ void OutputText (char text[MAX_ROWS][MAX_ELEM])
 
     for (; row < MAX_ROWS; row++)
         {
+        assert (row < MAX_ROWS);
         printf ("string %02d => <%s>\n", row, text[row]);
         }
     }
@@ -106,20 +108,21 @@ void OutputText (char text[MAX_ROWS][MAX_ELEM])
 
 void Sorting (char text[MAX_ROWS][MAX_ELEM])
     {
-
+    for (int i = 0;
 
 
 // запускает сравнение всех соседних строчек...................................
 
 void RunComparator (char text[MAX_ROWS][MAX_ELEM])
     {
-    for (int i = 0; i < MAX_ROWS - 1; i++)
+    for (int row = 0; row < MAX_ROWS - 1; row++)
         {
+        assert (row < MAX_ROWS);
         printf ("\nsFirst  = text[%d]\n"
                 "sSecond = text[%d]",
-                i, i+1);
+                row, row+1);
 
-        int result = Comparator (text[i], text[i+1]);
+        int result = Comparator (text[row], text[row+1]);
 
         printf ("result = %d\n", result);
         }
@@ -129,22 +132,22 @@ void RunComparator (char text[MAX_ROWS][MAX_ELEM])
 
 int Comparator ( char* sFirst, char* sSecond)
     {
-    int j = 0;
-    printf ("\nj before the loop = %d\n", j);
+    int indexElem = 0;
+    printf ("\nindexElem before the loop = %d\n", j);
 
     while (1)
         {
-        printf ("'%c' vs '%c' -- %03d vs %03d\n", sFirst[j], sSecond[j], sFirst[j], sSecond[j]);
-        if (sFirst[j] != sSecond[j] || (sFirst[j] == sSecond[j] && sSecond[j] == '\0'))
+        printf ("'%c' vs '%c' -- %03d vs %03d\n", sFirst[indexElem], sSecond[indexElem], sFirst[indexElem], sSecond[indexElem]);
+        if (sFirst[indexElem] != sSecond[indexElem] || (sFirst[indexElem] == sSecond[indexElem] && sSecond[indexElem] == '\0'))
             break;
-        j++;
+        indexElem++;
         }                                                    // cycle => loop (est)
 
-    printf ("j after the loop %d\n", j);
+    printf ("indexElem after the loop %d\n", indexElem);
 
-    printf ("sFirst[%d] - sSecond[%d] = %d\n", j, j, sFirst[j] - sSecond[j]);
+    printf ("sFirst[%d] - sSecond[%d] = %d\n", indexElem, indexElem, sFirst[indexElem] - sSecond[indexElem]);
 
-    return sFirst[j] - sSecond[j];
+    return sFirst[indexelem] - sSecond[indexElem];
     }
 
 
