@@ -1,5 +1,7 @@
+#include "TXLib.h"
 #include <stdio.h>
 #include <string.h>
+
 
 void Input (char text[28][100]);
 
@@ -21,13 +23,16 @@ void Input (char text[28][100]);
 
 int Comparator (char* sFirst, char* sSecond);
 
+const int MAX_ROWS = 29;
+const int MAX_ELEM = 100;
+
 int main ()
     {
     printf ("# The program for sorting strings\n");
     printf ("# (c) RTCupid, 2024\n");
 
 
-    char text[28][100] = {};
+    char text[MAX_ROWS][MAX_ELEM] = {};
 
     FILE* file = fopen("Onegin.txt", "r");
 
@@ -44,9 +49,9 @@ int main ()
 
     int row = 0;
 
-    while (row < 28)
+    while (row < MAX_ROWS)
         {
-        if (fgets (text[row], 100, file) == NULL) // считывает из файла в двумерный массив
+        if (fgets (text[row], MAX_ELEM, file) == NULL) // считывает из файла в двумерный массив
             break;
         char* newLine = strchr (text[row], '\n');
         if (newLine != NULL)
@@ -57,17 +62,18 @@ int main ()
         row++;
         }
     fclose (file);
+    txDump (text);
 
     row = 0;
 
-    for (; row < 28; row++)
+    for (; row < MAX_ROWS; row++)
         {
-        printf ("string %d => <%s>\n", row, text[row]);
+        printf ("string %02d => <%s>\n", row, text[row]);
         }
 
 
 
-    for (int i = 0; i < 27; i++)
+    for (int i = 0; i < MAX_ROWS - 1; i++)
         {
 
         printf ("\nsFirst  = text[%d]\n"
@@ -88,13 +94,16 @@ int main ()
 
 int Comparator ( char* sFirst, char* sSecond)
     {
-    int j = -1;
+    int j = 0;
     printf ("\nj before the cycle = %d\n", j);
-    do
+
+    while (1)
         {
+        printf ("'%c' vs '%c' -- %03d vs %03d\n", sFirst[j], sSecond[j], sFirst[j], sSecond[j]);
+        if (sFirst[j] != sSecond[j] || (sFirst[j] == sSecond[j] && sSecond[j] == '\0'))
+            break;
         j++;
-        }
-    while (sFirst[j] == sSecond[j]);
+        }                                                    // cycle => loop
 
     printf ("j after the cycle %d\n", j);
 
