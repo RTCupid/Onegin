@@ -10,6 +10,10 @@ const int MAX_ELEM = 100;
 
 _Bool Input (char text[MAX_ROWS][MAX_ELEM]);
 
+void OutputText (char text[MAX_ROWS][MAX_ELEM]);
+
+void RunComparator (char text[MAX_ROWS][MAX_ELEM]);
+
 //{
 /// @brief   Comparator - функция, которая сравнивает две строки
 ///                       и выводит разницу между первыми не равными
@@ -39,23 +43,9 @@ int main ()
     if (inputCorrect == 0)
         return -1;
 
-    int row = 0;
+    OutputText (text);
 
-    for (; row < MAX_ROWS; row++)
-        {
-        printf ("string %02d => <%s>\n", row, text[row]);
-        }
-
-    for (int i = 0; i < MAX_ROWS - 1; i++)
-        {
-        printf ("\nsFirst  = text[%d]\n"
-                "sSecond = text[%d]",
-                i, i+1);
-
-        int result = Comparator (text[i], text[i+1]);
-
-        printf ("result = %d\n", result);
-        }
+    RunComparator (text);
 
     return 0;
     }
@@ -94,6 +84,31 @@ _Bool Input (char text[MAX_ROWS][MAX_ELEM])
     txDump (text);
 
     return 1;
+    }
+
+// выводит текст Онегина.......................................................
+void OutputText (char text[MAX_ROWS][MAX_ELEM])
+    {
+    int row = 0;
+
+    for (; row < MAX_ROWS; row++)
+        {
+        printf ("string %02d => <%s>\n", row, text[row]);
+        }
+    }
+
+void RunComparator (char text[MAX_ROWS][MAX_ELEM])
+    {
+    for (int i = 0; i < MAX_ROWS - 1; i++)
+        {
+        printf ("\nsFirst  = text[%d]\n"
+                "sSecond = text[%d]",
+                i, i+1);
+
+        int result = Comparator (text[i], text[i+1]);
+
+        printf ("result = %d\n", result);
+        }
     }
 
 // это компаратор..............................................................
