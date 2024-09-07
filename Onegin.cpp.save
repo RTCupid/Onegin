@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <
 
 void Input (char text[28][100]);
 
@@ -47,6 +48,11 @@ int main ()
         {
         if (fgets (text[row], 100, file) == NULL) // считывает из файла в двумерный массив
             break;
+        char* newLine = strchr (text[row], '\n');
+        if (newLine != NULL)
+            {
+            *newLine = '#';
+            }
 
         row++;
         }
@@ -56,21 +62,23 @@ int main ()
 
     for (; row < 28; row++)
         {
-        printf ("string %d => %с\n", row, text[row][1]);
+        printf ("string %d => <%s>\n", row, text[row]);
         }
 
 
 
-    /*for (int i = 0; i < 27; i++)
+    for (int i = 0; i < 27; i++)
         {
-        sFirst  = text[i];
-        sSecond = text[i + 1];
 
-        int result = Comparator (sFirst, sSecond);
+        printf ("\nsFirst  = text[%d]\n"
+                "sSecond = text[%d]",
+                i, i+1);
+
+        int result = Comparator (text[i], text[i+1]);
 
         printf ("result = %d\n", result);
         }
-    */
+
     return 0;
     }
 
@@ -81,7 +89,7 @@ int main ()
 int Comparator ( char* sFirst, char* sSecond)
     {
     int j = -1;
-    printf ("j before the cycle = %d\n", j);
+    printf ("\nj before the cycle = %d\n", j);
     do
         {
         j++;
@@ -90,7 +98,7 @@ int Comparator ( char* sFirst, char* sSecond)
 
     printf ("j after the cycle %d\n", j);
 
-    printf ("sFirst[%d] - sSecond[%d] = %d\n\n", j, j, sFirst[j] - sSecond[j]);
+    printf ("sFirst[%d] - sSecond[%d] = %d\n", j, j, sFirst[j] - sSecond[j]);
 
     return sFirst[j] - sSecond[j];
     }
