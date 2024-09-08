@@ -47,9 +47,11 @@ int main ()
 
     OutputText (text);
 
-    RunComparator (text);
+    //RunComparator (text);
 
-    Sorting (text);
+    Sorting (text); // toupper dobavit + znaki propuskat
+
+    OutputText (text);
 
     return 0;
     }
@@ -111,10 +113,10 @@ void Sorting (char text[MAX_ROWS][MAX_ELEM])
     for (int nIterations = 0; nIterations < MAX_ROWS; nIterations++)
         {
         assert (nIterations < MAX_ROWS);
-        for (int row = 0; row < MAX_ROWS-1; row++);
+        for (int row = 0; row < MAX_ROWS-1; row++)
             {
-            printf ("row = <%d>\n", row);
-            assert (row < MAX_ROWS-1);
+            printf ("row = <%d>\n", row);                    // не инициализирована переменная nString (когда она называлась
+            assert (row < MAX_ROWS-1);                           // row было тоже самое)
 
             int result = Comparator (text[row], text[row+1]);
             if (result > 0)                                          // тогда замена строк между собой
