@@ -1,0 +1,155 @@
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe, файл: Onegin.cpp, строка: 117, функция: void Sorting(char (*)[100]),
+
+Сообщение: ВНЕЗАПНО: Логическая ошибка: Неверно, что "row < MAX_ROWS".
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x004F42FC (32-bit), Flags: Cmdre0, Thread: 0x4508 (Main), GetLastError(): 187 (Не найдено указанное имя системного семафора), errno: 34 (Result too large). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\artym\desktop\новая папка\codeblocks\mingw\include\txlib.h
+Compiled:	Sep  8 2024 23:09:52, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, Debug
+Started:	Sep 08 2024 23:10:15
+
+Run file:	C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe
+Directory:	C:\Users\artym\Desktop\новые коды\Onegin\Onegin
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe, файл: Onegin.cpp, строка: 117, функция: void Sorting(char (*)[100]),
+
+Сообщение: ВНЕЗАПНО: Логическая ошибка: Неверно, что "row < MAX_ROWS-1".
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x004F42FC (32-bit), Flags: Cmdre0, Thread: 0x284 (Main), GetLastError(): 187 (Не найдено указанное имя системного семафора), errno: 34 (Result too large). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\artym\desktop\новая папка\codeblocks\mingw\include\txlib.h
+Compiled:	Sep  8 2024 23:11:49, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, Debug
+Started:	Sep 08 2024 23:12:12
+
+Run file:	C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe
+Directory:	C:\Users\artym\Desktop\новые коды\Onegin\Onegin
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe, файл: Onegin.cpp, строка: 118, функция: void Sorting(char (*)[100]),
+
+Сообщение: ВНЕЗАПНО: Логическая ошибка: Неверно, что "row < MAX_ROWS-1".
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x004F42FC (32-bit), Flags: Cmdre0, Thread: 0x3FD4 (Main), GetLastError(): 187 (Не найдено указанное имя системного семафора), errno: 34 (Result too large). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\artym\desktop\новая папка\codeblocks\mingw\include\txlib.h
+Compiled:	Sep  8 2024 23:13:52, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, Debug
+Started:	Sep 08 2024 23:14:15
+
+Run file:	C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe
+Directory:	C:\Users\artym\Desktop\новые коды\Onegin\Onegin
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe, файл: Onegin.cpp, строка: 118, функция: void Sorting(char (*)[100]),
+
+Сообщение: ВНЕЗАПНО: Логическая ошибка: Неверно, что "row < MAX_ROWS-1".
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x004F42FC (32-bit), Flags: Cmdre0, Thread: 0x2F98 (Main), GetLastError(): 187 (Не найдено указанное имя системного семафора), errno: 34 (Result too large). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\artym\desktop\новая папка\codeblocks\mingw\include\txlib.h
+Compiled:	Sep  8 2024 23:15:47, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, Debug
+Started:	Sep 08 2024 23:17:08
+
+Run file:	C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe
+Directory:	C:\Users\artym\Desktop\новые коды\Onegin\Onegin
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe, файл: Onegin.cpp, строка: 119, функция: void Sorting(char (*)[100]),
+
+Сообщение: ВНЕЗАПНО: Логическая ошибка: Неверно, что "row < MAX_ROWS-1".
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x004F52FC (32-bit), Flags: Cmdre0, Thread: 0x3BB0 (Main), GetLastError(): 187 (Не найдено указанное имя системного семафора), errno: 34 (Result too large). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\artym\desktop\новая папка\codeblocks\mingw\include\txlib.h
+Compiled:	Sep  8 2024 23:25:29, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, Debug
+Started:	Sep 08 2024 23:25:52
+
+Run file:	C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe
+Directory:	C:\Users\artym\Desktop\новые коды\Onegin\Onegin
+
+--------------------------------------------------

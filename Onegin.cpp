@@ -47,9 +47,9 @@ int main ()
 
     OutputText (text);
 
-    Sorting (text);
-
     RunComparator (text);
+
+    Sorting (text);
 
     return 0;
     }
@@ -108,22 +108,33 @@ void OutputText (char text[MAX_ROWS][MAX_ELEM])
 
 void Sorting (char text[MAX_ROWS][MAX_ELEM])
     {
-    for (int row = 0; row < MAX_ROWS; row++);
+    for (int nIterations = 0; nIterations < MAX_ROWS; nIterations++)
         {
-        assert (row < MAX_ROWS);
-        int result = Comparator (text[row], text[row+1]);
-        if (result > 0)                                              // тогда замена строк между собой
+        assert (nIterations < MAX_ROWS);
+        for (int row = 0; row < MAX_ROWS-1; row++);
             {
-            int indexElem = 0;
-            while (text[row] != text[row+1] && text[row] != '\0')
+            printf ("row = <%d>\n", row);
+            assert (row < MAX_ROWS-1);
+
+            int result = Comparator (text[row], text[row+1]);
+            if (result > 0)                                          // тогда замена строк между собой
                 {
-                // недописанная замена строк между собой (посимвольно)
-                }
-            }                                                        // теперь, если меняли строки, строка, которая позже по алфавиту,
+                char charForSwap = '*';
+                int indexElem = 0;
+                while (indexElem < MAX_ELEM || (text[row][indexElem] == text[row+1][indexElem] && text[row][indexElem] == '\0'))
+                    {
+                    assert (indexElem < MAX_ELEM);
+                    charForSwap = text[row][indexElem];
+                    text[row][indexElem] = text[row+1][indexElem];
+                    text[row+1][indexElem] = charForSwap;
+
+                    indexElem++;
+                    }
+                }                                                    // теперь, если меняли строки, строка, которая позже по алфавиту,
                                                                      // находится по адресу row + 1, значит в следующей итерации цикла
-        }                                                            // эта строка будет сравниваться со следующей строкой, значит мне
-                                                                     // нужен ещё один большой цикл, который позволит каждой строке га-
-                                                                     // рантированно дойти до своего места в упорядоченном ряду строк
+            }                                                        // эта строка будет сравниваться со следующей строкой, значит мне
+        }                                                            // нужен ещё один большой цикл, который позволит каждой строке га-
+    }                                                                 // рантированно дойти до своего места в упорядоченном ряду строк
 // запускает сравнение всех соседних строчек...................................
 
 void RunComparator (char text[MAX_ROWS][MAX_ELEM])
@@ -146,7 +157,7 @@ void RunComparator (char text[MAX_ROWS][MAX_ELEM])
 int Comparator ( char* sFirst, char* sSecond)
     {
     int indexElem = 0;
-    printf ("\nindexElem before the loop = %d\n", j);
+    printf ("\nindexElem before the loop = %d\n", indexElem);
 
     while (1)
         {
@@ -160,7 +171,7 @@ int Comparator ( char* sFirst, char* sSecond)
 
     printf ("sFirst[%d] - sSecond[%d] = %d\n", indexElem, indexElem, sFirst[indexElem] - sSecond[indexElem]);
 
-    return sFirst[indexelem] - sSecond[indexElem];
+    return sFirst[indexElem] - sSecond[indexElem];
     }
 
 
