@@ -16,6 +16,8 @@ void RunComparator (char text[MAX_ROWS][MAX_ELEM]);
 
 void Sorting (char text[MAX_ROWS][MAX_ELEM]);
 
+_Bool Swapping (char* sFirst, char* sSecond);
+
 //{
 /// @brief   Comparator - функция, которая сравнивает две строки
 ///                       и выводит разницу между первыми не равными
@@ -121,17 +123,8 @@ void Sorting (char text[MAX_ROWS][MAX_ELEM])
             int result = Comparator (text[row], text[row+1]);
             if (result > 0)                                          // тогда замена строк между собой
                 {
-                char charForSwap = '*';
-                int indexElem = 0;
-                while (indexElem < MAX_ELEM || (text[row][indexElem] == text[row+1][indexElem] && text[row][indexElem] == '\0'))
-                    {
-                    assert (indexElem < MAX_ELEM);
-                    charForSwap = text[row][indexElem];
-                    text[row][indexElem] = text[row+1][indexElem];
-                    text[row+1][indexElem] = charForSwap;
-
-                    indexElem++;
-                    }
+                if (Swapping (text[row], text[row + 1]))
+                    printf ("Successful exchange!\n");
                 }                                                    // теперь, если меняли строки, строка, которая позже по алфавиту,
                                                                      // находится по адресу row + 1, значит в следующей итерации цикла
             }                                                        // эта строка будет сравниваться со следующей строкой, значит мне
@@ -159,23 +152,53 @@ void RunComparator (char text[MAX_ROWS][MAX_ELEM])
 int Comparator ( char* sFirst, char* sSecond)
     {
     int indexElem = 0;
-    printf ("\nindexElem before the loop = %d\n", indexElem);
+    printf ("\nindexElem before the loop = %d\n\n", indexElem);
+
+    printf ("Compare:\n<%s>\nvs\n<%s>\n", sFirst, sSecond);
+
+    int iIndexElem = 0;
+    int jIndexElem = 0;
+    for (; !isalnum (sFirst[iIndexElem]); iIndexElem++)
+       continue;
+    for (; !isalnum (sSecond[jIndexElem]); jIndexElem++)
+       continue;
 
     while (1)
         {
-        printf ("'%c' vs '%c' -- %03d vs %03d\n", toupper(sFirst[indexElem]), toupper(sSecond[indexElem]), toupper(sFirst[indexElem]), toupper(sSecond[indexElem]));
-        if (toupper(sFirst[indexElem]) != toupper(sSecond[indexElem]) || (sFirst[indexElem] == sSecond[indexElem] && sSecond[indexElem] == '\0'))
+        printf ("'%c' vs '%c' -- %03d vs %03d\n", toupper(sFirst[iIndexElem]), toupper(sSecond[jIndexElem]), toupper(sFirst[iIndexElem]), toupper(sSecond[jIndexElem]));
+
+        if (toupper(sFirst[iIndexElem]) != toupper(sSecond[jIndexElem]) || (sFirst[iIndexElem] == sSecond[jIndexElem] && sSecond[jIndexElem] == '\0'))
             break;
-        indexElem++;
+
+        iIndexElem++;
+        jIndexElem++;
         }                                                    // cycle => loop (est)
 
-    printf ("indexElem after the loop %d\n", indexElem);
+    printf ("iIndexElem after the loop %d\n", iIndexElem);
+    printf ("jIndexElem after the loop %d\n", jIndexElem);
 
-    printf ("sFirst[%d] - sSecond[%d] = %d\n", indexElem, indexElem, toupper(sFirst[indexElem]) - toupper(sSecond[indexElem]));
+    printf ("sFirst[%d] - sSecond[%d] = %d\n", iIndexElem, jIndexElem, toupper(sFirst[iIndexElem]) - toupper(sSecond[jIndexElem]));
 
-    return toupper(sFirst[indexElem]) - toupper(sSecond[indexElem]);
+    return toupper(sFirst[iIndexElem]) - toupper(sSecond[jIndexElem]);
     }
 
+_Bool Swapping (char* sFirst, char* sSecond)
+    {
+    char charForSwap = '*';
+    int indexElem = 0;
+    while (indexElem < MAX_ELEM || (sFirst[indexElem] == sSecond[indexElem] && sFirst[indexElem] == '\0'))
+        {
+        assert (indexElem < MAX_ELEM);
+        charForSwap = sFirst[indexElem];
+        sFirst[indexElem] = sSecond[indexElem];
+        sSecond[indexElem] = charForSwap;
+
+        indexElem++;
+        }
+    printf ("Row swap!\n");
+    printf ("After swap:\n<%s>\nvs\n<%s>\n", sFirst, sSecond);
+    return 1;
+    }
 
 
 
