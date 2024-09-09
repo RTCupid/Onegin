@@ -115,8 +115,8 @@ void Sorting (char text[MAX_ROWS][MAX_ELEM])
         assert (nIterations < MAX_ROWS);
         for (int row = 0; row < MAX_ROWS-1; row++)
             {
-            printf ("row = <%d>\n", row);                    // не инициализирована переменная nString (когда она называлась
-            assert (row < MAX_ROWS-1);                           // row было тоже самое)
+            printf ("row = <%d>\n", row);
+            assert (row < MAX_ROWS-1);
 
             int result = Comparator (text[row], text[row+1]);
             if (result > 0)                                          // тогда замена строк между собой
@@ -163,17 +163,17 @@ int Comparator ( char* sFirst, char* sSecond)
 
     while (1)
         {
-        printf ("'%c' vs '%c' -- %03d vs %03d\n", sFirst[indexElem], sSecond[indexElem], sFirst[indexElem], sSecond[indexElem]);
-        if (sFirst[indexElem] != sSecond[indexElem] || (sFirst[indexElem] == sSecond[indexElem] && sSecond[indexElem] == '\0'))
+        printf ("'%c' vs '%c' -- %03d vs %03d\n", toupper(sFirst[indexElem]), toupper(sSecond[indexElem]), toupper(sFirst[indexElem]), toupper(sSecond[indexElem]));
+        if (toupper(sFirst[indexElem]) != toupper(sSecond[indexElem]) || (sFirst[indexElem] == sSecond[indexElem] && sSecond[indexElem] == '\0'))
             break;
         indexElem++;
         }                                                    // cycle => loop (est)
 
     printf ("indexElem after the loop %d\n", indexElem);
 
-    printf ("sFirst[%d] - sSecond[%d] = %d\n", indexElem, indexElem, sFirst[indexElem] - sSecond[indexElem]);
+    printf ("sFirst[%d] - sSecond[%d] = %d\n", indexElem, indexElem, toupper(sFirst[indexElem]) - toupper(sSecond[indexElem]));
 
-    return sFirst[indexElem] - sSecond[indexElem];
+    return toupper(sFirst[indexElem]) - toupper(sSecond[indexElem]);
     }
 
 
