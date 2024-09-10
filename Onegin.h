@@ -13,7 +13,11 @@ _Bool Swapping (char* sFirst, char* sSecond);
 
 _Bool SkipMarks (char* sFirst, char* sSecond, int* iIndexElem, int* jIndexElem);
 
-//void EOLSorting (char text[MAX_ROWS][MAX_ELEM]);
+int EOLComparator (char* sFirst, char* sSecond);
+
+void EOLSorting (char text[MAX_ROWS][MAX_ELEM]);
+
+_Bool EOLSkipMarks (char* sFirst, char* sSecond, int* iIndexElem, int* jIndexElem);
 //{
 /// @brief   Comparator - функция, которая сравнивает две строки
 ///                       и выводит разницу между первыми не равными

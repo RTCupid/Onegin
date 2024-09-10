@@ -1,8 +1,8 @@
-#include "TXLib.h"
 #include <stdio.h>
 #include <string.h>
 #include <stdbool.h>
 #include <assert.h>
+#include <ctype.h>
 
 #include "Onegin.h"
 
@@ -19,81 +19,105 @@ int main ()
 
     OutputText (text);
 
-    //RunComparator (text);
-
-    Sorting (text); // toupper dobavit + znaki propuskat
+    Sorting (text);                                                  // toupper dobavit + znaki propuskat (est)
 
     OutputText (text);
 
-    //EOLSorting (text);
+    EOLSorting (text);
 
-    //OutputText (text);
+    OutputText (text);
 
     return 0;
     }
 
-// функция считывания инфы из файла и загрузки её в двумерный массив...........
+// функция сортировки по концу строки..........................................
 
-_Bool Input (char text[MAX_ROWS][MAX_ELEM])
+void EOLSorting (char text[MAX_ROWS][MAX_ELEM])
     {
-    FILE* file = fopen("Onegin.txt", "r");
-
-    if (file == NULL)
+    for (int nIterations = 0; nIterations < MAX_ROWS; nIterations++)
         {
-        printf("File opening error");
+        assert (nIterations < MAX_ROWS);
+        for (int row = 0; row < MAX_ROWS-1; row++)
+            {
+            printf ("row = <%d>\n", row);
+            assert (row < MAX_ROWS-1);
 
-        return 0;                                      // main () return -1
+            int result = EOLComparator (text[row], text[row+1]);
+            if (result > 0)                                          // тогда замена строк между собой
+                {
+                if (Swapping (text[row], text[row + 1]))
+                    printf ("Successful exchange!\n");
+                }
+            }
+        }
+    }
+
+// функция сравнивает две строки в алфавитном порядке, начиная с конца строки..
+
+int EOLComparator (char* sFirst, char* sSecond)
+    {
+    printf ("\nCompare:\n<%s>\nvs\n<%s>\n", sFirst, sSecond);
+
+    int iIndexElem = 0;
+    int jIndexElem = 0;
+
+    for (; sFirst[iIndexElem] != '\0'; iIndexElem++)                 // находит адрес конца строки
+        continue;
+    for (; sSecond[jIndexElem] != '\0'; jIndexElem++)                // находит адрес конца строки
+        continue;
+
+    if (EOLSkipMarks (sFirst, sSecond, &iIndexElem, &jIndexElem))
+        {
+        printf ("Succesfull skipping marks!\n");
+        printf ("After skipping:\niIndexElem = %d;"
+                               "\njIndexElem = %d;\n",
+                iIndexElem, jIndexElem);
         }
 
-    int row = 0;
+    printf ("iIndexElem before the loop = %d\n", iIndexElem);
+    printf ("jIndexElem before the loop = %d\n", jIndexElem);
 
-    while (row < MAX_ROWS)
+    while (1)
         {
-        assert (row < MAX_ROWS);
-        if (fgets (text[row], MAX_ELEM, file) == NULL) // считывает из файла в двумерный массив
+        printf ("'%c' vs '%c' -- %03d vs %03d\n", toupper(sFirst[iIndexElem]), toupper(sSecond[jIndexElem]), toupper(sFirst[iIndexElem]), toupper(sSecond[jIndexElem]));
+
+        if (toupper(sFirst[iIndexElem]) != toupper(sSecond[jIndexElem]) || (iIndexElem == jIndexElem && jIndexElem == 0))
             break;
 
-        char* newLine = strchr (text[row], '\n');
-        if (newLine != NULL)
-            {
-            *newLine = '#';
-            }
-
-        row++;
+        iIndexElem--;
+        jIndexElem--;
         }
 
-    fclose (file);
+    printf ("iIndexElem after the loop %d\n", iIndexElem);
+    printf ("jIndexElem after the loop %d\n", jIndexElem);
 
-    txDump (text);
+    printf ("sFirst[%d] - sSecond[%d] = %d\n", iIndexElem, jIndexElem, toupper(sFirst[iIndexElem]) - toupper(sSecond[jIndexElem]));
 
-    return 1;
+    return toupper(sFirst[iIndexElem]) - toupper(sSecond[jIndexElem]);
     }
 
-// выводит текст Онегина.......................................................
+//
 
-void OutputText (char text[MAX_ROWS][MAX_ELEM])
+_Bool EOLSkipMarks (char* sFirst, char* sSecond, int* iIndexElem, int* jIndexElem)
     {
-    int row = 0;
+    int startiIndex = *iIndexElem;
+    int startjIndex = *jIndexElem;
 
-    for (; row < MAX_ROWS; row++)
-        {
-        assert (row < MAX_ROWS);
-        printf ("string %02d => <%s>\n", row, text[row]);
-        }
-    }
-
-//  функция пропуска знаков, которые не являются буквами или цифрами в начале строки
-
-_Bool SkipMarks (char* sFirst, char* sSecond, int* iIndexElem, int* jIndexElem)
-    {
     for (; !isalnum (sFirst[*iIndexElem]);)
-        *iIndexElem = *iIndexElem + 1;
+        *iIndexElem = *iIndexElem - 1;
 
     for (; !isalnum (sSecond[*jIndexElem]);)
-        *jIndexElem = *jIndexElem + 1;
+        *jIndexElem = *jIndexElem - 1;
 
-    if (*iIndexElem != 0 || *jIndexElem != 0)
+    if (*iIndexElem != startiIndex || *jIndexElem != startjIndex)
         return 1;
     return 0;
     }
+
+
+
+
+
+
+
 

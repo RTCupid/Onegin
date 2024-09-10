@@ -33,10 +33,8 @@ void Sorting (char text[MAX_ROWS][MAX_ELEM])
 
 int Comparator ( char* sFirst, char* sSecond)
     {
-    int indexElem = 0;
-    printf ("\nindexElem before the loop = %d\n\n", indexElem);
-
     printf ("Compare:\n<%s>\nvs\n<%s>\n", sFirst, sSecond);
+
     int iIndexElem = 0;
     int jIndexElem = 0;
 
@@ -47,6 +45,9 @@ int Comparator ( char* sFirst, char* sSecond)
                                "\njIndexElem = %d;\n",
                 iIndexElem, jIndexElem);
         }
+
+    printf ("\niIndexElem before the loop = %d\n", iIndexElem);
+    printf ("\njIndexElem before the loop = %d\n", jIndexElem);
 
     while (1)
         {
@@ -85,4 +86,19 @@ _Bool Swapping (char* sFirst, char* sSecond)
     printf ("Row exchange:\n");
     printf ("<%s>\nvs\n<%s>\n", sFirst, sSecond);
     return 1;
+    }
+
+//  функция пропуска знаков, которые не являются буквами или цифрами в начале строки
+
+_Bool SkipMarks (char* sFirst, char* sSecond, int* iIndexElem, int* jIndexElem)
+    {
+    for (; !isalnum (sFirst[*iIndexElem]);)
+        *iIndexElem = *iIndexElem + 1;
+
+    for (; !isalnum (sSecond[*jIndexElem]);)
+        *jIndexElem = *jIndexElem + 1;
+
+    if (*iIndexElem != 0 || *jIndexElem != 0)
+        return 1;
+    return 0;
     }
