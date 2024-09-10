@@ -12,8 +12,6 @@ _Bool Input (char text[MAX_ROWS][MAX_ELEM]);
 
 void OutputText (char text[MAX_ROWS][MAX_ELEM]);
 
-void RunComparator (char text[MAX_ROWS][MAX_ELEM]);
-
 void Sorting (char text[MAX_ROWS][MAX_ELEM]);
 
 _Bool Swapping (char* sFirst, char* sSecond);
@@ -70,7 +68,7 @@ _Bool Input (char text[MAX_ROWS][MAX_ELEM])
         {
         printf("File opening error");
 
-        return 0;                                // main () return -1
+        return 0;                                      // main () return -1
         }
 
     int row = 0;
@@ -131,23 +129,7 @@ void Sorting (char text[MAX_ROWS][MAX_ELEM])
                                                                      // находится по адресу row + 1, значит в следующей итерации цикла
             }                                                        // эта строка будет сравниваться со следующей строкой, значит мне
         }                                                            // нужен ещё один большой цикл, который позволит каждой строке га-
-    }                                                                 // рантированно дойти до своего места в упорядоченном ряду строк
-// запускает сравнение всех соседних строчек...................................
-
-void RunComparator (char text[MAX_ROWS][MAX_ELEM])
-    {
-    for (int row = 0; row < MAX_ROWS - 1; row++)
-        {
-        assert (row < MAX_ROWS);
-        printf ("\nsFirst  = text[%d]\n"
-                "sSecond = text[%d]",
-                row, row+1);
-
-        int result = Comparator (text[row], text[row+1]);
-
-        printf ("result = %d\n", result);
-        }
-    }
+    }                                                                // рантированно дойти до своего места в упорядоченном ряду строк
 
 // это компаратор..............................................................
 
