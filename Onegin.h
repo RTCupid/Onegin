@@ -1,8 +1,3 @@
-#include "TXLib.h"
-#include <stdio.h>
-#include <string.h>
-#include <stdbool.h>
-
 const int MAX_ROWS = 29;
 const int MAX_ELEM = 100;
 
@@ -18,8 +13,7 @@ _Bool Swapping (char* sFirst, char* sSecond);
 
 _Bool SkipMarks (char* sFirst, char* sSecond, int* iIndexElem, int* jIndexElem);
 
-void EOLSorting (char text[MAX_ROWS][MAX_ELEM]);
-
+//void EOLSorting (char text[MAX_ROWS][MAX_ELEM]);
 //{
 /// @brief   Comparator - функция, которая сравнивает две строки
 ///                       и выводит разницу между первыми не равными
