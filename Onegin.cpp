@@ -18,6 +18,8 @@ void Sorting (char text[MAX_ROWS][MAX_ELEM]);
 
 _Bool Swapping (char* sFirst, char* sSecond);
 
+_Bool SkipMarks (char* sFirst, char* sSecond, int* iIndexElem, int* jIndexElem);
+
 //{
 /// @brief   Comparator - функци€, котора€ сравнивает две строки
 ///                       и выводит разницу между первыми не равными
@@ -155,13 +157,16 @@ int Comparator ( char* sFirst, char* sSecond)
     printf ("\nindexElem before the loop = %d\n\n", indexElem);
 
     printf ("Compare:\n<%s>\nvs\n<%s>\n", sFirst, sSecond);
-
     int iIndexElem = 0;
     int jIndexElem = 0;
-    for (; !isalnum (sFirst[iIndexElem]); iIndexElem++)
-       continue;
-    for (; !isalnum (sSecond[jIndexElem]); jIndexElem++)
-       continue;
+
+    if (SkipMarks (sFirst, sSecond, &iIndexElem, &jIndexElem))
+        {
+        printf ("Succesfull skipping marks!\n");
+        printf ("After skipping:\niIndexElem = %d;"
+                               "\njIndexElem = %d;\n",
+                iIndexElem, jIndexElem);
+        }
 
     while (1)
         {
@@ -195,10 +200,23 @@ _Bool Swapping (char* sFirst, char* sSecond)
 
         indexElem++;
         }
-    printf ("Row swap!\n");
-    printf ("After swap:\n<%s>\nvs\n<%s>\n", sFirst, sSecond);
+    printf ("Row exchange:\n");
+    printf ("<%s>\nvs\n<%s>\n", sFirst, sSecond);
     return 1;
     }
 
+//  функци€ пропуска знаков, которые не €вл€ютс€ буквами или цифрами в начале строки
 
+_Bool SkipMarks (char* sFirst, char* sSecond, int* iIndexElem, int* jIndexElem)
+    {
+    for (; !isalnum (sFirst[*iIndexElem]);)
+        *iIndexElem = *iIndexElem + 1;
+
+    for (; !isalnum (sSecond[*jIndexElem]);)
+        *jIndexElem = *jIndexElem + 1;
+
+    if (*iIndexElem != 0 || *jIndexElem != 0)
+        return 1;
+    return 0;
+    }
 
