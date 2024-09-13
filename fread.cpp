@@ -21,14 +21,17 @@ int main ()
 
 // учусь юзать fread, а точнее создаю массив указателей
 
-_Bool InputMP ()
+bool InputMP ()
     {
-    struct stat fileInf;
+    struct stat fileInf = {};
 
-    stat ("Onegin.txt", &fileInf);
+    int err = stat ("Onegin.txt", &fileInf);
+    if (err != 0) {
+        printf("Stat err %d\n", err);
+    }
 
-    printf ("\n%lld\n", fileInf.st_size);
-    printf ("count of char = %lld\n", fileInf.st_size / sizeof (char));
+    printf ("\n%ld\n", fileInf.st_size);
+    printf ("count of char = %ld\n", fileInf.st_size / sizeof (char));
 
     char* Onegin = (char*)calloc (fileInf.st_size + 1, sizeof(char));
 
