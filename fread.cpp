@@ -30,7 +30,7 @@ _Bool InputMP ()
     printf ("\n%lld\n", fileInf.st_size);
     printf ("count of char = %lld\n", fileInf.st_size / sizeof (char));
 
-    void* Onegin = calloc (fileInf.st_size + 1, sizeof(char));
+    char* Onegin = (char*)calloc (fileInf.st_size + 1, sizeof(char));
 
     FILE* file = fopen ("Onegin.txt", "rt");
 
@@ -63,18 +63,18 @@ _Bool InputMP ()
 
     for (int i = 0; i < sizeOfFile; i++)
         {
-        if (*((char*)Onegin + i * sizeof (char)) == '\n')
+        if (Onegin[i] == '\n')
             {
             printf ("Onegin[%d] = <'\\n'>\n", i);
             nRow = nRow + 1;
             }
         else
-            printf ("Onegin[%d] = <%c>\n", i, *((char*)Onegin + i * sizeof (char)));
+            printf ("Onegin[%d] = <%c>\n", i, Onegin[i]);
         }
 
     printf ("nRow = <%d>\n", nRow);                                  // I have this commit!
 
-    void* Pointers = calloc (nRow, sizeof (char*));                  // (char**)calloc..... чтобы сразу привести возвр.знач.
+    char** Pointers = (char**)calloc (nRow, sizeof (char*));         // (char**)calloc..... чтобы сразу привести возвр.знач.
                                                                      // calloc к типу (char**)
     int nPointer = 0;
 
@@ -82,10 +82,10 @@ _Bool InputMP ()
 
     for (int i = 0; i < sizeOfFile; i++)
         {
-        if (*((char*)Onegin + i * sizeof (char)) == '\n')
+        if (Onegin[i] == '\n')
             {
-            *((int*)Pointers + i + 1) = (size_t)Onegin + i * sizeof (char);
-            printf ("Pointer[%d] = <%p>\n", nPointer, (size_t)Onegin + i * sizeof (char));
+            Pointers[nPointer] = &Onegin[i+1];
+            printf ("Pointer[%d] = <%p>\n", nPointer, &Onegin[i+1]);
             nPointer = nPointer + 1;
             }
         }
@@ -96,13 +96,10 @@ _Bool InputMP ()
 
     for (int n = 0; n < nPointer; n++)
         {
-        Pointer = *(char**)((int*)Pointers + n * sizeof (int));
+        assert (n < nPointer);
+        Pointer = Pointers[n];
         printf ("Pointers[%d] = <%p>\n", n, Pointer);
         }
-
-
-
-
 
 
     return 1;
