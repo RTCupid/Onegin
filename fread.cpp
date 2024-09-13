@@ -72,10 +72,10 @@ _Bool InputMP ()
             printf ("Onegin[%d] = <%c>\n", i, *((char*)Onegin + i * sizeof (char)));
         }
 
-    printf ("nRow = <%d>\n", nRow);                                    // I have this commit!
+    printf ("nRow = <%d>\n", nRow);                                  // I have this commit!
 
-    void* Pointers = calloc (nRow, sizeof (char*));
-
+    void* Pointers = calloc (nRow, sizeof (char*));                  // (char**)calloc..... чтобы сразу привести возвр.знач.
+                                                                     // calloc к типу (char**)
     int nPointer = 0;
 
     printf ("\nInitialization of Pointers:\n\n");
@@ -84,17 +84,20 @@ _Bool InputMP ()
         {
         if (*((char*)Onegin + i * sizeof (char)) == '\n')
             {
-            *((int*)Pointers + i * sizeof (int) + 1 * sizeof (int)) = (int)Onegin + i * sizeof (char);
-            printf ("Pointer[%d] = <%p>\n", nPointer, (int)Onegin + i * sizeof (char));
+            *((int*)Pointers + i + 1) = (size_t)Onegin + i * sizeof (char);
+            printf ("Pointer[%d] = <%p>\n", nPointer, (size_t)Onegin + i * sizeof (char));
             nPointer = nPointer + 1;
             }
         }
 
     printf ("\nPointers:\n\n");
 
+    char* Pointer = NULL;
+
     for (int n = 0; n < nPointer; n++)
         {
-        printf ("Pointers[%d] = <%p>\n", n, *((int*)Pointers + n * sizeof (int)));
+        Pointer = *(char**)((int*)Pointers + n * sizeof (int));
+        printf ("Pointers[%d] = <%p>\n", n, Pointer);
         }
 
 
