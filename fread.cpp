@@ -10,6 +10,9 @@
 #include <errno.h>
 
 _Bool InputMP ();
+void OutputText (char* Pointers[], int nPointer);
+void OutputRow (char* Pointers[], int ptr);
+
 
 int main ()
     {
@@ -104,6 +107,29 @@ bool InputMP ()
         printf ("Pointers[%d] = <%p>\n", n, Pointer);
         }
 
+    OutputText (Pointers, nPointer);
+
 
     return 1;
+    }
+
+ void OutputText (char* Pointers[], int nPointer)
+    {
+    int ptr = 0;
+
+    for (; ptr < nPointer; ptr++)
+        {
+        assert (ptr < nPointer);
+        OutputRow (Pointers, ptr);
+        }
+    }
+
+void OutputRow (char* Pointers[], int ptr)
+    {
+    while (*(Pointers[ptr]) != '\n')
+        {
+        printf ("%c", *(Pointers[ptr]));                             // uvelichivat znachenie, idti vdol stroki
+
+        }
+    printf ("\n");
     }
