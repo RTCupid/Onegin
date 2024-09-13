@@ -35,3 +35,5 @@ _Bool EOLSkipMarks (char* sFirst, char* sSecond, int* iIndexElem, int* jIndexEle
 //}
 
 int Comparator (char* sFirst, char* sSecond);
+
+_Bool InputMP ();

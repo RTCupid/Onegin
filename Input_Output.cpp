@@ -10,11 +10,11 @@
 
 _Bool Input (char text[MAX_ROWS][MAX_ELEM])
     {
-    FILE* file = fopen("Onegin.txt", "r");
+    FILE* file = fopen ("Onegin.txt", "r");
 
     if (file == NULL)
         {
-        printf("File opening error");
+        printf ("File opening error");
 
         return 0;                                      // main () return -1
         }

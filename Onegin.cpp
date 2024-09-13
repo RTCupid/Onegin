@@ -3,6 +3,7 @@
 #include <stdbool.h>
 #include <assert.h>
 #include <ctype.h>
+#include <stat.h>
 
 #include "Onegin.h"
 
