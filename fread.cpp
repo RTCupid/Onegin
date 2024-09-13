@@ -64,7 +64,7 @@ bool InputMP ()
 
     int nRow = 0;
 
-    for (int i = 0; i < sizeOfFile; i++)
+    for (unsigned int i = 0; i < sizeOfFile; i++)
         {
         if (Onegin[i] == '\n')
             {
@@ -83,7 +83,7 @@ bool InputMP ()
 
     printf ("\nInitialization of Pointers:\n\n");
 
-    for (int i = 0; i < sizeOfFile; i++)
+    for (unsigned int i = 0; i < sizeOfFile; i++)
         {
         if (Onegin[i] == '\n')
             {
