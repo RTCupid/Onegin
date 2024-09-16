@@ -124,12 +124,15 @@ bool InputMP ()
         }
     }
 
-void OutputRow (char* Pointers[], int ptr)
+void OutputRow (char* Pointers[], int ptr, /* нужно передать длину строки*/)
     {
-    while (*(Pointers[ptr]) != '\n')
-        {
-        printf ("%c", *(Pointers[ptr]));                             // uvelichivat znachenie, idti vdol stroki
+    int i = 0;
 
+    while (*(Pointers[ptr] + i) != '\n')
+        {
+        assert (i < nPointer);
+        printf ("%c", *(Pointers[ptr] + i));                            // uvelichivat znachenie, idti vdol stroki
+        i++;
         }
     printf ("\n");
     }
