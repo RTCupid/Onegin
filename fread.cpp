@@ -18,11 +18,11 @@ bool InputMP ()
     char* Onegin = NULL;
     size_t sizeOfFile = 0;
 
-    InputOnegin (Onegin, &sizeOfFile);                              // читаю из файла в буффер текст Онегина и определяю размер буффера
+    InputOnegin (&Onegin, &sizeOfFile);                              // читаю из файла в буффер текст Онегина и определяю размер буффера
 
     int nRow = 0;
 
-    for (unsigned int i = 0; i < sizeOfFile; i++)                    // посимвольно зачем-то вывожу начальный текст Онегина
+    /*for (unsigned int i = 0; i < sizeOfFile; i++)                    // посимвольно зачем-то вывожу начальный текст Онегина
         {                                                            // точно, я не просто вывожу, а параллельно считаю количество
         if (Onegin[i] == '\n')                                       // строк, равное кличеству '\n'
             {
@@ -31,7 +31,7 @@ bool InputMP ()
             }
         else
             printf ("Onegin[%d] = <%c>\n", i, Onegin[i]);
-        }
+        }*/
 
     printf ("nRow = <%d>\n", nRow);                                  // I have this commit!
 
@@ -69,7 +69,7 @@ bool InputMP ()
     return 1;
     }
 
-void InputOnegin (char* Onegin, size_t* sizeOfFile)
+void InputOnegin (char** Onegin, size_t* sizeOfFile)
     {
     struct stat fileInf = {};
 
@@ -80,7 +80,7 @@ void InputOnegin (char* Onegin, size_t* sizeOfFile)
     printf ("\n%ld\n", fileInf.st_size);
     printf ("count of char = %ld\n", fileInf.st_size / sizeof (char));
 
-    Onegin = (char*)calloc (fileInf.st_size + 1, sizeof(char));     // каллочу буффер, чтобы в него считать текст
+    *Onegin = (char*)calloc (fileInf.st_size + 1, sizeof(char));      // каллочу буффер, чтобы в него считать текст
 
     FILE* file = fopen ("Onegin.txt", "rt");
 
@@ -91,7 +91,7 @@ void InputOnegin (char* Onegin, size_t* sizeOfFile)
         perror("Onegin.txt\n");
         }
 
-    *sizeOfFile = fread (Onegin, sizeof (char), fileInf.st_size, file); // с помощью fread читаю файл в буффер, сохраняю возвращаемое значение fread ()
+    *sizeOfFile = fread (*Onegin, sizeof (char), fileInf.st_size, file); // с помощью fread читаю файл в буффер, сохраняю возвращаемое значение fread ()
 
     if (*sizeOfFile == 0)
         {
@@ -99,10 +99,7 @@ void InputOnegin (char* Onegin, size_t* sizeOfFile)
         perror ("Onegin.txt");
         }
 
-    //for(int i=0; i<sys_nerr; i++)
-    //    printf("sys_errlist[%d] = \"%s\"\n", i, sys_errlist[i]);
-
-    printf ("\n%s\n", Onegin);                                       // вывожу начальный текст Онегина
+    printf ("\n%s\n", *Onegin);                                       // вывожу начальный текст Онегина
 
     fclose (file);                                                   // закрываю файл
 
