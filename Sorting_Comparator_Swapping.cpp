@@ -8,22 +8,22 @@
 
 // функция сортировки строчек по алфавиту......................................
 
-void Sorting (char** Pointers, int nRow)
+void Sorting (char** Pointers, int nRows)
     {
-    for (int nIterations = 0; nIterations < MAX_ROWS; nIterations++)
+    for (int nIterations = 0; nIterations < nRows; nIterations++)
         {
-        assert (nIterations < MAX_ROWS);
-        for (int row = 0; row < MAX_ROWS-1; row++)
+        assert (nIterations < nRows);
+        for (int row = 0; row < nRows-1; row += 2)
             {
             printf ("row = <%d>\n", row);
-            assert (row < MAX_ROWS-1);
+            assert (row < nRows - 1);
 
-            int result = Comparator (text[row], text[row+1]);
-            if (result > 0)                                          // тогда замена строк между собой
+            int result = Comparator (Pointers[row], Pointers[row+1], Pointers[row + 2], Pointers[row + 3]);
+            /*if (result > 0)                                          // тогда замена строк между собой
                 {
                 if (Swapping (text[row], text[row + 1]))
                     printf ("Successful exchange!\n");
-                }                                                    // теперь, если меняли строки, строка, которая позже по алфавиту,
+                }*/                                                    // теперь, если меняли строки, строка, которая позже по алфавиту,
                                                                      // находится по адресу row + 1, значит в следующей итерации цикла
             }                                                        // эта строка будет сравниваться со следующей строкой, значит мне
         }                                                            // нужен ещё один большой цикл, который позволит каждой строке га-
@@ -31,14 +31,14 @@ void Sorting (char** Pointers, int nRow)
 
 // это компаратор..............................................................
 
-int Comparator ( char* sFirst, char* sSecond)
+int Comparator (char* startFirst, char* endFirst, char* startSecond, char* endSecond)
     {
-    printf ("Compare:\n<%s>\nvs\n<%s>\n", sFirst, sSecond);
+    printf ("Compare:\n<%.20s>\nvs\n<%.20s>\n", startFirst, startSecond);
 
     int iIndexElem = 0;
     int jIndexElem = 0;
 
-    if (SkipMarks (sFirst, sSecond, &iIndexElem, &jIndexElem))
+    /*if (SkipMarks (startFirst, startSecond, &iIndexElem, &jIndexElem))
         {
         printf ("Succesfull skipping marks!\n");
         printf ("After skipping:\niIndexElem = %d;"
@@ -65,8 +65,10 @@ int Comparator ( char* sFirst, char* sSecond)
 
     printf ("sFirst[%d] - sSecond[%d] = %d\n", iIndexElem, jIndexElem, toupper(sFirst[iIndexElem]) - toupper(sSecond[jIndexElem]));
 
-    return toupper(sFirst[iIndexElem]) - toupper(sSecond[jIndexElem]);
+    return toupper(sFirst[iIndexElem]) - toupper(sSecond[jIndexElem]);*/
     }
+
+
 
 // функция обмена строк........................................................
 

@@ -21,11 +21,11 @@ int main ()
 
     InputOnegin (&Onegin, &sizeOfFile);
 
-    int nRow = 0;
+    int nRows = 0;
 
-    CounterRow (&nRow, Onegin, sizeOfFile);
+    CounterRow (&nRows, Onegin, sizeOfFile);
 
-    char** Pointers = (char**)calloc (nRow, sizeof (char*));         // каллокаю массив указателей
+    char** Pointers = (char**)calloc (nRows * 2, sizeof (char*));         // каллокаю массив указателей
 
     InitialisatorPointers (sizeOfFile, Pointers, Onegin);
 
@@ -37,9 +37,9 @@ int main ()
 
     //OutputText (text);
 
-    Sorting (Pointers, nRow);                                                  // toupper dobavit + znaki propuskat (est)
+    Sorting (Pointers, nRows);                                                  // toupper dobavit + znaki propuskat (est)
 
-    OutputText (text);
+    /*OutputText (text);
 
     EOLSorting (text);
 
@@ -100,9 +100,10 @@ void InitialisatorPointers (size_t sizeOfFile, char** Pointers, char* Onegin)
         {                                                            // все элементы, которые следуют за '\n'
         if (Onegin[i] == '\n')
             {
-            Pointers[nPointer] = &Onegin[i+1];
-            printf ("Pointer[%d] = <%p>\n", nPointer, &Onegin[i+1]); // вывожу какими инициализируются элементы массива указателей
-            nPointer = nPointer + 1;
+            Pointers[nPointer] = &Onegin[i - 1];
+            Pointers[nPointer + 1] = &Onegin[i + 1];
+            printf ("Pointer[%d] = <%p>\n", nPointer, &Onegin[i + 1]); // вывожу какими инициализируются элементы массива указателей
+            nPointer = nPointer + 2;
             }
         }
 
@@ -110,7 +111,7 @@ void InitialisatorPointers (size_t sizeOfFile, char** Pointers, char* Onegin)
 
     char* Pointer = NULL;
 
-    for (int n = 0; n < nPointer; n++)                               // вывожу все элементы массива указателей, сравниваю правильно ли
+    for (int n = 0; n < nPointer; n += 2)                               // вывожу все элементы массива указателей, сравниваю правильно ли
         {                                                            // вывожу то, что было инициализировано (правильно)
         printf ("n = <%d> | ", n);
         assert (n < nPointer);
@@ -121,20 +122,20 @@ void InitialisatorPointers (size_t sizeOfFile, char** Pointers, char* Onegin)
 
 // считает количество строк, чтобы каллокнуть массив указателей
 
-void CounterRow (int* nRow, char* Onegin, size_t sizeOfFile)
+void CounterRow (int* nRows, char* Onegin, size_t sizeOfFile)
     {
     for (unsigned int i = 0; i < sizeOfFile; i++)                    // посимвольно зачем-то вывожу начальный текст Онегина
         {                                                            // точно, я не просто вывожу, а параллельно считаю количество
         if (Onegin[i] == '\n')                                       // строк, равное кличеству '\n'
             {
             printf ("Onegin[%d] = <'\\n'>\n", i);
-            *nRow = *nRow + 1;
+            *nRows = *nRows + 1;
             }
         else
             printf ("Onegin[%d] = <%c>\n", i, Onegin[i]);
         }
 
-    printf ("nRow = <%d>\n", *nRow);
+    printf ("nRow = <%d>\n", *nRows);
     }
 
 

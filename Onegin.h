@@ -34,7 +34,7 @@ _Bool EOLSkipMarks (char* sFirst, char* sSecond, int* iIndexElem, int* jIndexEle
 /// @endcode
 //}
 
-int Comparator (char* sFirst, char* sSecond);
+int Comparator (char* startFirst, char* endFirst, char* startSecond, char* endSecond);
 
 void InputOnegin (char** Onegin, size_t* sizeofFile);
 
