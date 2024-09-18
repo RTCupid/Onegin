@@ -3,7 +3,6 @@
 #include <stdbool.h>
 #include <assert.h>
 #include <ctype.h>
-#include <stat.h>
 
 #include "Onegin.h"
 
@@ -12,7 +11,9 @@ int main ()
     printf ("# The program for sorting strings\n");
     printf ("# (c) RTCupid, 2024\n\n");
 
-    char text[MAX_ROWS][MAX_ELEM] = {};
+    InputMP ();
+
+    char text[MAX_ROWS][MAX_ELEM] = {};                            // Р·РґРµСЃСЊ СЏ СЃРѕР·РґР°РІР°Р» Рё Р·Р°РїРѕР»РЅСЏР» РґРІСѓРјРµСЂРЅС‹Р№ РјР°СЃСЃРёРІ
 
     _Bool inputCorrect = Input (text);
     if (inputCorrect == 0)
@@ -31,7 +32,7 @@ int main ()
     return 0;
     }
 
-// функция сортировки по концу строки..........................................
+// пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ..........................................
 
 void EOLSorting (char text[MAX_ROWS][MAX_ELEM])
     {
@@ -44,7 +45,7 @@ void EOLSorting (char text[MAX_ROWS][MAX_ELEM])
             assert (row < MAX_ROWS-1);
 
             int result = EOLComparator (text[row], text[row+1]);
-            if (result > 0)                                          // тогда замена строк между собой
+            if (result > 0)                                          // пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
                 {
                 if (Swapping (text[row], text[row + 1]))
                     printf ("Successful exchange!\n");
@@ -53,7 +54,7 @@ void EOLSorting (char text[MAX_ROWS][MAX_ELEM])
         }
     }
 
-// функция сравнивает две строки в алфавитном порядке, начиная с конца строки..
+// пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ..
 
 int EOLComparator (char* sFirst, char* sSecond)
     {
@@ -62,9 +63,9 @@ int EOLComparator (char* sFirst, char* sSecond)
     int iIndexElem = 0;
     int jIndexElem = 0;
 
-    for (; sFirst[iIndexElem] != '\0'; iIndexElem++)                 // находит адрес конца строки
+    for (; sFirst[iIndexElem] != '\0'; iIndexElem++)                 // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         continue;
-    for (; sSecond[jIndexElem] != '\0'; jIndexElem++)                // находит адрес конца строки
+    for (; sSecond[jIndexElem] != '\0'; jIndexElem++)                // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         continue;
 
     if (EOLSkipMarks (sFirst, sSecond, &iIndexElem, &jIndexElem))

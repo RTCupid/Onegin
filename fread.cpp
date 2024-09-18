@@ -11,17 +11,7 @@
 
 _Bool InputMP ();
 void OutputText (char* Pointers[], int nPointer);
-void OutputRow (char* Pointers[], int ptr);
-
-
-int main ()
-    {
-
-    InputMP ();
-
-    return 0;
-    }
-
+void OutputRow (char* Pointers[], int ptr, size_t sizeOfRow);
 // учусь юзать fread, а точнее создаю массив указателей
 
 bool InputMP ()
@@ -48,7 +38,7 @@ bool InputMP ()
         return 0;
         }
 
-    size_t sizeOfFile = fread (Onegin, sizeof (char), fileInf.st_size, file);
+    size_t sizeOfFile = fread (Onegin, sizeof (char), fileInf.st_size, file); // с помощью fread читаю файл в буффер, сохраняю возвращаемое значение fread ()
 
     if (sizeOfFile == 0)
         {
@@ -59,17 +49,17 @@ bool InputMP ()
     //for(int i=0; i<sys_nerr; i++)
     //    printf("sys_errlist[%d] = \"%s\"\n", i, sys_errlist[i]);
 
-    printf ("\n%s\n", Onegin);
+    printf ("\n%s\n", Onegin);                                       // вывожу начальный текст Онегина
 
-    fclose (file);
+    fclose (file);                                                   // закрываю файл
 
     printf ("sizeOfFile = <%zu>\n\n", sizeOfFile);
 
     int nRow = 0;
 
-    for (unsigned int i = 0; i < sizeOfFile; i++)
-        {
-        if (Onegin[i] == '\n')
+    for (unsigned int i = 0; i < sizeOfFile; i++)                    // посимвольно зачем-то вывожу начальный текст Онегина
+        {                                                            // точно, я не просто вывожу, а параллельно считаю количество
+        if (Onegin[i] == '\n')                                       // строк, равное кличеству '\n'
             {
             printf ("Onegin[%d] = <'\\n'>\n", i);
             nRow = nRow + 1;
@@ -80,18 +70,18 @@ bool InputMP ()
 
     printf ("nRow = <%d>\n", nRow);                                  // I have this commit!
 
-    char** Pointers = (char**)calloc (nRow, sizeof (char*));         // (char**)calloc..... чтобы сразу привести возвр.знач.
-                                                                     // calloc к типу (char**)
+    char** Pointers = (char**)calloc (nRow, sizeof (char*));         // каллокаю массив указателей
+
     int nPointer = 0;
 
     printf ("\nInitialization of Pointers:\n\n");
 
-    for (unsigned int i = 0; i < sizeOfFile; i++)
-        {
+    for (unsigned int i = 0; i < sizeOfFile; i++)                    // прохожу весь массив с текстом Онегина и заношу в массив указателей
+        {                                                            // все элементы, которые следуют за '\n'
         if (Onegin[i] == '\n')
             {
             Pointers[nPointer] = &Onegin[i+1];
-            printf ("Pointer[%d] = <%p>\n", nPointer, &Onegin[i+1]);
+            printf ("Pointer[%d] = <%p>\n", nPointer, &Onegin[i+1]); // вывожу какими инициализируются элементы массива указателей
             nPointer = nPointer + 1;
             }
         }
@@ -100,14 +90,15 @@ bool InputMP ()
 
     char* Pointer = NULL;
 
-    for (int n = 0; n < nPointer; n++)
-        {
+    for (int n = 0; n < nPointer; n++)                               // вывожу все элементы массива указателей, сравниваю правильно ли
+        {                                                            // вывожу то, что было инициализировано (правильно)
+        printf ("n = <%d> | ", n);
         assert (n < nPointer);
         Pointer = Pointers[n];
-        printf ("Pointers[%d] = <%p>\n", n, Pointer);
+        printf ("Pointers[%d]  = <%p>\n", n, Pointer);
         }
 
-    OutputText (Pointers, nPointer);
+    OutputText (Pointers, nPointer);                                 // вывожу текст используя массив указателей
 
 
     return 1;
@@ -117,22 +108,23 @@ bool InputMP ()
     {
     int ptr = 0;
 
-    for (; ptr < nPointer; ptr++)
+    size_t sizeOfRow = 0;
+
+    for (; ptr < nPointer - 1; ptr++)                                    // ptr < общего количества строк
         {
-        assert (ptr < nPointer);
-        OutputRow (Pointers, ptr);
+        printf ("ptr = <%d>\n", ptr);
+        assert (ptr < nPointer - 1);
+        sizeOfRow = Pointers[ptr+1] - Pointers[ptr];
+        OutputRow (Pointers, ptr, sizeOfRow);
         }
     }
 
-void OutputRow (char* Pointers[], int ptr, /* нужно передать длину строки*/)
+void OutputRow (char* Pointers[], int ptr, size_t sizeOfRow)
     {
-    int i = 0;
-
-    while (*(Pointers[ptr] + i) != '\n')
+    for (unsigned int i = 0; i < sizeOfRow; i++)
         {
-        assert (i < nPointer);
+        assert (i < sizeOfRow);
         printf ("%c", *(Pointers[ptr] + i));                            // uvelichivat znachenie, idti vdol stroki
-        i++;
         }
     printf ("\n");
     }
