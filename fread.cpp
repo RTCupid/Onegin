@@ -9,9 +9,6 @@
 #include <stdlib.h>
 #include <errno.h>
 
-_Bool InputMP ();
-void OutputText (char* Pointers[], int nPointer);
-void OutputRow (char* Pointers[], int ptr, size_t sizeOfRow);
 // учусь юзать fread, а точнее создаю массив указателей
 
 bool InputMP ()

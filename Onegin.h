@@ -37,3 +37,7 @@ _Bool EOLSkipMarks (char* sFirst, char* sSecond, int* iIndexElem, int* jIndexEle
 int Comparator (char* sFirst, char* sSecond);
 
 _Bool InputMP ();
+
+void OutputText (char* Pointers[], int nPointer);
+
+void OutputRow (char* Pointers[], int ptr, size_t sizeOfRow);

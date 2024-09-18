@@ -13,13 +13,13 @@ int main ()
 
     InputMP ();
 
-    char text[MAX_ROWS][MAX_ELEM] = {};                            // здесь я создавал и заполнял двумерный массив
+    /*char text[MAX_ROWS][MAX_ELEM] = {};                            // здесь я создавал и заполнял двумерный массив
 
     _Bool inputCorrect = Input (text);
     if (inputCorrect == 0)
-        return -1;
+        return -1;*/
 
-    OutputText (text);
+    //OutputText (text);
 
     Sorting (text);                                                  // toupper dobavit + znaki propuskat (est)
 
