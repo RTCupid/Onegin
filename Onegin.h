@@ -7,7 +7,7 @@ _Bool Input (char text[MAX_ROWS][MAX_ELEM]);
 
 void OutputText (char text[MAX_ROWS][MAX_ELEM]);
 
-void Sorting (char text[MAX_ROWS][MAX_ELEM]);
+void Sorting (char** Pointers, int nRow);
 
 _Bool Swapping (char* sFirst, char* sSecond);
 

@@ -37,7 +37,7 @@ int main ()
 
     //OutputText (text);
 
-    /*Sorting (text);                                                  // toupper dobavit + znaki propuskat (est)
+    Sorting (Pointers, nRow);                                                  // toupper dobavit + znaki propuskat (est)
 
     OutputText (text);
 
@@ -61,7 +61,7 @@ void InputOnegin (char** Onegin, size_t* sizeOfFile)
     printf ("\n%ld\n", fileInf.st_size);
     printf ("count of char = %ld\n", fileInf.st_size / sizeof (char));
 
-    *Onegin = (char*)calloc (fileInf.st_size + 1, sizeof(char));      // каллочу буффер, чтобы в него считать текст
+    *Onegin = (char*)calloc (fileInf.st_size + 1, sizeof(char));     // каллочу буффер, чтобы в него считать текст
 
     FILE* file = fopen ("Onegin.txt", "rt");
 
@@ -80,7 +80,7 @@ void InputOnegin (char** Onegin, size_t* sizeOfFile)
         perror ("Onegin.txt");
         }
 
-    printf ("\n%s\n", *Onegin);                                       // вывожу начальный текст Онегина
+    printf ("\n%s\n", *Onegin);                                      // вывожу начальный текст Онегина
 
     fclose (file);                                                   // закрываю файл
 

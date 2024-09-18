@@ -8,7 +8,7 @@
 
 // функция сортировки строчек по алфавиту......................................
 
-void Sorting (char text[MAX_ROWS][MAX_ELEM])
+void Sorting (char** Pointers, int nRow)
     {
     for (int nIterations = 0; nIterations < MAX_ROWS; nIterations++)
         {
