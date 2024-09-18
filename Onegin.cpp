@@ -11,6 +11,8 @@ int main ()
     printf ("# The program for sorting strings\n");
     printf ("# (c) RTCupid, 2024\n\n");
 
+
+
     InputMP ();
 
     /*char text[MAX_ROWS][MAX_ELEM] = {};                            // здесь я создавал и заполнял двумерный массив
@@ -21,13 +23,13 @@ int main ()
 
     //OutputText (text);
 
-    Sorting (text);                                                  // toupper dobavit + znaki propuskat (est)
+    /*Sorting (text);                                                  // toupper dobavit + znaki propuskat (est)
 
     OutputText (text);
 
     EOLSorting (text);
 
-    OutputText (text);
+    OutputText (text);*/
 
     return 0;
     }

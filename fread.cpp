@@ -9,48 +9,16 @@
 #include <stdlib.h>
 #include <errno.h>
 
+#include "Onegin.h"
+
 // учусь юзать fread, а точнее создаю массив указателей
 
 bool InputMP ()
     {
-    struct stat fileInf = {};
+    char* Onegin = NULL;
+    size_t sizeOfFile = 0;
 
-    int err = stat ("Onegin.txt", &fileInf);
-    if (err != 0) {
-        printf("Stat err %d\n", err);
-    }
-
-    printf ("\n%ld\n", fileInf.st_size);
-    printf ("count of char = %ld\n", fileInf.st_size / sizeof (char));
-
-    char* Onegin = (char*)calloc (fileInf.st_size + 1, sizeof(char));
-
-    FILE* file = fopen ("Onegin.txt", "rt");
-
-    if (file == NULL)
-        {
-        printf ("File opening error\n");
-        printf("errno = <%d>\n", errno);
-        perror("Onegin.txt\n");
-        return 0;
-        }
-
-    size_t sizeOfFile = fread (Onegin, sizeof (char), fileInf.st_size, file); // с помощью fread читаю файл в буффер, сохраняю возвращаемое значение fread ()
-
-    if (sizeOfFile == 0)
-        {
-        printf ("errno = <%d>\n", errno);
-        perror ("Onegin.txt");
-        }
-
-    //for(int i=0; i<sys_nerr; i++)
-    //    printf("sys_errlist[%d] = \"%s\"\n", i, sys_errlist[i]);
-
-    printf ("\n%s\n", Onegin);                                       // вывожу начальный текст Онегина
-
-    fclose (file);                                                   // закрываю файл
-
-    printf ("sizeOfFile = <%zu>\n\n", sizeOfFile);
+    InputOnegin (Onegin, &sizeOfFile);                              // читаю из файла в буффер текст Онегина и определяю размер буффера
 
     int nRow = 0;
 
@@ -99,6 +67,46 @@ bool InputMP ()
 
 
     return 1;
+    }
+
+void InputOnegin (char* Onegin, size_t* sizeOfFile)
+    {
+    struct stat fileInf = {};
+
+    int err = stat ("Onegin.txt", &fileInf);
+    if (err != 0)
+        printf("Stat err %d\n", err);
+
+    printf ("\n%ld\n", fileInf.st_size);
+    printf ("count of char = %ld\n", fileInf.st_size / sizeof (char));
+
+    Onegin = (char*)calloc (fileInf.st_size + 1, sizeof(char));     // каллочу буффер, чтобы в него считать текст
+
+    FILE* file = fopen ("Onegin.txt", "rt");
+
+    if (file == NULL)
+        {
+        printf ("File opening error\n");
+        printf("errno = <%d>\n", errno);
+        perror("Onegin.txt\n");
+        }
+
+    *sizeOfFile = fread (Onegin, sizeof (char), fileInf.st_size, file); // с помощью fread читаю файл в буффер, сохраняю возвращаемое значение fread ()
+
+    if (*sizeOfFile == 0)
+        {
+        printf ("errno = <%d>\n", errno);
+        perror ("Onegin.txt");
+        }
+
+    //for(int i=0; i<sys_nerr; i++)
+    //    printf("sys_errlist[%d] = \"%s\"\n", i, sys_errlist[i]);
+
+    printf ("\n%s\n", Onegin);                                       // вывожу начальный текст Онегина
+
+    fclose (file);                                                   // закрываю файл
+
+    printf ("sizeOfFile = <%zu>\n\n", *sizeOfFile);
     }
 
  void OutputText (char* Pointers[], int nPointer)
