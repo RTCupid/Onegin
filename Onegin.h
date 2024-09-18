@@ -36,10 +36,12 @@ _Bool EOLSkipMarks (char* sFirst, char* sSecond, int* iIndexElem, int* jIndexEle
 
 int Comparator (char* sFirst, char* sSecond);
 
-_Bool InputMP ();
-
 void InputOnegin (char** Onegin, size_t* sizeofFile);
 
 void OutputText (char* Pointers[], int nPointer);
 
 void OutputRow (char* Pointers[], int ptr, size_t sizeOfRow);
+
+void CounterRow (int* nRow, char* Onegin, size_t sizeOfFile);
+
+void InitialisatorPointers (size_t sizeOfFile, char** Pointers, char* Onegin);

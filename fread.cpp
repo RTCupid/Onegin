@@ -22,16 +22,16 @@ bool InputMP ()
 
     int nRow = 0;
 
-    /*for (unsigned int i = 0; i < sizeOfFile; i++)                    // посимвольно зачем-то вывожу начальный текст Онегина
+    for (unsigned int i = 0; i < sizeOfFile; i++)                    // посимвольно зачем-то вывожу начальный текст Онегина
         {                                                            // точно, я не просто вывожу, а параллельно считаю количество
         if (Onegin[i] == '\n')                                       // строк, равное кличеству '\n'
             {
-            printf ("Onegin[%d] = <'\\n'>\n", i);
+            //printf ("Onegin[%d] = <'\\n'>\n", i);
             nRow = nRow + 1;
             }
         else
-            printf ("Onegin[%d] = <%c>\n", i, Onegin[i]);
-        }*/
+            //printf ("Onegin[%d] = <%c>\n", i, Onegin[i]);
+        }
 
     printf ("nRow = <%d>\n", nRow);                                  // I have this commit!
 
