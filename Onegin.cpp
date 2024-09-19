@@ -13,10 +13,10 @@
 
 int main ()
     {
-    sruct ParamString {
-                      char* PtrStart;
-                      char* PtrEnd:
-                      };
+    struct PTR ParamString  {
+                            NULL,
+                            NULL
+                            };
 
     printf ("# The program for sorting strings\n");
     printf ("# (c) RTCupid, 2024\n\n");
@@ -30,9 +30,13 @@ int main ()
 
     CounterRow (&nRows, Onegin, sizeOfFile);
 
-    char** Pointers = (char**)calloc (nRows * 2, sizeof (char*));         // каллокаю массив указателей
+    PTR* Pointers = (PTR*)calloc (nRows * 2, sizeof (char*));         // каллокаю массив указателей
 
-    InitialisatorPointers (sizeOfFile, Pointers, Onegin);
+    int nPointer = 0;
+
+    InitialisatorPointers (sizeOfFile, Pointers, Onegin, &ParamString, &nPointer);
+
+    printf ("nPointer = <%d>\n", nPointer);
 
     /*char text[MAX_ROWS][MAX_ELEM] = {};                            // здесь я создавал и заполнял двумерный массив
 
@@ -42,7 +46,7 @@ int main ()
 
     //OutputText (text);
 
-    Sorting (Pointers, nRows);                                                  // toupper dobavit + znaki propuskat (est)
+    //Sorting (Pointers, nRows);                                                  // toupper dobavit + znaki propuskat (est)
 
     /*OutputText (text);
 
@@ -95,38 +99,26 @@ void InputOnegin (char** Onegin, size_t* sizeOfFile)
 
 // ф-я инициализирует массив указателей
 
-void InitialisatorPointers (size_t sizeOfFile, char** Pointers, char* Onegin)
+void InitialisatorPointers (size_t sizeOfFile, PTR* Pointers, char* Onegin, struct PTR* ParamString , int* nPointer)
     {
-    int nPointer = 1;
-
     printf ("\nInitialization of Pointers:\n\n");
 
-    Pointers[0] = Onegin;
-    printf ("PointerStart of Row № %d = <%p>\n", 0, Pointers[0]);
+    printf ("&ParamString = <%p>\n", ParamString);
+    printf ("&Pointers    = <%p>\n", Pointers);
 
-    for (unsigned int i = 0; i < sizeOfFile; i++)                    // прохожу весь массив с текстом Онегина и заношу в массив указателей
-        {                                                            // все элементы, которые следуют за '\n'
+    ParamString->PtrStart = Onegin;
+
+    for (unsigned int i = 0; i < sizeOfFile; i++)
+        {
         if (Onegin[i] == '\n')
             {
-            Pointers[nPointer] = &Onegin[i - 1];
-            Pointers[nPointer + 1] = &Onegin[i + 1];
-            printf ("PointerEnd   of Row № %d = <%p>\n", nPointer, Pointers[nPointer]);
-            printf ("PointerStart of Row № %d = <%p>\n", nPointer , Pointers[nPointer + 1]); // вывожу какими инициализируются элементы массива указателей
-            nPointer = nPointer + 2;
+            ParamString->PtrEnd   = &Onegin[i - 1];
+            Pointers[*nPointer]   =  *ParamString;
+            *nPointer = *nPointer + 1;
+            ParamString->PtrStart = &Onegin[i + 1];
             }
         }
-
-    printf ("\nPointers:\n\n");
-
-    char* Pointer = NULL;
-
-    for (int n = 0; n < nPointer; n += 2)                               // вывожу все элементы массива указателей, сравниваю правильно ли
-        {                                                            // вывожу то, что было инициализировано (правильно)
-        printf ("n = <%d> | ", n);
-        assert (n < nPointer);
-        Pointer = Pointers[n];
-        printf ("Pointers[%d]  = <%p>\n", n, Pointer);
-        }
+    printf ("nPointer = <%d>\n", *nPointer);
     }
 
 // считает количество строк, чтобы каллокнуть массив указателей

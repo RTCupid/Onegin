@@ -1,6 +1,11 @@
 const int MAX_ROWS = 29;
 const int MAX_ELEM = 100;
 
+struct PTR  {
+            char* PtrStart;
+            char* PtrEnd;
+            };
+
 // I have a commit!
 
 _Bool Input (char text[MAX_ROWS][MAX_ELEM]);
@@ -44,4 +49,4 @@ void OutputRow (char* Pointers[], int ptr, size_t sizeOfRow);
 
 void CounterRow (int* nRow, char* Onegin, size_t sizeOfFile);
 
-void InitialisatorPointers (size_t sizeOfFile, char** Pointers, char* Onegin);
+void InitialisatorPointers (size_t sizeOfFile, PTR* Pointers, char* Onegin, struct PTR* ParamString, int* nPointer);
