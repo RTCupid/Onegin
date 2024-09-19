@@ -41,6 +41,10 @@ int main ()
 
     Sorting (Pointers, nPointer);
 
+    printf ("After Sorting\n\n");
+    Print (Pointers[2]);
+    Print (Pointers[3]);
+
     OutputText (Pointers, nPointer);                                                  // toupper dobavit + znaki propuskat (est)
 
     /*EOLSorting (text);
@@ -52,8 +56,25 @@ int main ()
 
 void OutputText (PTR* Pointers, int nPointer)
     {
-    printf ("\n\n%d\n", (Pointers[0]).lenString);
-    printf ("%s", (*Pointers).PtrStart);
+    FILE* file = fopen ("InputOnegin.txt", "w");
+
+    char ch = '\0';
+    for (int i = 0; i < nPointer; i++)
+        {
+        assert (i < nPointer);
+        Print (Pointers[i]);
+
+        for (int j = 0; j <= (Pointers[i]).lenString; j++)
+            {
+            assert (j <= (Pointers[i]).lenString);
+            ch = *((Pointers[i]).PtrStart + j);
+            fputc (ch, file);
+            }
+        ch = '\n';
+        fputc (ch, file);
+        printf ("\n");
+        }
+    fclose (file);
     }
 
 // читаю из файла в буффер текст Онегина и определяю размер буффера
@@ -160,7 +181,7 @@ void CounterRow (int* nRows, char* Onegin, size_t sizeOfFile)
             }
         }
     }
-*/
+
 // ������� ���������� ��� ������ � ���������� �������, ������� � ����� ������..
 
 int EOLComparator (char* sFirst, char* sSecond)
@@ -221,7 +242,7 @@ _Bool EOLSkipMarks (char* sFirst, char* sSecond, int* iIndexElem, int* jIndexEle
     if (*iIndexElem != startiIndex || *jIndexElem != startjIndex)
         return 1;
     return 0;
-    }
+    }*/
 
 
 

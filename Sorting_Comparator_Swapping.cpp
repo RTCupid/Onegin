@@ -31,7 +31,6 @@ void Sorting (PTR* Pointers, int nPointer)
                 Print (Pointers[row]);
                 printf ("and");
                 Print (Pointers[row + 1]);
-
                 }
             printf ("\n");
             }
@@ -50,6 +49,8 @@ int Comparator (PTR paramFirst, PTR paramSecond)
 
     int i = 0;                                                       // Index for First  String
     int j = 0;                                                       // Index for Second String
+
+    SkipMarks (paramFirst, &i, paramSecond, &j);
 
     printf ("paramFirst.lenString  = <%d>\n", paramFirst.lenString);
     printf ("paramSecond.lenstring = <%d>\n", paramSecond.lenString);
@@ -96,15 +97,10 @@ void Swapping (PTR* paramFirst, PTR* paramSecond)
 
 //  функция пропуска знаков, которые не являются буквами или цифрами в начале строки
 
-_Bool SkipMarks (char* sFirst, char* sSecond, int* iIndexElem, int* jIndexElem)
+void SkipMarks (PTR paramFirst, int* i, PTR paramSecond, int* j)
     {
-    for (; !isalnum (sFirst[*iIndexElem]);)
-        *iIndexElem = *iIndexElem + 1;
-
-    for (; !isalnum (sSecond[*jIndexElem]);)
-        *jIndexElem = *jIndexElem + 1;
-
-    if (*iIndexElem != 0 || *jIndexElem != 0)
-        return 1;
-    return 0;
+    for (; !isalnum (paramFirst.PtrStart[*i]);)
+        *i = *i + 1;
+    for (; !isalnum (paramSecond.PtrStart[*j]);)
+        *j = *j + 1;
     }

@@ -16,13 +16,8 @@ void Sorting (PTR* Pointers, int nPointer);
 
 void Swapping (PTR* paramFirst, PTR* paramSecond);
 
-_Bool SkipMarks (char* sFirst, char* sSecond, int* iIndexElem, int* jIndexElem);
+void SkipMarks (PTR paramFirst, int* i, PTR paramSecond, int* j);
 
-int EOLComparator (char* sFirst, char* sSecond);
-
-void EOLSorting (char text[MAX_ROWS][MAX_ELEM]);
-
-_Bool EOLSkipMarks (char* sFirst, char* sSecond, int* iIndexElem, int* jIndexElem);
 //{
 /// @brief   Comparator - функция, которая сравнивает две строки
 ///                       и выводит разницу между первыми не равными
