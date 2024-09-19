@@ -13,6 +13,11 @@
 
 int main ()
     {
+    sruct ParamString {
+                      char* PtrStart;
+                      char* PtrEnd:
+                      };
+
     printf ("# The program for sorting strings\n");
     printf ("# (c) RTCupid, 2024\n\n");
 
