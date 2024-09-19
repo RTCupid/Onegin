@@ -53,6 +53,8 @@ int main ()
 
     OutputText (Pointers, nPointer, file);
 
+    fputs (Onegin, file);
+
     fclose (file);
 
     return 0;
