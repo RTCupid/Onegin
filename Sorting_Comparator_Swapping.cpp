@@ -8,64 +8,67 @@
 
 // функция сортировки строчек по алфавиту......................................
 
-void Sorting (char** Pointers, int nRows)
+void Sorting (PTR* Pointers, int nPointer)
     {
-    for (int nIterations = 0; nIterations < nRows; nIterations++)
+    for (int i = 0; i < nPointer; i++)
         {
-        assert (nIterations < nRows);
-        for (int row = 0; row < nRows-1; row += 2)
+        assert (i < nPointer);
+        for (int row = 0; row < nPointer - 1; row++)
             {
             printf ("row = <%d>\n", row);
-            assert (row < nRows - 1);
+            assert (row < nPointer - 1);
 
-            int result = Comparator (Pointers[row], Pointers[row+1], Pointers[row + 2], Pointers[row + 3]);
-            /*if (result > 0)                                          // тогда замена строк между собой
+            int result = Comparator (Pointers[row], Pointers[row + 1]);
+            if (result > 0)                                          // тогда замена строк между собой
                 {
-                if (Swapping (text[row], text[row + 1]))
-                    printf ("Successful exchange!\n");
-                }*/                                                    // теперь, если меняли строки, строка, которая позже по алфавиту,
-                                                                     // находится по адресу row + 1, значит в следующей итерации цикла
-            }                                                        // эта строка будет сравниваться со следующей строкой, значит мне
-        }                                                            // нужен ещё один большой цикл, который позволит каждой строке га-
-    }                                                                // рантированно дойти до своего места в упорядоченном ряду строк
+                printf ("Swapping:\n");
+                Print (
+
+                Swapping
+                }
+
+            }
+        }
+    }
 
 // это компаратор..............................................................
 
-int Comparator (char* startFirst, char* endFirst, char* startSecond, char* endSecond)
+int Comparator (PTR paramFirst, PTR paramSecond)
     {
-    printf ("Compare:\n<%.20s>\nvs\n<%.20s>\n", startFirst, startSecond);
+    int lenFirstRow  = paramFirst.PtrEnd - paramFirst.PtrStart;
+    int lenSecondRow = paramSecond.PtrEnd - paramSecond.PtrStart;
 
-    int iIndexElem = 0;
-    int jIndexElem = 0;
+    printf ("Comparing:\n");
+    Print (paramFirst, lenFirstRow);
+    printf ("Vs:\n");
+    Print (paramSecond, lenSecondRow);
 
-    /*if (SkipMarks (startFirst, startSecond, &iIndexElem, &jIndexElem))
+    int i = 0;                                                       // Index for First  String
+    int j = 0;                                                       // Index for Second String
+
+    for (; i < lenFirstRow; i++)
         {
-        printf ("Succesfull skipping marks!\n");
-        printf ("After skipping:\niIndexElem = %d;"
-                               "\njIndexElem = %d;\n",
-                iIndexElem, jIndexElem);
+        assert (i , lenFirstRow);
+        for (; j < lenSecondRow; j++)
+            {
+            assert (j < lenSecondRow);
+            while (*(paramFirst.PtrStart + i) == *(paramSecond.PtrStart + j))
+                continue;
+            }
         }
 
-    printf ("\niIndexElem before the loop = %d\n", iIndexElem);
-    printf ("\njIndexElem before the loop = %d\n", jIndexElem);
+    return *(paramFirst.PtrStart + i) - *(paramSecond.PtrStart + j);
+    }
 
-    while (1)
+void Print (PTR paramFirst, int lenString)
+    {
+    printf ("lenString = <%d>\n", lenString);
+    for (int j = 0; j <= lenString; j++)
         {
-        printf ("'%c' vs '%c' -- %03d vs %03d\n", toupper(sFirst[iIndexElem]), toupper(sSecond[jIndexElem]), toupper(sFirst[iIndexElem]), toupper(sSecond[jIndexElem]));
-
-        if (toupper(sFirst[iIndexElem]) != toupper(sSecond[jIndexElem]) || (sFirst[iIndexElem] == sSecond[jIndexElem] && sSecond[jIndexElem] == '\0'))
-            break;
-
-        iIndexElem++;
-        jIndexElem++;
-        }                                                    // cycle => loop (est)
-
-    printf ("iIndexElem after the loop %d\n", iIndexElem);
-    printf ("jIndexElem after the loop %d\n", jIndexElem);
-
-    printf ("sFirst[%d] - sSecond[%d] = %d\n", iIndexElem, jIndexElem, toupper(sFirst[iIndexElem]) - toupper(sSecond[jIndexElem]));
-
-    return toupper(sFirst[iIndexElem]) - toupper(sSecond[jIndexElem]);*/
+        assert (j <= lenString);
+        printf ("%c", *(paramFirst.PtrStart + j));
+        }
+    printf ("\n");
     }
 
 

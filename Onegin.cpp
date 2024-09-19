@@ -46,7 +46,7 @@ int main ()
 
     //OutputText (text);
 
-    //Sorting (Pointers, nRows);                                                  // toupper dobavit + znaki propuskat (est)
+    Sorting (Pointers, nPointer);                                                  // toupper dobavit + znaki propuskat (est)
 
     /*OutputText (text);
 

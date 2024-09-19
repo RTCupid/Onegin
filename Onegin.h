@@ -12,7 +12,7 @@ _Bool Input (char text[MAX_ROWS][MAX_ELEM]);
 
 void OutputText (char text[MAX_ROWS][MAX_ELEM]);
 
-void Sorting (char** Pointers, int nRow);
+void Sorting (PTR* Pointers, int nPointer);
 
 _Bool Swapping (char* sFirst, char* sSecond);
 
@@ -39,7 +39,9 @@ _Bool EOLSkipMarks (char* sFirst, char* sSecond, int* iIndexElem, int* jIndexEle
 /// @endcode
 //}
 
-int Comparator (char* startFirst, char* endFirst, char* startSecond, char* endSecond);
+int Comparator (PTR paramFirst, PTR paramSecond);
+
+void Print (PTR paramString, int lenString);
 
 void InputOnegin (char** Onegin, size_t* sizeofFile);
 
