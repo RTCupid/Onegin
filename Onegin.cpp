@@ -94,9 +94,10 @@ void InitialisatorPointers (size_t sizeOfFile, char** Pointers, char* Onegin)
     {
     int nPointer = 1;
 
+    printf ("\nInitialization of Pointers:\n\n");
+
     Pointers[0] = Onegin;
     printf ("PointerStart of Row № %d = <%p>\n", 0, Pointers[0]);
-    printf ("\nInitialization of Pointers:\n\n");
 
     for (unsigned int i = 0; i < sizeOfFile; i++)                    // прохожу весь массив с текстом Онегина и заношу в массив указателей
         {                                                            // все элементы, которые следуют за '\n'
@@ -104,8 +105,8 @@ void InitialisatorPointers (size_t sizeOfFile, char** Pointers, char* Onegin)
             {
             Pointers[nPointer] = &Onegin[i - 1];
             Pointers[nPointer + 1] = &Onegin[i + 1];
-            printf ("PointerEnd   of Row № %d = <%p>\n", nPointer, &Onegin[i - 1]);
-            printf ("PointerStart of Row № %d = <%p>\n", nPointer, &Onegin[i + 1]); // вывожу какими инициализируются элементы массива указателей
+            printf ("PointerEnd   of Row № %d = <%p>\n", nPointer, Pointers[nPointer]);
+            printf ("PointerStart of Row № %d = <%p>\n", nPointer , Pointers[nPointer + 1]); // вывожу какими инициализируются элементы массива указателей
             nPointer = nPointer + 2;
             }
         }
