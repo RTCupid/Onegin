@@ -12,7 +12,7 @@ _Bool Input (char text[MAX_ROWS][MAX_ELEM]);
 
 void OutputText (PTR* Pointers, int Pointer);
 
-void Sorting (PTR** Pointers, int nPointer);
+void Sorting (PTR* Pointers, int nPointer);
 
 void Swapping (PTR* paramFirst, PTR* paramSecond);
 

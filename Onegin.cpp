@@ -39,7 +39,7 @@ int main ()
 
     printf ("nPointer = <%d>\n", nPointer);
 
-    Sorting (&Pointers, nPointer);
+    Sorting (Pointers, nPointer);
 
     OutputText (Pointers, nPointer);                                                  // toupper dobavit + znaki propuskat (est)
 
@@ -52,8 +52,8 @@ int main ()
 
 void OutputText (PTR* Pointers, int nPointer)
     {
-    printf ("\n\n%d", (Pointers[0]).lenString);
-    printf ("%s", Pointers);
+    printf ("\n\n%d\n", (Pointers[0]).lenString);
+    printf ("%s", (*Pointers).PtrStart);
     }
 
 // читаю из файла в буффер текст Онегина и определяю размер буффера
