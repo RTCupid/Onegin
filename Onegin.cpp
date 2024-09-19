@@ -9,13 +9,14 @@
 #include <stdlib.h>
 #include <errno.h>
 
+
 #include "Onegin.h"
 
 int main ()
     {
     struct PTR ParamString  {
                             NULL,
-                            NULL
+                            0
                             };
 
     printf ("# The program for sorting strings\n");
@@ -38,19 +39,11 @@ int main ()
 
     printf ("nPointer = <%d>\n", nPointer);
 
-    /*char text[MAX_ROWS][MAX_ELEM] = {};                            // здесь я создавал и заполнял двумерный массив
+    Sorting (Pointers, nPointer);
 
-    _Bool inputCorrect = Input (text);
-    if (inputCorrect == 0)
-        return -1;*/
+    //OutputText (Pointers);                                                  // toupper dobavit + znaki propuskat (est)
 
-    //OutputText (text);
-
-    Sorting (Pointers, nPointer);                                                  // toupper dobavit + znaki propuskat (est)
-
-    /*OutputText (text);
-
-    EOLSorting (text);
+    /*EOLSorting (text);
 
     OutputText (text);*/
 
@@ -112,7 +105,7 @@ void InitialisatorPointers (size_t sizeOfFile, PTR* Pointers, char* Onegin, stru
         {
         if (Onegin[i] == '\n')
             {
-            ParamString->PtrEnd   = &Onegin[i - 1];
+            ParamString->lenString   = &Onegin[i - 1] - ParamString->PtrStart;
             Pointers[*nPointer]   =  *ParamString;
             *nPointer = *nPointer + 1;
             ParamString->PtrStart = &Onegin[i + 1];
@@ -142,7 +135,7 @@ void CounterRow (int* nRows, char* Onegin, size_t sizeOfFile)
 
 // ������� ���������� �� ����� ������..........................................
 
-void EOLSorting (char text[MAX_ROWS][MAX_ELEM])
+/*void EOLSorting (char text[MAX_ROWS][MAX_ELEM])
     {
     for (int nIterations = 0; nIterations < MAX_ROWS; nIterations++)
         {
@@ -161,7 +154,7 @@ void EOLSorting (char text[MAX_ROWS][MAX_ELEM])
             }
         }
     }
-
+*/
 // ������� ���������� ��� ������ � ���������� �������, ������� � ����� ������..
 
 int EOLComparator (char* sFirst, char* sSecond)

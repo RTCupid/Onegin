@@ -3,18 +3,18 @@ const int MAX_ELEM = 100;
 
 struct PTR  {
             char* PtrStart;
-            char* PtrEnd;
+            int lenString;
             };
 
 // I have a commit!
 
 _Bool Input (char text[MAX_ROWS][MAX_ELEM]);
 
-void OutputText (char text[MAX_ROWS][MAX_ELEM]);
+void OutputText (PTR* Pointers);
 
 void Sorting (PTR* Pointers, int nPointer);
 
-_Bool Swapping (char* sFirst, char* sSecond);
+void Swapping (PTR* paramFirst, PTR* paramSecond);
 
 _Bool SkipMarks (char* sFirst, char* sSecond, int* iIndexElem, int* jIndexElem);
 
@@ -41,7 +41,7 @@ _Bool EOLSkipMarks (char* sFirst, char* sSecond, int* iIndexElem, int* jIndexEle
 
 int Comparator (PTR paramFirst, PTR paramSecond);
 
-void Print (PTR paramString, int lenString);
+void Print (PTR paramString);
 
 void InputOnegin (char** Onegin, size_t* sizeofFile);
 

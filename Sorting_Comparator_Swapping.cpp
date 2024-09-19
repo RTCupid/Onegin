@@ -22,11 +22,17 @@ void Sorting (PTR* Pointers, int nPointer)
             if (result > 0)                                          // тогда замена строк между собой
                 {
                 printf ("Swapping:\n");
-                Print (
+                Print (Pointers[row]);
+                printf ("and");
+                Print (Pointers[row + 1]);
+                Swapping (&Pointers[row], &Pointers[row + 1]);
+                printf ("After swapping:\n");
+                Print (Pointers[row]);
+                printf ("and");
+                Print (Pointers[row + 1]);
 
-                Swapping
                 }
-
+            printf ("\n");
             }
         }
     }
@@ -35,37 +41,37 @@ void Sorting (PTR* Pointers, int nPointer)
 
 int Comparator (PTR paramFirst, PTR paramSecond)
     {
-    int lenFirstRow  = paramFirst.PtrEnd - paramFirst.PtrStart;
-    int lenSecondRow = paramSecond.PtrEnd - paramSecond.PtrStart;
 
     printf ("Comparing:\n");
-    Print (paramFirst, lenFirstRow);
+    Print (paramFirst);
     printf ("Vs:\n");
-    Print (paramSecond, lenSecondRow);
+    Print (paramSecond);
 
     int i = 0;                                                       // Index for First  String
     int j = 0;                                                       // Index for Second String
 
-    for (; i < lenFirstRow; i++)
+    printf ("paramFirst.lenString  = <%d>\n", paramFirst.lenString);
+    printf ("paramSecond.lenstring = <%d>\n", paramSecond.lenString);
+
+    for (; i < paramFirst.lenString && j < paramSecond.lenString; j++, i++)
         {
-        assert (i , lenFirstRow);
-        for (; j < lenSecondRow; j++)
-            {
-            assert (j < lenSecondRow);
-            while (*(paramFirst.PtrStart + i) == *(paramSecond.PtrStart + j))
-                continue;
-            }
+        assert (i < paramFirst.lenString);
+        assert (j < paramSecond.lenString);
+        printf ("<%c> Vs <%c> | <%d> Vs <%d>\n", *(paramFirst.PtrStart + i), *(paramSecond.PtrStart + j), *(paramFirst.PtrStart + i), *(paramSecond.PtrStart + j));
+
+        if (toupper(*(paramFirst.PtrStart + i)) != toupper(*(paramSecond.PtrStart + j)))
+                break;
         }
 
-    return *(paramFirst.PtrStart + i) - *(paramSecond.PtrStart + j);
+    return toupper(*(paramFirst.PtrStart + i)) - toupper(*(paramSecond.PtrStart + j));
     }
 
-void Print (PTR paramFirst, int lenString)
+void Print (PTR paramFirst)
     {
-    printf ("lenString = <%d>\n", lenString);
-    for (int j = 0; j <= lenString; j++)
+    printf ("lenString = <%d>\n", paramFirst.lenString);
+    for (int j = 0; j <= paramFirst.lenString; j++)
         {
-        assert (j <= lenString);
+        assert (j <= paramFirst.lenString);
         printf ("%c", *(paramFirst.PtrStart + j));
         }
     printf ("\n");
@@ -75,22 +81,16 @@ void Print (PTR paramFirst, int lenString)
 
 // функция обмена строк........................................................
 
-_Bool Swapping (char* sFirst, char* sSecond)
+void Swapping (PTR* paramFirst, PTR* paramSecond)
     {
-    char charForSwap = '*';
-    int indexElem = 0;
-    while (indexElem < MAX_ELEM || (sFirst[indexElem] == sSecond[indexElem] && sFirst[indexElem] == '\0'))
-        {
-        assert (indexElem < MAX_ELEM);
-        charForSwap = sFirst[indexElem];
-        sFirst[indexElem] = sSecond[indexElem];
-        sSecond[indexElem] = charForSwap;
+    char* ptrSwapp = paramFirst->PtrStart;
+    int   lenSwapp = paramFirst->lenString;
 
-        indexElem++;
-        }
-    printf ("Row exchange:\n");
-    printf ("<%s>\nvs\n<%s>\n", sFirst, sSecond);
-    return 1;
+    paramFirst->PtrStart  = paramSecond->PtrStart;
+    paramFirst->lenString = paramSecond->lenString;
+
+    paramSecond->PtrStart  = ptrSwapp;
+    paramSecond->lenString = lenSwapp;
     }
 
 //  функция пропуска знаков, которые не являются буквами или цифрами в начале строки
