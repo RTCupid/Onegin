@@ -39,15 +39,21 @@ int main ()
 
     printf ("nPointer = <%d>\n", nPointer);
 
-    Sorting (Pointers, nPointer);
+    Sorting (&Pointers, nPointer);
 
-    //OutputText (Pointers);                                                  // toupper dobavit + znaki propuskat (est)
+    OutputText (Pointers, nPointer);                                                  // toupper dobavit + znaki propuskat (est)
 
     /*EOLSorting (text);
 
     OutputText (text);*/
 
     return 0;
+    }
+
+void OutputText (PTR* Pointers, int nPointer)
+    {
+    printf ("\n\n%d", (Pointers[0]).lenString);
+    printf ("%s", Pointers);
     }
 
 // читаю из файла в буффер текст Онегина и определяю размер буффера

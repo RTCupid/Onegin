@@ -8,7 +8,7 @@
 
 // функция сортировки строчек по алфавиту......................................
 
-void Sorting (PTR* Pointers, int nPointer)
+void Sorting (PTR** Pointers, int nPointer)
     {
     for (int i = 0; i < nPointer; i++)
         {
@@ -18,18 +18,18 @@ void Sorting (PTR* Pointers, int nPointer)
             printf ("row = <%d>\n", row);
             assert (row < nPointer - 1);
 
-            int result = Comparator (Pointers[row], Pointers[row + 1]);
+            int result = Comparator (*Pointers[row], *Pointers[row + 1]);
             if (result > 0)                                          // тогда замена строк между собой
                 {
                 printf ("Swapping:\n");
-                Print (Pointers[row]);
+                Print (*Pointers[row]);
                 printf ("and");
-                Print (Pointers[row + 1]);
-                Swapping (&Pointers[row], &Pointers[row + 1]);
+                Print (*Pointers[row + 1]);
+                Swapping (Pointers[row], Pointers[row + 1]);
                 printf ("After swapping:\n");
-                Print (Pointers[row]);
+                Print (*Pointers[row]);
                 printf ("and");
-                Print (Pointers[row + 1]);
+                Print (*Pointers[row + 1]);
 
                 }
             printf ("\n");
@@ -62,7 +62,7 @@ int Comparator (PTR paramFirst, PTR paramSecond)
         if (toupper(*(paramFirst.PtrStart + i)) != toupper(*(paramSecond.PtrStart + j)))
                 break;
         }
-
+    printf ("return %d\n", toupper(*(paramFirst.PtrStart + i)) - toupper(*(paramSecond.PtrStart + j)));
     return toupper(*(paramFirst.PtrStart + i)) - toupper(*(paramSecond.PtrStart + j));
     }
 
