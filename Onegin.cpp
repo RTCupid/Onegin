@@ -45,19 +45,21 @@ int main ()
     Print (Pointers[2]);
     Print (Pointers[3]);
 
-    OutputText (Pointers, nPointer);                                                  // toupper dobavit + znaki propuskat (est)
+    FILE* file = fopen ("InputOnegin.txt", "w");
 
-    /*EOLSorting (text);
+    OutputText (Pointers, nPointer,file);                                                  // toupper dobavit + znaki propuskat (est)
 
-    OutputText (text);*/
+    EOLSorting (Pointers, nPointer);
+
+    OutputText (Pointers, nPointer, file);
+
+    fclose (file);
 
     return 0;
     }
 
-void OutputText (PTR* Pointers, int nPointer)
+void OutputText (PTR* Pointers, int nPointer, FILE* file)
     {
-    FILE* file = fopen ("InputOnegin.txt", "w");
-
     char ch = '\0';
     for (int i = 0; i < nPointer; i++)
         {
@@ -74,7 +76,7 @@ void OutputText (PTR* Pointers, int nPointer)
         fputc (ch, file);
         printf ("\n");
         }
-    fclose (file);
+    fputc ('\n', file);
     }
 
 // читаю из файла в буффер текст Онегина и определяю размер буффера
@@ -159,93 +161,69 @@ void CounterRow (int* nRows, char* Onegin, size_t sizeOfFile)
     printf ("nRow = <%d>\n", *nRows);
     }
 
-
-// ������� ���������� �� ����� ������..........................................
-
-/*void EOLSorting (char text[MAX_ROWS][MAX_ELEM])
+void EOLSorting (PTR* Pointers, int nPointer)
     {
-    for (int nIterations = 0; nIterations < MAX_ROWS; nIterations++)
+    for (int i = 0; i < nPointer; i++)
         {
-        assert (nIterations < MAX_ROWS);
-        for (int row = 0; row < MAX_ROWS-1; row++)
+        assert (i < nPointer);
+        for (int row = 0; row < nPointer - 1; row++)
             {
             printf ("row = <%d>\n", row);
-            assert (row < MAX_ROWS-1);
+            printf ("nPointer = <%d>\n", nPointer);
+            assert (row < nPointer - 1);
 
-            int result = EOLComparator (text[row], text[row+1]);
-            if (result > 0)                                          // ����� ������ ����� ����� �����
+            int result = EOLComparator (Pointers[row], Pointers[row + 1]);
+            if (result > 0)                                          // тогда замена строк между собой
                 {
-                if (Swapping (text[row], text[row + 1]))
-                    printf ("Successful exchange!\n");
+                printf ("Swapping:\n");
+                Print (Pointers[row]);
+                printf ("and");
+                Print (Pointers[row + 1]);
+                Swapping (&Pointers[row], &Pointers[row + 1]);
+                printf ("After swapping:\n");
+                Print (Pointers[row]);
+                printf ("and");
+                Print (Pointers[row + 1]);
                 }
+            printf ("\n");
             }
         }
     }
 
-// ������� ���������� ��� ������ � ���������� �������, ������� � ����� ������..
-
-int EOLComparator (char* sFirst, char* sSecond)
+int EOLComparator (PTR paramFirst, PTR paramSecond)
     {
-    printf ("\nCompare:\n<%s>\nvs\n<%s>\n", sFirst, sSecond);
+    printf ("Comparing:\n");
+    Print (paramFirst);
+    printf ("Vs:\n");
+    Print (paramSecond);
 
-    int iIndexElem = 0;
-    int jIndexElem = 0;
+    int i = paramFirst.lenString;
+    int j = paramSecond.lenString;
 
-    for (; sFirst[iIndexElem] != '\0'; iIndexElem++)                 // ������� ����� ����� ������
-        continue;
-    for (; sSecond[jIndexElem] != '\0'; jIndexElem++)                // ������� ����� ����� ������
-        continue;
-
-    if (EOLSkipMarks (sFirst, sSecond, &iIndexElem, &jIndexElem))
-        {
-        printf ("Succesfull skipping marks!\n");
-        printf ("After skipping:\niIndexElem = %d;"
-                               "\njIndexElem = %d;\n",
-                iIndexElem, jIndexElem);
-        }
-
-    printf ("iIndexElem before the loop = %d\n", iIndexElem);
-    printf ("jIndexElem before the loop = %d\n", jIndexElem);
+    EOLSkipMarks (paramFirst, &i, paramSecond, &j);
 
     while (1)
         {
-        printf ("'%c' vs '%c' -- %03d vs %03d\n", toupper(sFirst[iIndexElem]), toupper(sSecond[jIndexElem]), toupper(sFirst[iIndexElem]), toupper(sSecond[jIndexElem]));
+        printf ("<%c> Vs <%c> | <%d> Vs <%d>\n", *(paramFirst.PtrStart + i), *(paramSecond.PtrStart + j), *(paramFirst.PtrStart + i), *(paramSecond.PtrStart + j));
 
-        if (toupper(sFirst[iIndexElem]) != toupper(sSecond[jIndexElem]) || (iIndexElem == jIndexElem && jIndexElem == 0))
+        if (toupper (*(paramFirst.PtrStart + i)) != toupper (*(paramSecond.PtrStart + j)) || i == 0 || j == 0)
+            {
             break;
-
-        iIndexElem--;
-        jIndexElem--;
+            }
+        i--;
+        j--;
         }
-
-    printf ("iIndexElem after the loop %d\n", iIndexElem);
-    printf ("jIndexElem after the loop %d\n", jIndexElem);
-
-    printf ("sFirst[%d] - sSecond[%d] = %d\n", iIndexElem, jIndexElem, toupper(sFirst[iIndexElem]) - toupper(sSecond[jIndexElem]));
-
-    return toupper(sFirst[iIndexElem]) - toupper(sSecond[jIndexElem]);
+    printf ("return *(paramFirst.PtrStart + i) - *(paramSecond.PtrStart + j) = %d\n", *(paramFirst.PtrStart + i) - *(paramSecond.PtrStart + j));
+    return *(paramFirst.PtrStart + i) - *(paramSecond.PtrStart + j);
     }
 
-//
-
-_Bool EOLSkipMarks (char* sFirst, char* sSecond, int* iIndexElem, int* jIndexElem)
+void EOLSkipMarks (PTR paramFirst, int* i, PTR paramSecond, int* j)
     {
-    int startiIndex = *iIndexElem;
-    int startjIndex = *jIndexElem;
-
-    for (; !isalnum (sFirst[*iIndexElem]);)
-        *iIndexElem = *iIndexElem - 1;
-
-    for (; !isalnum (sSecond[*jIndexElem]);)
-        *jIndexElem = *jIndexElem - 1;
-
-    if (*iIndexElem != startiIndex || *jIndexElem != startjIndex)
-        return 1;
-    return 0;
-    }*/
-
-
-
+    for (; !isalnum (paramFirst.PtrStart[*i]);)
+        *i = *i - 1;
+    for (; !isalnum (paramSecond.PtrStart[*j]);)
+        *j = *j - 1;
+    }
 
 
 

@@ -6,17 +6,15 @@ struct PTR  {
             int lenString;
             };
 
-// I have a commit!
-
-_Bool Input (char text[MAX_ROWS][MAX_ELEM]);
-
-void OutputText (PTR* Pointers, int Pointer);
+void OutputText (PTR* Pointers, int Pointer, FILE* file);
 
 void Sorting (PTR* Pointers, int nPointer);
 
 void Swapping (PTR* paramFirst, PTR* paramSecond);
 
 void SkipMarks (PTR paramFirst, int* i, PTR paramSecond, int* j);
+
+void EOLSkipMarks (PTR paramFirst, int* i, PTR paramSecond, int* j);
 
 //{
 /// @brief   Comparator - функция, которая сравнивает две строки
@@ -40,10 +38,10 @@ void Print (PTR paramString);
 
 void InputOnegin (char** Onegin, size_t* sizeofFile);
 
-void OutputText (char* Pointers[], int nPointer);
-
-void OutputRow (char* Pointers[], int ptr, size_t sizeOfRow);
-
 void CounterRow (int* nRow, char* Onegin, size_t sizeOfFile);
 
 void InitialisatorPointers (size_t sizeOfFile, PTR* Pointers, char* Onegin, struct PTR* ParamString, int* nPointer);
+
+void EOLSorting (PTR* Pointers, int nPointer);
+
+int EOLComparator (PTR paramFirst, PTR paramSecond);
