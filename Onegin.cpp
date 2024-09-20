@@ -208,7 +208,8 @@ int EOLComparator (PTR paramFirst, PTR paramSecond)
     int i = paramFirst.lenString;
     int j = paramSecond.lenString;
 
-    EOLSkipMarks (paramFirst, &i, paramSecond, &j);
+    EOLSkipMarks (paramFirst,  &i);
+    EOLSkipMarks (paramSecond, &j);
 
     while (1)
         {
@@ -227,13 +228,10 @@ int EOLComparator (PTR paramFirst, PTR paramSecond)
 
 // пропускает знаки с конца строки.............................................
 
-void EOLSkipMarks (PTR paramFirst, int* i, PTR paramSecond, int* j)
+void EOLSkipMarks (PTR paramString, int* i)
     {
-    for (; !isalnum (paramFirst.PtrStart[*i]);)
+    for (; !isalnum (paramString.PtrStart[*i]);)
         *i = *i - 1;
-
-    for (; !isalnum (paramSecond.PtrStart[*j]);)
-        *j = *j - 1;
     }
 
 

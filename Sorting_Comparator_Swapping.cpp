@@ -50,7 +50,8 @@ int Comparator (PTR paramFirst, PTR paramSecond)
     int i = 0;                                                       // Index for First  String
     int j = 0;                                                       // Index for Second String
 
-    SkipMarks (paramFirst, &i, paramSecond, &j);
+    SkipMarks (paramFirst,  &i);
+    SkipMarks (paramSecond, &j);
 
     printf ("paramFirst.lenString  = <%d>\n", paramFirst.lenString);
     printf ("paramSecond.lenstring = <%d>\n", paramSecond.lenString);
@@ -83,13 +84,10 @@ void Print (PTR paramFirst)
 
 //  функция пропуска знаков, которые не являются буквами или цифрами в начале строки
 
-void SkipMarks (PTR paramFirst, int* i, PTR paramSecond, int* j)
+void SkipMarks (PTR paramString, int* i)
     {
-    for (; !isalnum (paramFirst.PtrStart[*i]);)
+    for (; !isalnum (paramString.PtrStart[*i]);)
         *i = *i + 1;
-
-    for (; !isalnum (paramSecond.PtrStart[*j]);)
-        *j = *j + 1;
     }
 
 // функция обмена строк........................................................
