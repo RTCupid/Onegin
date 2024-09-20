@@ -9,8 +9,9 @@
 #include <stdlib.h>
 #include <errno.h>
 
-
 #include "Onegin.h"
+
+typedef int (*Compare_func_t)(PTR paramFirst, PTR paramSecond);
 
 int main ()
     {
@@ -31,7 +32,7 @@ int main ()
 
     CounterRow (&nRows, Onegin, sizeOfFile);
 
-    PTR* Pointers = (PTR*)calloc (nRows * 2, sizeof (char*));         // каллокаю массив указателей
+    PTR* Pointers = (PTR*)calloc (nRows * 2, sizeof (char*));        // каллокаю массив указателей
 
     int nPointer = 0;
 
@@ -39,9 +40,7 @@ int main ()
 
     printf ("nPointer = <%d>\n", nPointer);
 
-    //CmpFnc [] = {
-
-    Sorting (Pointers, nPointer);
+    Sorting (Pointers, nPointer, Comparator);
 
     printf ("After Sorting\n\n");
     Print (Pointers[2]);
@@ -51,7 +50,7 @@ int main ()
 
     OutputText (Pointers, nPointer,file);                                                  // toupper dobavit + znaki propuskat (est)+
 
-    EOLSorting (Pointers, nPointer);
+    Sorting (Pointers, nPointer, EOLComparator);
 
     OutputText (Pointers, nPointer, file);
 

@@ -9,6 +9,8 @@ struct PTR  {
             int lenString;
             };
 
+typedef int (*Compare_func_t)(PTR paramFirst, PTR paramSecond);
+
 void InputOnegin (char** Onegin, size_t* sizeofFile);
 
 void SizeFile (struct stat* fileInf);
@@ -17,7 +19,7 @@ void CounterRow (int* nRow, char* Onegin, size_t sizeOfFile);
 
 void InitialisatorPointers (size_t sizeOfFile, PTR* Pointers, char* Onegin, struct PTR* ParamString, int* nPointer);
 
-void Sorting (PTR* Pointers, int nPointer);
+void Sorting (PTR* Pointers, int nPointer, Compare_func_t CmpFnc);
 
 void EOLSorting (PTR* Pointers, int nPointer);
 

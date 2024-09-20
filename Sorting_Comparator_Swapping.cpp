@@ -8,7 +8,7 @@
 
 // функция сортировки строчек по алфавиту......................................
 
-void Sorting (PTR* Pointers, int nPointer)
+void Sorting (PTR* Pointers, int nPointer, Compare_func_t CmpFnc)
     {
     for (int i = 0; i < nPointer; i++)
         {
@@ -19,7 +19,7 @@ void Sorting (PTR* Pointers, int nPointer)
             printf ("nPointer = <%d>\n", nPointer);
             assert (row < nPointer - 1);
 
-            int result = Comparator (Pointers[row], Pointers[row + 1]);
+            int result = CmpFnc (Pointers[row], Pointers[row + 1]);
             if (result > 0)                                          // тогда замена строк между собой
                 {
                 printf ("Swapping:\n");
