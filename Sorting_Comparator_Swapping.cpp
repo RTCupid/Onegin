@@ -9,6 +9,8 @@
 const int EOL = -1;
 const int SOL =  1;
 
+typedef const PTR* cPTR_t;
+
 // функция сортировки строчек по алфавиту......................................
 
 void Sorting (PTR* Pointers, int nPointer, Compare_func_t CmpFnc)
@@ -45,9 +47,9 @@ void Sorting (PTR* Pointers, int nPointer, Compare_func_t CmpFnc)
 int Comparator (const void* paramFirst, const void* paramSecond)
     {
     printf ("Comparing:\n");
-    Print (*((const PTR*)(paramFirst)));
+    Print (*((cPTR_t) paramFirst));
     printf ("Vs:\n");
-    Print (*((const PTR*)(paramSecond)));
+    Print (*((cPTR_t)(paramSecond)));
 
     int i = 0;                                                       // Index for First  String
     int j = 0;                                                       // Index for Second String
