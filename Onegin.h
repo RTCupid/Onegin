@@ -52,6 +52,8 @@ void Print (PTR paramString);
 
 void OutputText (PTR* Pointers, int Pointer, FILE* file);
 
+void WriteTheOriginalOfPushkinGreatestPoemEugeneOnegin (char* Onegin, FILE* file);
+
 
 
 

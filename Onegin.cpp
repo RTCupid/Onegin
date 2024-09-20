@@ -45,7 +45,7 @@ int main ()
 
     OutputText (Pointers, nPointer, file);
 
-    fputs (Onegin, file);
+    WriteTheOriginalOfPushkinGreatestPoemEugeneOnegin (Onegin, file);
 
     fclose (file);
 
@@ -178,6 +178,13 @@ void OutputText (PTR* Pointers, int nPointer, FILE* file)
         printf ("\n");
         }
     fputc ('\n', file);
+    }
+
+// write original text.........................................................
+
+void WriteTheOriginalOfPushkinGreatestPoemEugeneOnegin (char* Onegin, FILE* file)
+    {
+    fputs (Onegin, file);
     }
 
 
