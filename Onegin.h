@@ -11,11 +11,11 @@ struct PTR  {
 
 typedef int (*Compare_func_t)(PTR paramFirst, PTR paramSecond);
 
-void MakePointers (char** Onegin, size_t* sizeOfFile, int* nPointer, PTR** Pointers, PTR* ParamString);
+void MakePointers (char** Onegin, size_t* sizeOfFile, int* nPointer, PTR** Pointers, PTR* ParamString, char* namefile);
 
-void InputOnegin (char** Onegin, size_t* sizeofFile);
+void InputOnegin (char** Onegin, size_t* sizeofFile, char* nameFile);
 
-void SizeFile (struct stat* fileInf);
+void SizeFile (struct stat* fileInf, char* nameFile);
 
 void CounterRow (int* nRow, char* Onegin, size_t sizeOfFile);
 

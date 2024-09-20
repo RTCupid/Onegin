@@ -27,8 +27,9 @@ int main ()
     size_t sizeOfFile = 0;
     int nPointer = 0;
     PTR* Pointers = NULL;
+    char nameFile[] = "Onegin.txt";
 
-    MakePointers (&Onegin, &sizeOfFile, &nPointer, &Pointers, &ParamString);
+    MakePointers (&Onegin, &sizeOfFile, &nPointer, &Pointers, &ParamString, nameFile); // make PTR* Pointers and his param
 
     Sorting (Pointers, nPointer, Comparator);
 
@@ -52,9 +53,9 @@ int main ()
     }
 
 //
-void MakePointers (char** Onegin, size_t* sizeOfFile, int* nPointer, PTR** Pointers, PTR* ParamString)
+void MakePointers (char** Onegin, size_t* sizeOfFile, int* nPointer, PTR** Pointers, PTR* ParamString, char* nameFile)
     {
-    InputOnegin (Onegin, sizeOfFile);
+    InputOnegin (Onegin, sizeOfFile, nameFile);
 
     int nRows = 0;
 
@@ -69,21 +70,21 @@ void MakePointers (char** Onegin, size_t* sizeOfFile, int* nPointer, PTR** Point
 
 // читаю из файла в буффер текст Онегина и определяю размер буффера
 
-void InputOnegin (char** Onegin, size_t* sizeOfFile)
+void InputOnegin (char** Onegin, size_t* sizeOfFile, char* nameFile)
     {
     struct stat fileInf = {};
 
-    SizeFile (&fileInf);
+    SizeFile (&fileInf, nameFile);
 
     *Onegin = (char*)calloc (fileInf.st_size + 1, sizeof(char));     // каллочу буффер, чтобы в него считать текст
 
-    FILE* file = fopen ("Onegin.txt", "rt");
+    FILE* file = fopen (nameFile, "rt");
 
     if (file == NULL)
         {
         printf ("File opening error\n");
         printf("errno = <%d>\n", errno);
-        perror("Onegin.txt\n");
+        perror(nameFile);
         }
 
     *sizeOfFile = fread (*Onegin, sizeof (char), fileInf.st_size, file); // с помощью fread читаю файл в буффер, сохраняю возвращаемое значение fread ()
@@ -91,7 +92,7 @@ void InputOnegin (char** Onegin, size_t* sizeOfFile)
     if (*sizeOfFile == 0)
         {
         printf ("errno = <%d>\n", errno);
-        perror ("Onegin.txt");
+        perror (nameFile);
         }
 
     printf ("\n%s\n", *Onegin);                                      // вывожу начальный текст Онегина
@@ -103,9 +104,9 @@ void InputOnegin (char** Onegin, size_t* sizeOfFile)
 
 // функция определения размера файла с помощью стата
 
-void SizeFile (struct stat* fileInf)
+void SizeFile (struct stat* fileInf, char* nameFile)
     {
-    int err = stat ("Onegin.txt", fileInf);
+    int err = stat (nameFile, fileInf);
     if (err != 0)
         printf("Stat err %d\n", err);
 
