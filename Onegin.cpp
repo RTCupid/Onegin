@@ -25,20 +25,10 @@ int main ()
 
     char* Onegin = NULL;
     size_t sizeOfFile = 0;
-
-    InputOnegin (&Onegin, &sizeOfFile);
-
-    int nRows = 0;
-
-    CounterRow (&nRows, Onegin, sizeOfFile);
-
-    PTR* Pointers = (PTR*)calloc (nRows * 2, sizeof (char*));        // каллокаю массив указателей
-
     int nPointer = 0;
+    PTR* Pointers = NULL;
 
-    InitialisatorPointers (sizeOfFile, Pointers, Onegin, &ParamString, &nPointer);
-
-    printf ("nPointer = <%d>\n", nPointer);
+    MakePointers (&Onegin, &sizeOfFile, &nPointer, &Pointers, &ParamString);
 
     Sorting (Pointers, nPointer, Comparator);
 
@@ -48,7 +38,7 @@ int main ()
 
     FILE* file = fopen ("InputOnegin.txt", "w");
 
-    OutputText (Pointers, nPointer,file);                                                  // toupper dobavit + znaki propuskat (est)+
+    OutputText (Pointers, nPointer,file);                            // toupper dobavit + znaki propuskat (est)+
 
     Sorting (Pointers, nPointer, EOLComparator);
 
@@ -59,6 +49,22 @@ int main ()
     fclose (file);
 
     return 0;
+    }
+
+//
+void MakePointers (char** Onegin, size_t* sizeOfFile, int* nPointer, PTR** Pointers, PTR* ParamString)
+    {
+    InputOnegin (Onegin, sizeOfFile);
+
+    int nRows = 0;
+
+    CounterRow (&nRows, *Onegin, *sizeOfFile);
+
+    *Pointers = (PTR*)calloc (nRows * 2, sizeof (char*));        // каллокаю массив указателей
+
+    InitialisatorPointers (*sizeOfFile, *Pointers, *Onegin, ParamString, nPointer);
+
+    printf ("nPointer = <%d>\n", *nPointer);
     }
 
 // читаю из файла в буффер текст Онегина и определяю размер буффера
