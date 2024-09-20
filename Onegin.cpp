@@ -47,7 +47,7 @@ int main ()
 
     FILE* file = fopen ("InputOnegin.txt", "w");
 
-    OutputText (Pointers, nPointer,file);                                                  // toupper dobavit + znaki propuskat (est)
+    OutputText (Pointers, nPointer,file);                                                  // toupper dobavit + znaki propuskat (est)+
 
     EOLSorting (Pointers, nPointer);
 
