@@ -79,8 +79,6 @@ void Print (PTR paramFirst)
     printf ("\n");
     }
 
-
-
 // функция обмена строк........................................................
 
 void Swapping (PTR* paramFirst, PTR* paramSecond)
@@ -101,6 +99,7 @@ void SkipMarks (PTR paramFirst, int* i, PTR paramSecond, int* j)
     {
     for (; !isalnum (paramFirst.PtrStart[*i]);)
         *i = *i + 1;
+
     for (; !isalnum (paramSecond.PtrStart[*j]);)
         *j = *j + 1;
     }

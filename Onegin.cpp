@@ -142,6 +142,7 @@ void InitialisatorPointers (size_t sizeOfFile, PTR* Pointers, char* Onegin, stru
             ParamString->PtrStart = &Onegin[i + 1];
             }
         }
+
     printf ("nPointer = <%d>\n", *nPointer);
     }
 
@@ -223,6 +224,7 @@ void EOLSkipMarks (PTR paramFirst, int* i, PTR paramSecond, int* j)
     {
     for (; !isalnum (paramFirst.PtrStart[*i]);)
         *i = *i - 1;
+
     for (; !isalnum (paramSecond.PtrStart[*j]);)
         *j = *j - 1;
     }
