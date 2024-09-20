@@ -27,7 +27,7 @@ int main ()
     size_t sizeOfFile = 0;
     int nPointer = 0;
     PTR* Pointers = NULL;
-    char nameFile[] = "Onegin.txt";
+    const char nameFile[] = "Onegin.txt";
 
     MakePointers (&Onegin, &sizeOfFile, &nPointer, &Pointers, &ParamString, nameFile); // make PTR* Pointers and his param+
 
@@ -55,7 +55,7 @@ int main ()
     }
 
 //
-void MakePointers (char** Onegin, size_t* sizeOfFile, int* nPointer, PTR** Pointers, PTR* ParamString, char* nameFile)
+void MakePointers (char** Onegin, size_t* sizeOfFile, int* nPointer, PTR** Pointers, PTR* ParamString, const char* nameFile)
     {
     InputOnegin (Onegin, sizeOfFile, nameFile);
 
@@ -74,7 +74,7 @@ void MakePointers (char** Onegin, size_t* sizeOfFile, int* nPointer, PTR** Point
 
 // читаю из файла в буффер текст Онегина и определяю размер буффера
 
-void InputOnegin (char** Onegin, size_t* sizeOfFile, char* nameFile)
+void InputOnegin (char** Onegin, size_t* sizeOfFile, const char* nameFile)
     {
     struct stat fileInf = {};
 
@@ -108,7 +108,7 @@ void InputOnegin (char** Onegin, size_t* sizeOfFile, char* nameFile)
 
 // функция определения размера файла с помощью стата
 
-void SizeFile (struct stat* fileInf, char* nameFile)
+void SizeFile (struct stat* fileInf, const char* nameFile)
     {
     int err = stat (nameFile, fileInf);
     if (err != 0)
@@ -124,7 +124,7 @@ void CounterSymbol (int* nRows, char* Onegin, size_t sizeOfFile, char symbol)
     {
     for (unsigned int i = 0; i < sizeOfFile; i++)                    // посимвольно зачем-то вывожу начальный текст Онегина
         {                                                            // точно, я не просто вывожу, а параллельно считаю количество
-        if (Onegin[i] == symbol)                                       // строк, равное кличеству '\n'
+        if (Onegin[i] == symbol)                                     // строк, равное кличеству '\n'
             {
             printf ("Onegin[%d] = <'%c'>\n", i, symbol);
             *nRows = *nRows + 1;
@@ -151,8 +151,8 @@ void InitialisatorPointers (size_t sizeOfFile, PTR* Pointers, char* Onegin, stru
         {
         if (Onegin[i] == '\n')
             {
-            ParamString->lenString   = &Onegin[i - 1] - ParamString->PtrStart;
-            Pointers[*nPointer]   =  *ParamString;
+            ParamString->lenString = &Onegin[i - 1] - ParamString->PtrStart;
+            Pointers[*nPointer] = *ParamString;
             *nPointer = *nPointer + 1;
             ParamString->PtrStart = &Onegin[i + 1];
             }

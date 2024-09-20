@@ -46,6 +46,8 @@ void Sorting (PTR* Pointers, int nPointer, Compare_func_t CmpFnc)
 
 int Comparator (const void* paramFirst, const void* paramSecond)
     {
+
+
     printf ("Comparing:\n");
     Print (*((cPTR_t) paramFirst));
     printf ("Vs:\n");
@@ -62,9 +64,12 @@ int Comparator (const void* paramFirst, const void* paramSecond)
 
     for (; i < (*((const PTR*)paramFirst)).lenString && j < (*((const PTR*)paramSecond)).lenString; j++, i++)
         {
-        assert (i < (*((const PTR*)paramFirst)).lenString);
+        assert (i < (*((const PTR*)paramFirst )).lenString);
         assert (j < (*((const PTR*)paramSecond)).lenString);
-        printf ("<%c> Vs <%c> | <%d> Vs <%d>\n", *((*((const PTR*)paramFirst)).PtrStart + i), *((*((const PTR*)paramSecond)).PtrStart + j), *((*((const PTR*)paramFirst)).PtrStart + i), *((*((const PTR*)paramSecond)).PtrStart + j));
+        printf ("<%c> Vs <%c> | <%d> Vs <%d>\n", *((*((const PTR*)paramFirst )).PtrStart + i),
+                                                 *((*((const PTR*)paramSecond)).PtrStart + j),
+                                                 *((*((const PTR*)paramFirst )).PtrStart + i),
+                                                 *((*((const PTR*)paramSecond)).PtrStart + j));
 
         if (toupper(*((*((const PTR*)paramFirst)).PtrStart + i)) != toupper(*((*((const PTR*)paramSecond)).PtrStart + j)))
                 break;
