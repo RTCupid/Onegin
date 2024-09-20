@@ -21,8 +21,6 @@ void InitialisatorPointers (size_t sizeOfFile, PTR* Pointers, char* Onegin, stru
 
 void Sorting (PTR* Pointers, int nPointer, Compare_func_t CmpFnc);
 
-void EOLSorting (PTR* Pointers, int nPointer);
-
 //{
 /// @brief   Comparator - функция, которая сравнивает две строки
 ///                       и выводит разницу между первыми не равными
