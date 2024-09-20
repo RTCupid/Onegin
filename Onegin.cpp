@@ -39,6 +39,8 @@ int main ()
 
     printf ("nPointer = <%d>\n", nPointer);
 
+    //CmpFnc [] = {
+
     Sorting (Pointers, nPointer);
 
     printf ("After Sorting\n\n");
