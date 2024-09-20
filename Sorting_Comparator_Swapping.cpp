@@ -6,6 +6,9 @@
 
 #include "Onegin.h"
 
+const int EOL = -1;
+const int SOL =  1;
+
 // функция сортировки строчек по алфавиту......................................
 
 void Sorting (PTR* Pointers, int nPointer, Compare_func_t CmpFnc)
@@ -50,8 +53,8 @@ int Comparator (PTR paramFirst, PTR paramSecond)
     int i = 0;                                                       // Index for First  String
     int j = 0;                                                       // Index for Second String
 
-    SkipMarks (paramFirst,  &i);
-    SkipMarks (paramSecond, &j);
+    SkipMarks (paramFirst,  &i, SOL);
+    SkipMarks (paramSecond, &j, SOL);
 
     printf ("paramFirst.lenString  = <%d>\n", paramFirst.lenString);
     printf ("paramSecond.lenstring = <%d>\n", paramSecond.lenString);
@@ -81,8 +84,8 @@ int EOLComparator (PTR paramFirst, PTR paramSecond)
     int i = paramFirst.lenString;
     int j = paramSecond.lenString;
 
-    EOLSkipMarks (paramFirst,  &i);
-    EOLSkipMarks (paramSecond, &j);
+    SkipMarks (paramFirst,  &i, EOL);
+    SkipMarks (paramSecond, &j, EOL);
 
     while (1)
         {
@@ -114,18 +117,10 @@ void Print (PTR paramFirst)
 
 //  функция пропуска знаков, которые не являются буквами или цифрами в начале строки
 
-void SkipMarks (PTR paramString, int* i)
+void SkipMarks (PTR paramString, int* i, int deltai)
     {
     for (; !isalnum (paramString.PtrStart[*i]);)
-        *i = *i + 1;
-    }
-
-// пропускает знаки с конца строки.............................................
-
-void EOLSkipMarks (PTR paramString, int* i)
-    {
-    for (; !isalnum (paramString.PtrStart[*i]);)
-        *i = *i - 1;
+        *i = *i + deltai;
     }
 
 // функция обмена строк........................................................

@@ -42,9 +42,7 @@ int Comparator (PTR paramFirst, PTR paramSecond);
 
 int EOLComparator (PTR paramFirst, PTR paramSecond);
 
-void SkipMarks (PTR paramString, int* i);
-
-void EOLSkipMarks (PTR paramString, int* i);
+void SkipMarks (PTR paramString, int* i, int deltai);
 
 void Swapping (PTR* paramFirst, PTR* paramSecond);
 
