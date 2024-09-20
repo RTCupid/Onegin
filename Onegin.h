@@ -1,3 +1,6 @@
+#include <sys/types.h>
+#include <sys/stat.h>
+
 const int MAX_ROWS = 29;
 const int MAX_ELEM = 100;
 
@@ -7,6 +10,8 @@ struct PTR  {
             };
 
 void InputOnegin (char** Onegin, size_t* sizeofFile);
+
+void SizeFile (struct stat* fileInf);
 
 void CounterRow (int* nRow, char* Onegin, size_t sizeOfFile);
 

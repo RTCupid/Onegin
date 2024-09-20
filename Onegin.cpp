@@ -66,12 +66,7 @@ void InputOnegin (char** Onegin, size_t* sizeOfFile)
     {
     struct stat fileInf = {};
 
-    int err = stat ("Onegin.txt", &fileInf);
-    if (err != 0)
-        printf("Stat err %d\n", err);
-
-    printf ("\n%ld\n", fileInf.st_size);
-    printf ("count of char = %ld\n", fileInf.st_size / sizeof (char));
+    SizeFile (&fileInf);
 
     *Onegin = (char*)calloc (fileInf.st_size + 1, sizeof(char));     // каллочу буффер, чтобы в него считать текст
 
@@ -97,6 +92,18 @@ void InputOnegin (char** Onegin, size_t* sizeOfFile)
     fclose (file);                                                   // закрываю файл
 
     printf ("sizeOfFile = <%zu>\n\n", *sizeOfFile);
+    }
+
+// функция определения размера файла с помощью стата
+
+void SizeFile (struct stat* fileInf)
+    {
+    int err = stat ("Onegin.txt", fileInf);
+    if (err != 0)
+        printf("Stat err %d\n", err);
+
+    printf ("\n%ld\n", (*fileInf).st_size);
+    printf ("count of char = %ld\n", (*fileInf).st_size / sizeof (char));
     }
 
 // считает количество строк, чтобы каллокнуть массив указателей
