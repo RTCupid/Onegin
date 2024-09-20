@@ -17,7 +17,7 @@ void InputOnegin (char** Onegin, size_t* sizeofFile, char* nameFile);
 
 void SizeFile (struct stat* fileInf, char* nameFile);
 
-void CounterRow (int* nRow, char* Onegin, size_t sizeOfFile);
+void CounterSymbol (int* nRow, char* Onegin, size_t sizeOfFile, char symbol);
 
 void InitialisatorPointers (size_t sizeOfFile, PTR* Pointers, char* Onegin, struct PTR* ParamString, int* nPointer);
 

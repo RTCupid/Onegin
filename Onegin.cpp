@@ -59,7 +59,9 @@ void MakePointers (char** Onegin, size_t* sizeOfFile, int* nPointer, PTR** Point
 
     int nRows = 0;
 
-    CounterRow (&nRows, *Onegin, *sizeOfFile);
+    char symbol = '\n';
+
+    CounterSymbol (&nRows, *Onegin, *sizeOfFile, symbol);
 
     *Pointers = (PTR*)calloc (nRows * 2, sizeof (char*));        // каллокаю массив указателей
 
@@ -116,13 +118,13 @@ void SizeFile (struct stat* fileInf, char* nameFile)
 
 // считает количество строк, чтобы каллокнуть массив указателей
 
-void CounterRow (int* nRows, char* Onegin, size_t sizeOfFile)
+void CounterSymbol (int* nRows, char* Onegin, size_t sizeOfFile, char symbol)
     {
     for (unsigned int i = 0; i < sizeOfFile; i++)                    // посимвольно зачем-то вывожу начальный текст Онегина
         {                                                            // точно, я не просто вывожу, а параллельно считаю количество
-        if (Onegin[i] == '\n')                                       // строк, равное кличеству '\n'
+        if (Onegin[i] == symbol)                                       // строк, равное кличеству '\n'
             {
-            printf ("Onegin[%d] = <'\\n'>\n", i);
+            printf ("Onegin[%d] = <'%c'>\n", i, symbol);
             *nRows = *nRows + 1;
             }
         else
@@ -161,21 +163,14 @@ void InitialisatorPointers (size_t sizeOfFile, PTR* Pointers, char* Onegin, stru
 
 void OutputText (PTR* Pointers, int nPointer, FILE* file)
     {
-    char ch = '\0';
     for (int i = 0; i < nPointer; i++)
         {
         assert (i < nPointer);
-        Print (Pointers[i]);
 
-        for (int j = 0; j <= (Pointers[i]).lenString; j++)
-            {
-            assert (j <= (Pointers[i]).lenString);
-            ch = *((Pointers[i]).PtrStart + j);
-            fputc (ch, file);
-            }
-        ch = '\n';
-        fputc (ch, file);
+        Print (Pointers[i]);
         printf ("\n");
+
+        fwrite ((Pointers[i]).PtrStart, (Pointers[i]).lenString + 2, sizeof(char), file);
         }
     fputc ('\n', file);
     }
