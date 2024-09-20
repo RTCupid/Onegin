@@ -31,7 +31,9 @@ int main ()
 
     MakePointers (&Onegin, &sizeOfFile, &nPointer, &Pointers, &ParamString, nameFile); // make PTR* Pointers and his param+
 
-    Sorting (Pointers, nPointer, Comparator);
+    qsort (Pointers, sizeof (PTR), nPointer, Comparator);
+
+    //Sorting (Pointers, nPointer, Comparator);
 
     printf ("After Sorting\n\n");
     Print (Pointers[2]);

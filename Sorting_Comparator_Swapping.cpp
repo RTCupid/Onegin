@@ -42,34 +42,33 @@ void Sorting (PTR* Pointers, int nPointer, Compare_func_t CmpFnc)
 
 // это компаратор..............................................................
 
-int Comparator (PTR paramFirst, PTR paramSecond)
+int Comparator (const void* paramFirst, const void* paramSecond)
     {
-
     printf ("Comparing:\n");
-    Print (paramFirst);
+    Print (*((const PTR*)(paramFirst)));
     printf ("Vs:\n");
-    Print (paramSecond);
+    Print (*((const PTR*)(paramSecond)));
 
     int i = 0;                                                       // Index for First  String
     int j = 0;                                                       // Index for Second String
 
-    SkipMarks (paramFirst,  &i, SOL);
-    SkipMarks (paramSecond, &j, SOL);
+    SkipMarks (*((const PTR*)paramFirst),  &i, SOL);
+    SkipMarks (*((const PTR*)paramSecond), &j, SOL);
 
-    printf ("paramFirst.lenString  = <%d>\n", paramFirst.lenString);
-    printf ("paramSecond.lenstring = <%d>\n", paramSecond.lenString);
+    printf ("paramFirst.lenString  = <%d>\n", (*((const PTR*)paramFirst)).lenString);
+    printf ("paramSecond.lenstring = <%d>\n", (*((const PTR*)paramSecond)).lenString);
 
-    for (; i < paramFirst.lenString && j < paramSecond.lenString; j++, i++)
+    for (; i < (*((const PTR*)paramFirst)).lenString && j < (*((const PTR*)paramSecond)).lenString; j++, i++)
         {
-        assert (i < paramFirst.lenString);
-        assert (j < paramSecond.lenString);
-        printf ("<%c> Vs <%c> | <%d> Vs <%d>\n", *(paramFirst.PtrStart + i), *(paramSecond.PtrStart + j), *(paramFirst.PtrStart + i), *(paramSecond.PtrStart + j));
+        assert (i < (*((const PTR*)paramFirst)).lenString);
+        assert (j < (*((const PTR*)paramSecond)).lenString);
+        printf ("<%c> Vs <%c> | <%d> Vs <%d>\n", *((*((const PTR*)paramFirst)).PtrStart + i), *((*((const PTR*)paramSecond)).PtrStart + j), *((*((const PTR*)paramFirst)).PtrStart + i), *((*((const PTR*)paramSecond)).PtrStart + j));
 
-        if (toupper(*(paramFirst.PtrStart + i)) != toupper(*(paramSecond.PtrStart + j)))
+        if (toupper(*((*((const PTR*)paramFirst)).PtrStart + i)) != toupper(*((*((const PTR*)paramSecond)).PtrStart + j)))
                 break;
         }
-    printf ("return %d\n", toupper(*(paramFirst.PtrStart + i)) - toupper(*(paramSecond.PtrStart + j)));
-    return toupper(*(paramFirst.PtrStart + i)) - toupper(*(paramSecond.PtrStart + j));
+    printf ("return %d\n", toupper(*((*((const PTR*)paramFirst)).PtrStart + i)) - toupper(*((*((const PTR*)paramSecond)).PtrStart + j)));
+    return toupper(*((*((const PTR*)paramFirst)).PtrStart + i)) - toupper(*((*((const PTR*)paramSecond)).PtrStart + j));
     }
 
 // компаратор по концу строки..................................................

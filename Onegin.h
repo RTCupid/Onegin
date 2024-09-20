@@ -38,7 +38,7 @@ void Sorting (PTR* Pointers, int nPointer, Compare_func_t CmpFnc);
 ///          Comparator (sFirst, sSecond);
 /// @endcode
 //}
-int Comparator (PTR paramFirst, PTR paramSecond);
+int Comparator (const void* paramFirst, const void* paramSecond);
 
 int EOLComparator (PTR paramFirst, PTR paramSecond);
 
