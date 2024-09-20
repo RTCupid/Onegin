@@ -68,6 +68,8 @@ int Comparator (PTR paramFirst, PTR paramSecond)
     return toupper(*(paramFirst.PtrStart + i)) - toupper(*(paramSecond.PtrStart + j));
     }
 
+// функция вывода строки по её структуре.......................................
+
 void Print (PTR paramFirst)
     {
     printf ("lenString = <%d>\n", paramFirst.lenString);
@@ -77,6 +79,17 @@ void Print (PTR paramFirst)
         printf ("%c", *(paramFirst.PtrStart + j));
         }
     printf ("\n");
+    }
+
+//  функция пропуска знаков, которые не являются буквами или цифрами в начале строки
+
+void SkipMarks (PTR paramFirst, int* i, PTR paramSecond, int* j)
+    {
+    for (; !isalnum (paramFirst.PtrStart[*i]);)
+        *i = *i + 1;
+
+    for (; !isalnum (paramSecond.PtrStart[*j]);)
+        *j = *j + 1;
     }
 
 // функция обмена строк........................................................
@@ -91,15 +104,4 @@ void Swapping (PTR* paramFirst, PTR* paramSecond)
 
     paramSecond->PtrStart  = ptrSwapp;
     paramSecond->lenString = lenSwapp;
-    }
-
-//  функция пропуска знаков, которые не являются буквами или цифрами в начале строки
-
-void SkipMarks (PTR paramFirst, int* i, PTR paramSecond, int* j)
-    {
-    for (; !isalnum (paramFirst.PtrStart[*i]);)
-        *i = *i + 1;
-
-    for (; !isalnum (paramSecond.PtrStart[*j]);)
-        *j = *j + 1;
     }

@@ -60,27 +60,6 @@ int main ()
     return 0;
     }
 
-void OutputText (PTR* Pointers, int nPointer, FILE* file)
-    {
-    char ch = '\0';
-    for (int i = 0; i < nPointer; i++)
-        {
-        assert (i < nPointer);
-        Print (Pointers[i]);
-
-        for (int j = 0; j <= (Pointers[i]).lenString; j++)
-            {
-            assert (j <= (Pointers[i]).lenString);
-            ch = *((Pointers[i]).PtrStart + j);
-            fputc (ch, file);
-            }
-        ch = '\n';
-        fputc (ch, file);
-        printf ("\n");
-        }
-    fputc ('\n', file);
-    }
-
 // читаю из файла в буффер текст Онегина и определяю размер буффера
 
 void InputOnegin (char** Onegin, size_t* sizeOfFile)
@@ -120,6 +99,23 @@ void InputOnegin (char** Onegin, size_t* sizeOfFile)
     printf ("sizeOfFile = <%zu>\n\n", *sizeOfFile);
     }
 
+// считает количество строк, чтобы каллокнуть массив указателей
+
+void CounterRow (int* nRows, char* Onegin, size_t sizeOfFile)
+    {
+    for (unsigned int i = 0; i < sizeOfFile; i++)                    // посимвольно зачем-то вывожу начальный текст Онегина
+        {                                                            // точно, я не просто вывожу, а параллельно считаю количество
+        if (Onegin[i] == '\n')                                       // строк, равное кличеству '\n'
+            {
+            printf ("Onegin[%d] = <'\\n'>\n", i);
+            *nRows = *nRows + 1;
+            }
+        else
+            printf ("Onegin[%d] = <%c>\n", i, Onegin[i]);
+        }
+
+    printf ("nRow = <%d>\n", *nRows);
+    }
 
 // ф-я инициализирует массив указателей
 
@@ -146,23 +142,30 @@ void InitialisatorPointers (size_t sizeOfFile, PTR* Pointers, char* Onegin, stru
     printf ("nPointer = <%d>\n", *nPointer);
     }
 
-// считает количество строк, чтобы каллокнуть массив указателей
+// функция вывода текста по массиву структур...................................
 
-void CounterRow (int* nRows, char* Onegin, size_t sizeOfFile)
+void OutputText (PTR* Pointers, int nPointer, FILE* file)
     {
-    for (unsigned int i = 0; i < sizeOfFile; i++)                    // посимвольно зачем-то вывожу начальный текст Онегина
-        {                                                            // точно, я не просто вывожу, а параллельно считаю количество
-        if (Onegin[i] == '\n')                                       // строк, равное кличеству '\n'
-            {
-            printf ("Onegin[%d] = <'\\n'>\n", i);
-            *nRows = *nRows + 1;
-            }
-        else
-            printf ("Onegin[%d] = <%c>\n", i, Onegin[i]);
-        }
+    char ch = '\0';
+    for (int i = 0; i < nPointer; i++)
+        {
+        assert (i < nPointer);
+        Print (Pointers[i]);
 
-    printf ("nRow = <%d>\n", *nRows);
+        for (int j = 0; j <= (Pointers[i]).lenString; j++)
+            {
+            assert (j <= (Pointers[i]).lenString);
+            ch = *((Pointers[i]).PtrStart + j);
+            fputc (ch, file);
+            }
+        ch = '\n';
+        fputc (ch, file);
+        printf ("\n");
+        }
+    fputc ('\n', file);
     }
+
+// сортировка по концу строки..................................................
 
 void EOLSorting (PTR* Pointers, int nPointer)
     {
@@ -193,6 +196,8 @@ void EOLSorting (PTR* Pointers, int nPointer)
         }
     }
 
+// компаратор по концу строки..................................................
+
 int EOLComparator (PTR paramFirst, PTR paramSecond)
     {
     printf ("Comparing:\n");
@@ -219,6 +224,8 @@ int EOLComparator (PTR paramFirst, PTR paramSecond)
     printf ("return *(paramFirst.PtrStart + i) - *(paramSecond.PtrStart + j) = %d\n", *(paramFirst.PtrStart + i) - *(paramSecond.PtrStart + j));
     return *(paramFirst.PtrStart + i) - *(paramSecond.PtrStart + j);
     }
+
+// пропускает знаки с конца строки.............................................
 
 void EOLSkipMarks (PTR paramFirst, int* i, PTR paramSecond, int* j)
     {
