@@ -44,38 +44,39 @@ void Sorting (PTR* Pointers, int nPointer, Compare_func_t CmpFnc)
 
 // это компаратор..............................................................
 
-int Comparator (const void* paramFirst, const void* paramSecond)
+int Comparator (const void* voidParamFirst, const void* voidParamSecond)
     {
-
+    const PTR paramFirst  = *((const PTR*)voidParamFirst );
+    const PTR paramSecond = *((const PTR*)voidParamSecond);
 
     printf ("Comparing:\n");
-    Print (*((cPTR_t) paramFirst));
+    Print (paramFirst );
     printf ("Vs:\n");
-    Print (*((cPTR_t)(paramSecond)));
+    Print (paramSecond);
 
     int i = 0;                                                       // Index for First  String
     int j = 0;                                                       // Index for Second String
 
-    SkipMarks (*((const PTR*)paramFirst),  &i, SOL);
-    SkipMarks (*((const PTR*)paramSecond), &j, SOL);
+    SkipMarks (paramFirst , &i, SOL);
+    SkipMarks (paramSecond, &j, SOL);
 
-    printf ("paramFirst.lenString  = <%d>\n", (*((const PTR*)paramFirst)).lenString);
-    printf ("paramSecond.lenstring = <%d>\n", (*((const PTR*)paramSecond)).lenString);
+    printf ("paramFirst.lenString  = <%d>\n", paramFirst.lenString );
+    printf ("paramSecond.lenstring = <%d>\n", paramSecond.lenString);
 
-    for (; i < (*((const PTR*)paramFirst)).lenString && j < (*((const PTR*)paramSecond)).lenString; j++, i++)
+    for (; i < paramFirst.lenString && j < paramSecond.lenString; j++, i++)
         {
-        assert (i < (*((const PTR*)paramFirst )).lenString);
-        assert (j < (*((const PTR*)paramSecond)).lenString);
-        printf ("<%c> Vs <%c> | <%d> Vs <%d>\n", *((*((const PTR*)paramFirst )).PtrStart + i),
-                                                 *((*((const PTR*)paramSecond)).PtrStart + j),
-                                                 *((*((const PTR*)paramFirst )).PtrStart + i),
-                                                 *((*((const PTR*)paramSecond)).PtrStart + j));
+        assert (i < paramFirst.lenString );
+        assert (j < paramSecond.lenString);
+        printf ("<%c> Vs <%c> | <%d> Vs <%d>\n",*(paramFirst.PtrStart + i),
+                                                *(paramSecond.PtrStart + j),
+                                                *(paramFirst.PtrStart + i),
+                                                *(paramSecond.PtrStart + j));
 
-        if (toupper(*((*((const PTR*)paramFirst)).PtrStart + i)) != toupper(*((*((const PTR*)paramSecond)).PtrStart + j)))
+        if (toupper(*(paramFirst.PtrStart + i)) != toupper(*(paramSecond.PtrStart + j)))
                 break;
         }
-    printf ("return %d\n", toupper(*((*((const PTR*)paramFirst)).PtrStart + i)) - toupper(*((*((const PTR*)paramSecond)).PtrStart + j)));
-    return toupper(*((*((const PTR*)paramFirst)).PtrStart + i)) - toupper(*((*((const PTR*)paramSecond)).PtrStart + j));
+    printf ("return %d\n", (toupper(*paramFirst.PtrStart + i)) - toupper(*(paramSecond.PtrStart + j)));
+    return toupper(*(paramFirst.PtrStart + i)) - toupper(*(paramSecond.PtrStart + j));
     }
 
 // компаратор по концу строки..................................................

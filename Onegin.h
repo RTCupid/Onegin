@@ -38,15 +38,15 @@ void Sorting (PTR* Pointers, int nPointer, Compare_func_t CmpFnc);
 ///          Comparator (sFirst, sSecond);
 /// @endcode
 //}
-int Comparator (const void* paramFirst, const void* paramSecond);
+int Comparator (const void* voidParamFirst, const void* voidParamSecond);
 
 int EOLComparator (PTR paramFirst, PTR paramSecond);
 
-void SkipMarks (PTR paramString, int* i, int deltai);
+void SkipMarks (const PTR paramString, int* i, int deltai);
 
 void Swapping (PTR* paramFirst, PTR* paramSecond);
 
-void Print (PTR paramString);
+void Print (const PTR paramString);
 
 void OutputText (PTR* Pointers, int Pointer, FILE* file);
 
