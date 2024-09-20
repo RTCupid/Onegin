@@ -29,7 +29,7 @@ int main ()
     PTR* Pointers = NULL;
     char nameFile[] = "Onegin.txt";
 
-    MakePointers (&Onegin, &sizeOfFile, &nPointer, &Pointers, &ParamString, nameFile); // make PTR* Pointers and his param
+    MakePointers (&Onegin, &sizeOfFile, &nPointer, &Pointers, &ParamString, nameFile); // make PTR* Pointers and his param+
 
     Sorting (Pointers, nPointer, Comparator);
 
