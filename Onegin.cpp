@@ -14,13 +14,13 @@
 
 int main ()
     {
+    printf ("# The program for sorting strings\n");
+    printf ("# (c) RTCupid, 2024\n\n");
+
     struct PTR ParamString  {
                             NULL,
                             0
                             };
-
-    printf ("# The program for sorting strings\n");
-    printf ("# (c) RTCupid, 2024\n\n");
 
     char* Onegin = NULL;
     size_t sizeOfFile = 0;
