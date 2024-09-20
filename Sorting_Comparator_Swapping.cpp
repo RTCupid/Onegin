@@ -69,6 +69,36 @@ int Comparator (PTR paramFirst, PTR paramSecond)
     return toupper(*(paramFirst.PtrStart + i)) - toupper(*(paramSecond.PtrStart + j));
     }
 
+// компаратор по концу строки..................................................
+
+int EOLComparator (PTR paramFirst, PTR paramSecond)
+    {
+    printf ("Comparing:\n");
+    Print (paramFirst);
+    printf ("Vs:\n");
+    Print (paramSecond);
+
+    int i = paramFirst.lenString;
+    int j = paramSecond.lenString;
+
+    EOLSkipMarks (paramFirst,  &i);
+    EOLSkipMarks (paramSecond, &j);
+
+    while (1)
+        {
+        printf ("<%c> Vs <%c> | <%d> Vs <%d>\n", *(paramFirst.PtrStart + i), *(paramSecond.PtrStart + j), *(paramFirst.PtrStart + i), *(paramSecond.PtrStart + j));
+
+        if (toupper (*(paramFirst.PtrStart + i)) != toupper (*(paramSecond.PtrStart + j)) || i == 0 || j == 0)
+            {
+            break;
+            }
+        i--;
+        j--;
+        }
+    printf ("return *(paramFirst.PtrStart + i) - *(paramSecond.PtrStart + j) = %d\n", *(paramFirst.PtrStart + i) - *(paramSecond.PtrStart + j));
+    return *(paramFirst.PtrStart + i) - *(paramSecond.PtrStart + j);
+    }
+
 // функция вывода строки по её структуре.......................................
 
 void Print (PTR paramFirst)
@@ -88,6 +118,14 @@ void SkipMarks (PTR paramString, int* i)
     {
     for (; !isalnum (paramString.PtrStart[*i]);)
         *i = *i + 1;
+    }
+
+// пропускает знаки с конца строки.............................................
+
+void EOLSkipMarks (PTR paramString, int* i)
+    {
+    for (; !isalnum (paramString.PtrStart[*i]);)
+        *i = *i - 1;
     }
 
 // функция обмена строк........................................................
