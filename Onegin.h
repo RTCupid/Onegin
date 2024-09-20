@@ -6,15 +6,15 @@ struct PTR  {
             int lenString;
             };
 
-void OutputText (PTR* Pointers, int Pointer, FILE* file);
+void InputOnegin (char** Onegin, size_t* sizeofFile);
+
+void CounterRow (int* nRow, char* Onegin, size_t sizeOfFile);
+
+void InitialisatorPointers (size_t sizeOfFile, PTR* Pointers, char* Onegin, struct PTR* ParamString, int* nPointer);
 
 void Sorting (PTR* Pointers, int nPointer);
 
-void Swapping (PTR* paramFirst, PTR* paramSecond);
-
-void SkipMarks (PTR paramFirst, int* i, PTR paramSecond, int* j);
-
-void EOLSkipMarks (PTR paramFirst, int* i, PTR paramSecond, int* j);
+void EOLSorting (PTR* Pointers, int nPointer);
 
 //{
 /// @brief   Comparator - функция, которая сравнивает две строки
@@ -31,17 +31,22 @@ void EOLSkipMarks (PTR paramFirst, int* i, PTR paramSecond, int* j);
 ///          Comparator (sFirst, sSecond);
 /// @endcode
 //}
-
 int Comparator (PTR paramFirst, PTR paramSecond);
+
+int EOLComparator (PTR paramFirst, PTR paramSecond);
+
+void SkipMarks (PTR paramFirst, int* i, PTR paramSecond, int* j);
+
+void EOLSkipMarks (PTR paramFirst, int* i, PTR paramSecond, int* j);
+
+void Swapping (PTR* paramFirst, PTR* paramSecond);
 
 void Print (PTR paramString);
 
-void InputOnegin (char** Onegin, size_t* sizeofFile);
+void OutputText (PTR* Pointers, int Pointer, FILE* file);
 
-void CounterRow (int* nRow, char* Onegin, size_t sizeOfFile);
 
-void InitialisatorPointers (size_t sizeOfFile, PTR* Pointers, char* Onegin, struct PTR* ParamString, int* nPointer);
 
-void EOLSorting (PTR* Pointers, int nPointer);
 
-int EOLComparator (PTR paramFirst, PTR paramSecond);
+
+
