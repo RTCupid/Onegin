@@ -51,9 +51,9 @@ int main ()
 
     OutputText (Pointers, nPointer,file);                            // toupper dobavit + znaki propuskat (est)+
 
-    qsort (Pointers, nPointer,sizeof (PTR), EOLComparator);
+    //qsort (Pointers, nPointer,sizeof (PTR), EOLComparator);
 
-    //Sorting (Pointers, nPointer, EOLComparator);
+    Sorting (Pointers, nPointer, EOLComparator);
 
     OutputText (Pointers, nPointer, file);
 

@@ -25,16 +25,17 @@ void Sorting (PTR* Pointers, int nPointer, Compare_func_t CmpFnc)
             assert (elem < nPointer - 1);
 
             int result = CmpFnc ((const void*)(Pointers + elem), (const void*)(Pointers + elem + 1));
+            printf ("result = %d\n", result);
             if (result > 0)                                          // тогда замена строк между собой
                 {
                 printf ("Swapping:\n");
                 Print (Pointers[elem]);
-                printf ("and");
+                printf ("and\n");
                 Print (Pointers[elem + 1]);
                 Swapping (&Pointers[elem], &Pointers[elem + 1]);
                 printf ("After swapping:\n");
                 Print (Pointers[elem]);
-                printf ("and");
+                printf ("and\n");
                 Print (Pointers[elem + 1]);
                 }
             printf ("\n");
@@ -75,7 +76,7 @@ int Comparator (const void* voidParamFirst, const void* voidParamSecond)
         if (toupper(*(paramFirst.PtrStart + i)) != toupper(*(paramSecond.PtrStart + j)))
                 break;
         }
-    printf ("return %d\n", (toupper(*paramFirst.PtrStart + i)) - toupper(*(paramSecond.PtrStart + j)));
+    printf ("return *(paramFirst.PtrStart + %d) - *(paramSecond.PtrStart + %d) = %d\n", i, j, toupper(*(paramFirst.PtrStart + i)) - toupper(*(paramSecond.PtrStart + j)));
     return toupper(*(paramFirst.PtrStart + i)) - toupper(*(paramSecond.PtrStart + j));
     }
 
@@ -86,7 +87,7 @@ int EOLComparator (const void* voidParamFirst, const void* voidParamSecond)
     const PTR paramFirst  = *((const PTR*)voidParamFirst );
     const PTR paramSecond = *((const PTR*)voidParamSecond);
 
-    printf ("Comparing:\n");
+    printf ("EOLComparing:\n");
     Print (paramFirst);
     printf ("Vs:\n");
     Print (paramSecond);
@@ -96,6 +97,9 @@ int EOLComparator (const void* voidParamFirst, const void* voidParamSecond)
 
     SkipMarks (paramFirst,  &i, EOL);
     SkipMarks (paramSecond, &j, EOL);
+
+    printf ("paramFirst.lenString  = <%d>\n", paramFirst.lenString );
+    printf ("paramSecond.lenstring = <%d>\n", paramSecond.lenString);
 
     while (1)
         {
@@ -108,8 +112,8 @@ int EOLComparator (const void* voidParamFirst, const void* voidParamSecond)
         i--;
         j--;
         }
-    printf ("return *(paramFirst.PtrStart + i) - *(paramSecond.PtrStart + j) = %d\n", *(paramFirst.PtrStart + i) - *(paramSecond.PtrStart + j));
-    return *(paramFirst.PtrStart + i) - *(paramSecond.PtrStart + j);
+    printf ("return *(paramFirst.PtrStart + %d) - *(paramSecond.PtrStart + %d) = %d\n", i, j, toupper(*(paramFirst.PtrStart + i)) - toupper(*(paramSecond.PtrStart + j)));
+    return toupper(*(paramFirst.PtrStart + i)) - toupper(*(paramSecond.PtrStart + j));
     }
 
 // функция вывода строки по её структуре.......................................
