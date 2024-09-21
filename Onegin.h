@@ -9,7 +9,7 @@ struct PTR  {
             int lenString;
             };
 
-typedef int (*Compare_func_t)(const void* paramFirst, const void* paramSecond);
+typedef int (*Compare_func_t)(const void*, const void*);
 
 int MakePointers (char** Onegin, size_t* sizeOfFile, int* nPointer, PTR** Pointers, PTR* ParamString, const char* namefile);
 

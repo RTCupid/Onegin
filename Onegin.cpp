@@ -11,7 +11,8 @@
 
 #include "Onegin.h"
 
-typedef int (*Compare_func_t)(const void*, const void*);
+typedef int  (*Compare_func_t )(const void*, const void*);
+typedef void (*Swapping_func_t)(const void*, const void*);
 
 int main ()
     {

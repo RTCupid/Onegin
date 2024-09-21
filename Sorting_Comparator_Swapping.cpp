@@ -9,8 +9,6 @@
 const int EOL = -1;
 const int SOL =  1;
 
-typedef const void* cvoid;
-
 // функция сортировки строчек по алфавиту......................................
 
 void Sorting (void* Pointers, int nPointer, size_t sizeElem, Compare_func_t CmpFnc)
