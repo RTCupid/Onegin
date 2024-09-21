@@ -44,17 +44,21 @@ int main ()
 
     Sorting (Pointers, nPointer, sizeof (PTR), Comparator);
 
-    printf ("After Sorting\n\n");
-    Print (Pointers[2]);
-    Print (Pointers[3]);
+    DBG printf ("After Sorting\n\n");
+    DBG Print (Pointers[2]);
+    DBG Print (Pointers[3]);
 
     FILE* file = fopen ("InputOnegin.txt", "w");
+
+    printf ("Sorted text:..............................................................................................\n\n");
 
     OutputText (Pointers, nPointer,file);                            // toupper dobavit + znaki propuskat (est)+
 
     //qsort (Pointers, nPointer,sizeof (PTR), EOLComparator);
 
     Sorting (Pointers, nPointer, sizeof (PTR), EOLComparator);
+
+    printf ("EOLSorted text:...........................................................................................\n\n");
 
     OutputText (Pointers, nPointer, file);
 
@@ -86,7 +90,7 @@ int MakePointers (char** Onegin, size_t* sizeOfFile, int* nPointer, PTR** Pointe
 
     InitialisatorPointers (*sizeOfFile, *Pointers, *Onegin, ParamString, nPointer);
 
-    printf ("nPointer = <%d>\n", *nPointer);
+    DBG printf ("nPointer = <%d>\n", *nPointer);
 
     return 1;
     }
@@ -122,7 +126,7 @@ void InputOnegin (char** Onegin, size_t* sizeOfFile, const char* nameFile)
 
     fclose (file);                                                   // закрываю файл
 
-    printf ("sizeOfFile = <%zu>\n\n", *sizeOfFile);
+    DBG printf ("sizeOfFile = <%zu>\n\n", *sizeOfFile);
     }
 
 // функция определения размера файла с помощью стата
@@ -133,8 +137,8 @@ void SizeFile (struct stat* fileInf, const char* nameFile)
     if (err != 0)
         printf("Stat err %d\n", err);
 
-    printf ("\n%ld\n", (*fileInf).st_size);
-    printf ("count of char = %ld\n", (*fileInf).st_size / sizeof (char));
+    DBG printf ("\n%ld\n", (*fileInf).st_size);
+    DBG printf ("count of char = %ld\n", (*fileInf).st_size / sizeof (char));
     }
 
 // считает количество строк, чтобы каллокнуть массив указателей
@@ -145,14 +149,14 @@ void CounterSymbol (int* nRows, char* Onegin, size_t sizeOfFile, char symbol)
         {                                                            // точно, я не просто вывожу, а параллельно считаю количество
         if (Onegin[i] == symbol)                                     // строк, равное кличеству '\n'
             {
-            printf ("Onegin[%d] = <'%c'>\n", i, symbol);
+            DBG printf ("Onegin[%d] = <'%c'>\n", i, symbol);
             *nRows = *nRows + 1;
             }
         else
-            printf ("Onegin[%d] = <%c>\n", i, Onegin[i]);
+            DBG printf ("Onegin[%d] = <%c>\n", i, Onegin[i]);
         }
 
-    printf ("nRow = <%d>\n", *nRows);
+    DBG printf ("nRow = <%d>\n", *nRows);
     }
 
 // ф-я инициализирует массив указателей
@@ -161,8 +165,8 @@ void InitialisatorPointers (size_t sizeOfFile, PTR* Pointers, char* Onegin, stru
     {
     printf ("\nInitialization of Pointers:\n\n");
 
-    printf ("&ParamString = <%p>\n", ParamString);
-    printf ("&Pointers    = <%p>\n", Pointers);
+    DBG printf ("&ParamString = <%p>\n", ParamString);
+    DBG printf ("&Pointers    = <%p>\n", Pointers);
 
     ParamString->PtrStart = Onegin;
 
@@ -177,7 +181,7 @@ void InitialisatorPointers (size_t sizeOfFile, PTR* Pointers, char* Onegin, stru
             }
         }
 
-    printf ("nPointer = <%d>\n", *nPointer);
+    DBG printf ("nPointer = <%d>\n", *nPointer);
     }
 
 // функция вывода текста по массиву структур...................................
@@ -198,7 +202,9 @@ void OutputText (PTR* Pointers, int nPointer, FILE* file)
 
 // write original text.........................................................
 
-void WriteTheOriginalOfPushkinGreatestPoemEugeneOnegin (char* Onegin, FILE* file)
+void WriteTheOriginalOfPushkin\
+GreatestPoem\
+EugeneOnegin (char* Onegin, FILE* file)
     {
     fputs (Onegin, file);
     }

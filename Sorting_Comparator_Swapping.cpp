@@ -18,26 +18,26 @@ void Sorting (void* Pointers, int nPointer, size_t sizeElem, Compare_func_t CmpF
         assert (i < nPointer);
         for (int elem = 0; elem < nPointer - 1; elem++)
             {
-            printf ("elem = <%d>\n", elem);
-            printf ("nPointer = <%d>\n", nPointer);
+            DBG printf ("elem = <%d>\n", elem);
+            DBG printf ("nPointer = <%d>\n", nPointer);
             assert (elem < nPointer - 1);
 
             int result = CmpFnc ((const void*)((char*)Pointers + elem * sizeElem), (const void*)((char*)Pointers + (elem + 1) * sizeElem));
-            printf ("result = %d\n", result);
+            DBG printf ("result = %d\n", result);
 
             if (result > 0)                                          // тогда замена строк между собой
                 {
-                printf ("Swapping:\n");
-                Print (*((PTR*)Pointers + elem));
-                printf ("and\n");
-                Print (*((PTR*)Pointers + elem + 1));
+                DBG printf ("Swapping:\n");
+                DBG Print (*((PTR*)Pointers + elem));
+                DBG printf ("and\n");
+                DBG Print (*((PTR*)Pointers + elem + 1));
                 SwappingPTR ((PTR*)Pointers + elem, (PTR*)Pointers + elem + 1);
-                printf ("After swapping:\n");
-                Print (*((PTR*)Pointers + elem));
-                printf ("and\n");
-                Print (*((PTR*)Pointers + elem + 1));
+                DBG printf ("After swapping:\n");
+                DBG Print (*((PTR*)Pointers + elem));
+                DBG printf ("and\n");
+                DBG Print (*((PTR*)Pointers + elem + 1));
                 }
-            printf ("\n");
+            DBG printf ("\n");
             }
         }
     }
@@ -49,10 +49,10 @@ int Comparator (const void* voidParamFirst, const void* voidParamSecond)
     const PTR paramFirst  = *((const PTR*)voidParamFirst );
     const PTR paramSecond = *((const PTR*)voidParamSecond);
 
-    printf ("Comparing:\n");
-    Print (paramFirst );
-    printf ("Vs:\n");
-    Print (paramSecond);
+    DBG printf ("Comparing:\n");
+    DBG Print (paramFirst );
+    DBG printf ("Vs:\n");
+    DBG Print (paramSecond);
 
     int i = 0;                                                       // Index for First  String
     int j = 0;                                                       // Index for Second String
@@ -60,22 +60,22 @@ int Comparator (const void* voidParamFirst, const void* voidParamSecond)
     SkipMarks (paramFirst , &i, SOL);
     SkipMarks (paramSecond, &j, SOL);
 
-    printf ("paramFirst.lenString  = <%d>\n", paramFirst.lenString );
-    printf ("paramSecond.lenstring = <%d>\n", paramSecond.lenString);
+    DBG printf ("paramFirst.lenString  = <%d>\n", paramFirst.lenString );
+    DBG printf ("paramSecond.lenstring = <%d>\n", paramSecond.lenString);
 
     for (; i < paramFirst.lenString && j < paramSecond.lenString; j++, i++)
         {
         assert (i < paramFirst.lenString );
         assert (j < paramSecond.lenString);
-        printf ("<%c> Vs <%c> | <%d> Vs <%d>\n",*(paramFirst.PtrStart + i),
-                                                *(paramSecond.PtrStart + j),
-                                                *(paramFirst.PtrStart + i),
-                                                *(paramSecond.PtrStart + j));
+        DBG printf ("<%c> Vs <%c> | <%d> Vs <%d>\n",*(paramFirst.PtrStart + i ),
+                                                    *(paramSecond.PtrStart + j),
+                                                    *(paramFirst.PtrStart + i ),
+                                                    *(paramSecond.PtrStart + j));
 
         if (toupper(*(paramFirst.PtrStart + i)) != toupper(*(paramSecond.PtrStart + j)))
                 break;
         }
-    printf ("return *(paramFirst.PtrStart + %d) - *(paramSecond.PtrStart + %d) = %d\n", i, j, toupper(*(paramFirst.PtrStart + i)) - toupper(*(paramSecond.PtrStart + j)));
+    DBG printf ("return *(paramFirst.PtrStart + %d) - *(paramSecond.PtrStart + %d) = %d\n", i, j, toupper(*(paramFirst.PtrStart + i)) - toupper(*(paramSecond.PtrStart + j)));
     return toupper(*(paramFirst.PtrStart + i)) - toupper(*(paramSecond.PtrStart + j));
     }
 
@@ -86,10 +86,10 @@ int EOLComparator (const void* voidParamFirst, const void* voidParamSecond)
     const PTR paramFirst  = *((const PTR*)voidParamFirst );
     const PTR paramSecond = *((const PTR*)voidParamSecond);
 
-    printf ("EOLComparing:\n");
-    Print (paramFirst);
-    printf ("Vs:\n");
-    Print (paramSecond);
+    DBG printf ("EOLComparing:\n");
+    DBG Print (paramFirst);
+    DBG printf ("Vs:\n");
+    DBG Print (paramSecond);
 
     int i = paramFirst.lenString;
     int j = paramSecond.lenString;
@@ -97,12 +97,12 @@ int EOLComparator (const void* voidParamFirst, const void* voidParamSecond)
     SkipMarks (paramFirst,  &i, EOL);
     SkipMarks (paramSecond, &j, EOL);
 
-    printf ("paramFirst.lenString  = <%d>\n", paramFirst.lenString );
-    printf ("paramSecond.lenstring = <%d>\n", paramSecond.lenString);
+    DBG printf ("paramFirst.lenString  = <%d>\n", paramFirst.lenString );
+    DBG printf ("paramSecond.lenstring = <%d>\n", paramSecond.lenString);
 
     while (1)
         {
-        printf ("<%c> Vs <%c> | <%d> Vs <%d>\n", *(paramFirst.PtrStart + i), *(paramSecond.PtrStart + j), *(paramFirst.PtrStart + i), *(paramSecond.PtrStart + j));
+        DBG printf ("<%c> Vs <%c> | <%d> Vs <%d>\n", *(paramFirst.PtrStart + i), *(paramSecond.PtrStart + j), *(paramFirst.PtrStart + i), *(paramSecond.PtrStart + j));
 
         if (toupper (*(paramFirst.PtrStart + i)) != toupper (*(paramSecond.PtrStart + j)) || i == 0 || j == 0)
             {
@@ -111,7 +111,7 @@ int EOLComparator (const void* voidParamFirst, const void* voidParamSecond)
         i--;
         j--;
         }
-    printf ("return *(paramFirst.PtrStart + %d) - *(paramSecond.PtrStart + %d) = %d\n", i, j, toupper(*(paramFirst.PtrStart + i)) - toupper(*(paramSecond.PtrStart + j)));
+    DBG printf ("return *(paramFirst.PtrStart + %d) - *(paramSecond.PtrStart + %d) = %d\n", i, j, toupper(*(paramFirst.PtrStart + i)) - toupper(*(paramSecond.PtrStart + j)));
     return toupper(*(paramFirst.PtrStart + i)) - toupper(*(paramSecond.PtrStart + j));
     }
 
@@ -119,7 +119,7 @@ int EOLComparator (const void* voidParamFirst, const void* voidParamSecond)
 
 void Print (PTR paramFirst)
     {
-    printf ("lenString = <%d>\n", paramFirst.lenString);
+    DBG printf ("lenString = <%d>\n", paramFirst.lenString);
     for (int j = 0; j <= paramFirst.lenString; j++)
         {
         assert (j <= paramFirst.lenString);
@@ -140,10 +140,10 @@ void SkipMarks (PTR paramString, int* i, int deltai)
 
 void SwappingPTR (PTR* paramFirst, PTR* paramSecond)
     {
-    printf ("in function Swapping:\n");
-    Print (*paramFirst );
-    printf ("and\n");
-    Print (*paramSecond);
+    DBG printf ("in function Swapping:\n");
+    DBG Print (*paramFirst );
+    DBG printf ("and\n");
+    DBG Print (*paramSecond);
 
     char* ptrSwapp = paramFirst->PtrStart ;
     int   lenSwapp = paramFirst->lenString;

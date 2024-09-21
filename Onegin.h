@@ -11,6 +11,8 @@ struct PTR  {
 
 typedef int (*Compare_func_t)(const void*, const void*);
 
+#define DBG if (0)
+
 int MakePointers (char** Onegin, size_t* sizeOfFile, int* nPointer, PTR** Pointers, PTR* ParamString, const char* namefile);
 
 void InputOnegin (char** Onegin, size_t* sizeofFile, const char* nameFile);
