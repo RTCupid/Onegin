@@ -9,9 +9,10 @@ struct PTR  {
             int lenString;
             };
 
-typedef int (*Compare_func_t)(const void*, const void*);
+typedef int  (*Compare_func_t)(const void*, const void*);
+typedef void (*Swapping_func_t)(void*, void*);
 
-#define DBG if (0)
+#define DBG if (1)
 
 int MakePointers (char** Onegin, size_t* sizeOfFile, int* nPointer, PTR** Pointers, PTR* ParamString, const char* namefile);
 
@@ -23,7 +24,7 @@ void CounterSymbol (int* nRow, char* Onegin, size_t sizeOfFile, char symbol);
 
 void InitialisatorPointers (size_t sizeOfFile, PTR* Pointers, char* Onegin, struct PTR* ParamString, int* nPointer);
 
-void Sorting (void* Pointers, int nPointer, size_t sizeElem, Compare_func_t CmpFnc);
+void Sorting (void* Pointers, int nPointer, size_t sizeElem, Compare_func_t CmpFnc, Swapping_func_t SwpFnc);
 
 //{
 /// @brief   Comparator - функция, которая сравнивает две строки
@@ -46,7 +47,7 @@ int EOLComparator (const void* paramFirst, const void* paramSecond);
 
 void SkipMarks (const PTR paramString, int* i, int deltai);
 
-void SwappingPTR (PTR* paramFirst, PTR* paramSecond);
+void SwappingPTR (void* voidParamFirst, void* voidParamSecond);
 
 void Print (const PTR paramString);
 

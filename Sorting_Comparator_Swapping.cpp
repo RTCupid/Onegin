@@ -11,7 +11,7 @@ const int SOL =  1;
 
 // функция сортировки строчек по алфавиту......................................
 
-void Sorting (void* Pointers, int nPointer, size_t sizeElem, Compare_func_t CmpFnc)
+void Sorting (void* Pointers, int nPointer, size_t sizeElem, Compare_func_t CmpFnc, Swapping_func_t SwpFnc)
     {
     for (int i = 0; i < nPointer; i++)
         {
@@ -31,7 +31,7 @@ void Sorting (void* Pointers, int nPointer, size_t sizeElem, Compare_func_t CmpF
                 DBG Print (*((PTR*)Pointers + elem));
                 DBG printf ("and\n");
                 DBG Print (*((PTR*)Pointers + elem + 1));
-                SwappingPTR ((PTR*)Pointers + elem, (PTR*)Pointers + elem + 1);
+                SwpFnc ((void*)((char*)Pointers + elem * sizeElem), (void*)((char*)Pointers + (elem + 1) * sizeElem));
                 DBG printf ("After swapping:\n");
                 DBG Print (*((PTR*)Pointers + elem));
                 DBG printf ("and\n");
@@ -138,8 +138,11 @@ void SkipMarks (PTR paramString, int* i, int deltai)
 
 // функция обмена строк........................................................
 
-void SwappingPTR (PTR* paramFirst, PTR* paramSecond)
+void SwappingPTR (void* voidParamFirst, void* voidParamSecond)
     {
+    PTR* paramFirst  = (PTR*)voidParamFirst ;
+    PTR* paramSecond = (PTR*)voidParamSecond;
+
     DBG printf ("in function Swapping:\n");
     DBG Print (*paramFirst );
     DBG printf ("and\n");

@@ -12,7 +12,7 @@
 #include "Onegin.h"
 
 typedef int  (*Compare_func_t )(const void*, const void*);
-typedef void (*Swapping_func_t)(const void*, const void*);
+typedef void (*Swapping_func_t)(void*, void*);
 
 int main ()
     {
@@ -42,7 +42,7 @@ int main ()
 
     //qsort (Pointers, nPointer,sizeof (PTR), Comparator);
 
-    Sorting (Pointers, nPointer, sizeof (PTR), Comparator);
+    Sorting (Pointers, nPointer, sizeof (PTR), Comparator, SwappingPTR);
 
     DBG printf ("After Sorting\n\n");
     DBG Print (Pointers[2]);
@@ -56,9 +56,9 @@ int main ()
 
     //qsort (Pointers, nPointer,sizeof (PTR), EOLComparator);
 
-    Sorting (Pointers, nPointer, sizeof (PTR), EOLComparator);
+    Sorting (Pointers, nPointer, sizeof (PTR), EOLComparator, SwappingPTR);
 
-    printf ("EOLSorted text:...........................................................................................\n\n");
+    printf ("\nEOLSorted text:...........................................................................................\n\n");
 
     OutputText (Pointers, nPointer, file);
 
@@ -157,7 +157,7 @@ void CounterSymbol (int* nRows, char* Onegin, size_t sizeOfFile, char symbol)
     {
     for (unsigned int i = 0; i < sizeOfFile; i++)                    // посимвольно зачем-то вывожу начальный текст Онегина
         {                                                            // точно, я не просто вывожу, а параллельно считаю количество
-        assert (i < sizeofFile);
+        assert (i < sizeOfFile);
 
         if (Onegin[i] == symbol)                                     // строк, равное кличеству '\n'
             {
@@ -175,7 +175,7 @@ void CounterSymbol (int* nRows, char* Onegin, size_t sizeOfFile, char symbol)
 
 void InitialisatorPointers (size_t sizeOfFile, PTR* Pointers, char* Onegin, struct PTR* ParamString , int* nPointer)
     {
-    printf ("\nInitialization of Pointers:\n\n");
+    DBG printf ("\nInitialization of Pointers:\n\n");
 
     DBG printf ("&ParamString = <%p>\n", ParamString);
     DBG printf ("&Pointers    = <%p>\n", Pointers);
@@ -207,7 +207,7 @@ void OutputText (PTR* Pointers, int nPointer, FILE* file)
         assert (i < nPointer);
 
         Print (Pointers[i]);
-        printf ("\n");
+        DBG printf ("\n");
 
         fwrite ((Pointers[i]).PtrStart, (Pointers[i]).lenString + 2, sizeof(char), file);
         }
