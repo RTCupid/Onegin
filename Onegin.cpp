@@ -31,7 +31,7 @@ int main ()
 
     MakePointers (&Onegin, &sizeOfFile, &nPointer, &Pointers, &ParamString, nameFile); // make PTR* Pointers and his param+
 
-    qsort (Pointers, sizeof (PTR), nPointer, Comparator);
+    qsort (Pointers, nPointer,sizeof (PTR), Comparator);
 
     //Sorting (Pointers, nPointer, Comparator);
 
@@ -43,7 +43,9 @@ int main ()
 
     OutputText (Pointers, nPointer,file);                            // toupper dobavit + znaki propuskat (est)+
 
-    Sorting (Pointers, nPointer, EOLComparator);
+    qsort (Pointers, nPointer,sizeof (PTR), EOLComparator);
+
+    //Sorting (Pointers, nPointer, EOLComparator);
 
     OutputText (Pointers, nPointer, file);
 

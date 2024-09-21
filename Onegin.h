@@ -40,7 +40,7 @@ void Sorting (PTR* Pointers, int nPointer, Compare_func_t CmpFnc);
 //}
 int Comparator (const void* voidParamFirst, const void* voidParamSecond);
 
-int EOLComparator (PTR paramFirst, PTR paramSecond);
+int EOLComparator (const void* paramFirst, const void* paramSecond);
 
 void SkipMarks (const PTR paramString, int* i, int deltai);
 

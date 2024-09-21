@@ -81,8 +81,11 @@ int Comparator (const void* voidParamFirst, const void* voidParamSecond)
 
 // компаратор по концу строки..................................................
 
-int EOLComparator (PTR paramFirst, PTR paramSecond)
+int EOLComparator (const void* voidParamFirst, const void* voidParamSecond)
     {
+    const PTR paramFirst  = *((const PTR*)voidParamFirst );
+    const PTR paramSecond = *((const PTR*)voidParamSecond);
+
     printf ("Comparing:\n");
     Print (paramFirst);
     printf ("Vs:\n");
