@@ -12,7 +12,7 @@ struct PTR  {
 typedef int  (*Compare_func_t)(const void*, const void*);
 typedef void (*Swapping_func_t)(void*, void*);
 
-#define DBG if (1)
+#define DBG if (0)
 
 int MakePointers (char** Onegin, size_t* sizeOfFile, int* nPointer, PTR** Pointers, PTR* ParamString, const char* namefile);
 
