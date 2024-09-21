@@ -4,6 +4,7 @@
 #include <assert.h>
 #include <ctype.h>
 
+
 #include "Onegin.h"
 
 const int EOL = -1;
@@ -13,29 +14,32 @@ const int SOL =  1;
 
 void Sorting (void* Pointers, int nPointer, size_t sizeElem, Compare_func_t CmpFnc, Swapping_func_t SwpFnc)
     {
+    DBG printf ("nPointer = <%d>\n", nPointer);
     for (int i = 0; i < nPointer; i++)
         {
+        DBG printf ("i = <%d>\nnPointer = <%d>", i, nPointer);
         assert (i < nPointer);
         for (int elem = 0; elem < nPointer - 1; elem++)
             {
             DBG printf ("elem = <%d>\n", elem);
             DBG printf ("nPointer = <%d>\n", nPointer);
-            assert (elem < nPointer - 1);
 
+            assert (elem < nPointer - 1);
+            DBG printf ("Pointers = <%p>\n", Pointers);
             int result = CmpFnc ((const void*)((char*)Pointers + elem * sizeElem), (const void*)((char*)Pointers + (elem + 1) * sizeElem));
             DBG printf ("result = %d\n", result);
 
             if (result > 0)                                          // тогда замена строк между собой
                 {
-                DBG printf ("Swapping:\n");
-                DBG Print (*((PTR*)Pointers + elem));
-                DBG printf ("and\n");
-                DBG Print (*((PTR*)Pointers + elem + 1));
+                DBGPTR printf ("Swapping:\n");
+                DBGPTR Print (*((PTR*)Pointers + elem));
+                DBGPTR printf ("and\n");
+                DBGPTR Print (*((PTR*)Pointers + elem + 1));
                 SwpFnc ((void*)((char*)Pointers + elem * sizeElem), (void*)((char*)Pointers + (elem + 1) * sizeElem));
-                DBG printf ("After swapping:\n");
-                DBG Print (*((PTR*)Pointers + elem));
-                DBG printf ("and\n");
-                DBG Print (*((PTR*)Pointers + elem + 1));
+                DBGPTR printf ("After swapping:\n");
+                DBGPTR Print (*((PTR*)Pointers + elem));
+                DBGPTR printf ("and\n");
+                DBGPTR Print (*((PTR*)Pointers + elem + 1));
                 }
             DBG printf ("\n");
             }
@@ -46,6 +50,9 @@ void Sorting (void* Pointers, int nPointer, size_t sizeElem, Compare_func_t CmpF
 
 int Comparator (const void* voidParamFirst, const void* voidParamSecond)
     {
+    DBG printf ("Start comparator\n");
+    DBG printf ("(const PTR*)voidParamFirst = <%p>\n", (const PTR*)voidParamFirst);
+
     const PTR paramFirst  = *((const PTR*)voidParamFirst );
     const PTR paramSecond = *((const PTR*)voidParamSecond);
 

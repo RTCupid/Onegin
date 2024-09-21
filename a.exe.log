@@ -1075,3 +1075,983 @@ Run file:	C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe
 Directory:	C:\Users\artym\Desktop\новые коды\Onegin\Onegin
 
 --------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00458E69. Попытка прочесть данные по адресу 0x00000004 в модуле C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x0057A69C (32-bit), Flags: Cmdre0, Thread: 0xDB4 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\artym\desktop\новая папка\codeblocks\mingw\include\txlib.h
+Compiled:	Sep 21 2024 22:45:23, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Sep 21 2024 22:45:50
+
+Run file:	C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe
+Directory:	C:\Users\artym\Desktop\новые коды\Onegin\Onegin
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00458E69. Попытка прочесть данные по адресу 0x00000004 в модуле C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x0057A69C (32-bit), Flags: Cmdre0, Thread: 0xDB4 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\artym\desktop\новая папка\codeblocks\mingw\include\txlib.h
+Compiled:	Sep 21 2024 22:45:23, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Sep 21 2024 22:45:50
+
+Run file:	C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe
+Directory:	C:\Users\artym\Desktop\новые коды\Onegin\Onegin
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00458E75. Попытка прочесть данные по адресу 0x00000004 в модуле C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x0057A69C (32-bit), Flags: Cmdre0, Thread: 0x419C (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\artym\desktop\новая папка\codeblocks\mingw\include\txlib.h
+Compiled:	Sep 21 2024 22:47:43, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Sep 21 2024 22:48:06
+
+Run file:	C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe
+Directory:	C:\Users\artym\Desktop\новые коды\Onegin\Onegin
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00458E75. Попытка прочесть данные по адресу 0x00000004 в модуле C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x0057A69C (32-bit), Flags: Cmdre0, Thread: 0x419C (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\artym\desktop\новая папка\codeblocks\mingw\include\txlib.h
+Compiled:	Sep 21 2024 22:47:43, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Sep 21 2024 22:48:06
+
+Run file:	C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe
+Directory:	C:\Users\artym\Desktop\новые коды\Onegin\Onegin
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00458E88. Попытка прочесть данные по адресу 0x00000004 в модуле C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x0057A69C (32-bit), Flags: Cmdre0, Thread: 0x3E2C (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\artym\desktop\новая папка\codeblocks\mingw\include\txlib.h
+Compiled:	Sep 21 2024 22:51:04, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Sep 21 2024 22:51:42
+
+Run file:	C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe
+Directory:	C:\Users\artym\Desktop\новые коды\Onegin\Onegin
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00458E88. Попытка прочесть данные по адресу 0x00000004 в модуле C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x0057A69C (32-bit), Flags: Cmdre0, Thread: 0x3E2C (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\artym\desktop\новая папка\codeblocks\mingw\include\txlib.h
+Compiled:	Sep 21 2024 22:51:04, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Sep 21 2024 22:51:43
+
+Run file:	C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe
+Directory:	C:\Users\artym\Desktop\новые коды\Onegin\Onegin
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00458E9B. Попытка прочесть данные по адресу 0x00000004 в модуле C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x0057A69C (32-bit), Flags: Cmdre0, Thread: 0x52E4 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\artym\desktop\новая папка\codeblocks\mingw\include\txlib.h
+Compiled:	Sep 21 2024 22:58:17, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Sep 21 2024 22:58:40
+
+Run file:	C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe
+Directory:	C:\Users\artym\Desktop\новые коды\Onegin\Onegin
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00458E9B. Попытка прочесть данные по адресу 0x00000004 в модуле C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x0057A69C (32-bit), Flags: Cmdre0, Thread: 0x52E4 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\artym\desktop\новая папка\codeblocks\mingw\include\txlib.h
+Compiled:	Sep 21 2024 22:58:17, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Sep 21 2024 22:58:40
+
+Run file:	C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe
+Directory:	C:\Users\artym\Desktop\новые коды\Onegin\Onegin
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00458EAF. Попытка прочесть данные по адресу 0x00000004 в модуле C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x0057A69C (32-bit), Flags: Cmdre0, Thread: 0x3C90 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\artym\desktop\новая папка\codeblocks\mingw\include\txlib.h
+Compiled:	Sep 21 2024 22:58:17, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Sep 21 2024 23:01:04
+
+Run file:	C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe
+Directory:	C:\Users\artym\Desktop\новые коды\Onegin\Onegin
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00458EAF. Попытка прочесть данные по адресу 0x00000004 в модуле C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x0057A69C (32-bit), Flags: Cmdre0, Thread: 0x3C90 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\artym\desktop\новая папка\codeblocks\mingw\include\txlib.h
+Compiled:	Sep 21 2024 22:58:17, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Sep 21 2024 23:01:04
+
+Run file:	C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe
+Directory:	C:\Users\artym\Desktop\новые коды\Onegin\Onegin
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00458ED7. Попытка прочесть данные по адресу 0x00000004 в модуле C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x0057A69C (32-bit), Flags: Cmdre0, Thread: 0x43F0 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\artym\desktop\новая папка\codeblocks\mingw\include\txlib.h
+Compiled:	Sep 21 2024 22:58:17, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Sep 21 2024 23:03:48
+
+Run file:	C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe
+Directory:	C:\Users\artym\Desktop\новые коды\Onegin\Onegin
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00458ED7. Попытка прочесть данные по адресу 0x00000004 в модуле C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x0057A69C (32-bit), Flags: Cmdre0, Thread: 0x43F0 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\artym\desktop\новая папка\codeblocks\mingw\include\txlib.h
+Compiled:	Sep 21 2024 22:58:17, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Sep 21 2024 23:03:48
+
+Run file:	C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe
+Directory:	C:\Users\artym\Desktop\новые коды\Onegin\Onegin
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x0042C9AC. Попытка записать данные по адресу NULL в модуле C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x0057A69C (32-bit), Flags: Cmdre0, Thread: 0x146C (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\artym\desktop\новая папка\codeblocks\mingw\include\txlib.h
+Compiled:	Sep 21 2024 23:09:05, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Sep 21 2024 23:09:28
+
+Run file:	C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe
+Directory:	C:\Users\artym\Desktop\новые коды\Onegin\Onegin
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x0042C9AC. Попытка записать данные по адресу NULL в модуле C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x0057A69C (32-bit), Flags: Cmdre0, Thread: 0x146C (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\artym\desktop\новая папка\codeblocks\mingw\include\txlib.h
+Compiled:	Sep 21 2024 23:09:05, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Sep 21 2024 23:09:28
+
+Run file:	C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe
+Directory:	C:\Users\artym\Desktop\новые коды\Onegin\Onegin
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x0042C9A9. Попытка записать данные по адресу NULL в модуле C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x0057A69C (32-bit), Flags: Cmdre0, Thread: 0x1170 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\artym\desktop\новая папка\codeblocks\mingw\include\txlib.h
+Compiled:	Sep 21 2024 23:09:05, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Sep 21 2024 23:12:27
+
+Run file:	C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe
+Directory:	C:\Users\artym\Desktop\новые коды\Onegin\Onegin
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x0042C9A9. Попытка записать данные по адресу NULL в модуле C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x0057A69C (32-bit), Flags: Cmdre0, Thread: 0x1170 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\artym\desktop\новая папка\codeblocks\mingw\include\txlib.h
+Compiled:	Sep 21 2024 23:09:05, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Sep 21 2024 23:12:27
+
+Run file:	C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe
+Directory:	C:\Users\artym\Desktop\новые коды\Onegin\Onegin
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00458EE7. Попытка прочесть данные по адресу 0x00000004 в модуле C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x0057A69C (32-bit), Flags: Cmdre0, Thread: 0x55E8 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\artym\desktop\новая папка\codeblocks\mingw\include\txlib.h
+Compiled:	Sep 21 2024 23:16:06, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Sep 21 2024 23:16:29
+
+Run file:	C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe
+Directory:	C:\Users\artym\Desktop\новые коды\Onegin\Onegin
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00458EE7. Попытка прочесть данные по адресу 0x00000004 в модуле C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x0057A69C (32-bit), Flags: Cmdre0, Thread: 0x55E8 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\artym\desktop\новая папка\codeblocks\mingw\include\txlib.h
+Compiled:	Sep 21 2024 23:16:06, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Sep 21 2024 23:16:29
+
+Run file:	C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe
+Directory:	C:\Users\artym\Desktop\новые коды\Onegin\Onegin
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00458EE3. Попытка прочесть данные по адресу 0x00000004 в модуле C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x0057A69C (32-bit), Flags: Cmdre0, Thread: 0x263C (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\artym\desktop\новая папка\codeblocks\mingw\include\txlib.h
+Compiled:	Sep 21 2024 23:16:06, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Sep 21 2024 23:19:09
+
+Run file:	C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe
+Directory:	C:\Users\artym\Desktop\новые коды\Onegin\Onegin
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00458EE3. Попытка прочесть данные по адресу 0x00000004 в модуле C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x0057A69C (32-bit), Flags: Cmdre0, Thread: 0x263C (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\artym\desktop\новая папка\codeblocks\mingw\include\txlib.h
+Compiled:	Sep 21 2024 23:16:06, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Sep 21 2024 23:19:09
+
+Run file:	C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe
+Directory:	C:\Users\artym\Desktop\новые коды\Onegin\Onegin
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x0042C9AC. Попытка записать данные по адресу 0x004FC87F в модуле C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x0057A69C (32-bit), Flags: Cmdre0, Thread: 0x2BF8 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\artym\desktop\новая папка\codeblocks\mingw\include\txlib.h
+Compiled:	Sep 21 2024 23:22:30, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Sep 21 2024 23:22:54
+
+Run file:	C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe
+Directory:	C:\Users\artym\Desktop\новые коды\Onegin\Onegin
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x0042C9AC. Попытка записать данные по адресу 0x004FC87F в модуле C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x0057A69C (32-bit), Flags: Cmdre0, Thread: 0x2BF8 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\artym\desktop\новая папка\codeblocks\mingw\include\txlib.h
+Compiled:	Sep 21 2024 23:22:30, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Sep 21 2024 23:22:54
+
+Run file:	C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe
+Directory:	C:\Users\artym\Desktop\новые коды\Onegin\Onegin
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x0042C9BF. Попытка записать данные по адресу 0x004FC87F в модуле C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x0057A69C (32-bit), Flags: Cmdre0, Thread: 0x2834 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\artym\desktop\новая папка\codeblocks\mingw\include\txlib.h
+Compiled:	Sep 21 2024 23:22:30, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Sep 21 2024 23:25:49
+
+Run file:	C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe
+Directory:	C:\Users\artym\Desktop\новые коды\Onegin\Onegin
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x0042C9BF. Попытка записать данные по адресу 0x004FC87F в модуле C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x0057A69C (32-bit), Flags: Cmdre0, Thread: 0x2834 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\artym\desktop\новая папка\codeblocks\mingw\include\txlib.h
+Compiled:	Sep 21 2024 23:22:30, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Sep 21 2024 23:25:49
+
+Run file:	C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe
+Directory:	C:\Users\artym\Desktop\новые коды\Onegin\Onegin
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00458EEF. Попытка прочесть данные по адресу 0x00000004 в модуле C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x0057A69C (32-bit), Flags: Cmdre0, Thread: 0x1BB8 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\artym\desktop\новая папка\codeblocks\mingw\include\txlib.h
+Compiled:	Sep 21 2024 23:22:30, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Sep 21 2024 23:27:37
+
+Run file:	C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe
+Directory:	C:\Users\artym\Desktop\новые коды\Onegin\Onegin
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00458EEF. Попытка прочесть данные по адресу 0x00000004 в модуле C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x0057A69C (32-bit), Flags: Cmdre0, Thread: 0x1BB8 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\artym\desktop\новая папка\codeblocks\mingw\include\txlib.h
+Compiled:	Sep 21 2024 23:22:30, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Sep 21 2024 23:27:37
+
+Run file:	C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe
+Directory:	C:\Users\artym\Desktop\новые коды\Onegin\Onegin
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x0042C507. Попытка записать данные по адресу NULL в модуле C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x0057A69C (32-bit), Flags: Cmdre0, Thread: 0xEE8 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\artym\desktop\новая папка\codeblocks\mingw\include\txlib.h
+Compiled:	Sep 21 2024 23:31:32, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Sep 21 2024 23:31:55
+
+Run file:	C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe
+Directory:	C:\Users\artym\Desktop\новые коды\Onegin\Onegin
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x0042C507. Попытка записать данные по адресу NULL в модуле C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x0057A69C (32-bit), Flags: Cmdre0, Thread: 0xEE8 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\artym\desktop\новая папка\codeblocks\mingw\include\txlib.h
+Compiled:	Sep 21 2024 23:31:32, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Sep 21 2024 23:31:56
+
+Run file:	C:\Users\artym\Desktop\новые коды\Onegin\Onegin\a.exe
+Directory:	C:\Users\artym\Desktop\новые коды\Onegin\Onegin
+
+--------------------------------------------------

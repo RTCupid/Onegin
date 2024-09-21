@@ -24,15 +24,21 @@ int main ()
                             0
                             };
 
-    char* Onegin = NULL;
-    size_t sizeOfFile = 0;
     int nPointer = 0;
     PTR* Pointers = NULL;
-    const char nameFile[] = "Onegin.txt";
+    char* Onegin = NULL;
+
+    struct MP Ongn {
+                   &Onegin,
+                   0,
+                   &nPointer,
+                   &Pointers,
+                   "Onegin.txt"
+                   };
 
     int CorrectMakePointers = 0;
 
-    CorrectMakePointers = MakePointers (&Onegin, &sizeOfFile, &nPointer, &Pointers, &ParamString, nameFile); // make PTR* Pointers and his param+
+    CorrectMakePointers = MakePointers (Ongn, &ParamString); // make PTR* Pointers and his param+
 
     if (CorrectMakePointers != 1)
         {
@@ -40,29 +46,36 @@ int main ()
         return -1;
         }
 
+    DBG printf ("*Ongn.Pointers = <%p>\n", *Ongn.Pointers);
+
     //qsort (Pointers, nPointer,sizeof (PTR), Comparator);
 
-    Sorting (Pointers, nPointer, sizeof (PTR), Comparator, SwappingPTR);
+    DBG printf ("*Ongn.nPointer = <%d>\n"
+            "    nPointer   = <%d>\n", *Ongn.nPointer, nPointer);
+
+    Sorting (*Ongn.Pointers, *Ongn.nPointer, sizeof (PTR), Comparator, SwappingPTR);
 
     DBG printf ("After Sorting\n\n");
-    DBG Print (Pointers[2]);
-    DBG Print (Pointers[3]);
+    DBG Print ((*Ongn.Pointers)[2]);
+    DBG Print ((*Ongn.Pointers)[3]);
 
     FILE* file = fopen ("InputOnegin.txt", "w");
 
     printf ("Sorted text:..............................................................................................\n\n");
 
-    OutputText (Pointers, nPointer,file);                            // toupper dobavit + znaki propuskat (est)+
+    OutputText (*Ongn.Pointers, *Ongn.nPointer,file);                            // toupper dobavit + znaki propuskat (est)+
 
     //qsort (Pointers, nPointer,sizeof (PTR), EOLComparator);
 
-    Sorting (Pointers, nPointer, sizeof (PTR), EOLComparator, SwappingPTR);
+    Sorting (*Ongn.Pointers, *Ongn.nPointer, sizeof (PTR), EOLComparator, SwappingPTR);
 
     printf ("\nEOLSorted text:...........................................................................................\n\n");
 
-    OutputText (Pointers, nPointer, file);
+    OutputText (*Ongn.Pointers, *Ongn.nPointer, file);
 
-    WriteTheOriginalOfPushkinGreatestPoemEugeneOnegin (Onegin, file);
+    DBG printf ("Ongn.Onegin = <%p>", *Ongn.Onegin);
+
+    WriteTheOriginalOfPushkinGreatestPoemEugeneOnegin (*Ongn.Onegin, file);
 
     fclose (file);
 
@@ -70,28 +83,32 @@ int main ()
     }
 
 //
-int MakePointers (char** Onegin, size_t* sizeOfFile, int* nPointer, PTR** Pointers, PTR* ParamString, const char* nameFile)
+int MakePointers (MP Ongn, PTR* ParamString)
     {
-    if (!InputOnegin (Onegin, sizeOfFile, nameFile))
+    if (!InputOnegin (Ongn.Onegin, &Ongn.sizeOfFile, Ongn.nameFile))
         return -1;
 
     int nRows = 0;
 
     char symbol = '\n';
 
-    CounterSymbol (&nRows, *Onegin, *sizeOfFile, symbol);
+    CounterSymbol (&nRows, *Ongn.Onegin, Ongn.sizeOfFile, symbol);
 
-    *Pointers = (PTR*)calloc (nRows * 2, sizeof (char*));        // каллокаю массив указателей
+    *Ongn.Pointers = (PTR*)calloc (nRows * 2, sizeof (char*));        // каллокаю массив указателей
 
-    if (*Pointers == NULL)
+    DBG printf ("Ongn.Pointers = <%p>\n", *Ongn.Pointers);
+
+    if (Ongn.Pointers == NULL)
         {
         printf ("Error calloc Pointers");
         return -1;
         }
 
-    InitialisatorPointers (*sizeOfFile, *Pointers, *Onegin, ParamString, nPointer);
+    DBG printf ("Ongn.Pointers = <%p>\n", *Ongn.Pointers);
 
-    DBG printf ("nPointer = <%d>\n", *nPointer);
+    InitialisatorPointers (Ongn.sizeOfFile, Ongn.Pointers, *Ongn.Onegin, ParamString, Ongn.nPointer);
+
+    DBG printf ("nPointer = <%d>\n", *Ongn.nPointer);
 
     return 1;
     }
@@ -102,7 +119,11 @@ bool InputOnegin (char** Onegin, size_t* sizeOfFile, const char* nameFile)
     {
     struct stat fileInf = {};
 
-    SizeFile (&fileInf, nameFile);
+    if (!SizeFile (&fileInf, nameFile))
+        {
+        printf ("Error SizeFile!");
+        return 0;
+        }
 
     *Onegin = (char*)calloc (fileInf.st_size + 1, sizeof(char));     // каллочу буффер, чтобы в него считать текст
 
@@ -135,20 +156,24 @@ bool InputOnegin (char** Onegin, size_t* sizeOfFile, const char* nameFile)
 
     fclose (file);                                                   // закрываю файл
 
-    DBG printf ("sizeOfFile = <%zu>\n\n", *sizeOfFile);
+    DBG printf ("sizeOfFile = <%d>\n\n", *sizeOfFile);
     return 1;
     }
 
 // функция определения размера файла с помощью стата
 
-void SizeFile (struct stat* fileInf, const char* nameFile)
+bool SizeFile (struct stat* fileInf, const char* nameFile)
     {
     int err = stat (nameFile, fileInf);
     if (err != 0)
+        {
         printf("Stat err %d\n", err);
+        return 0;
+        }
 
     DBG printf ("\n%ld\n", (*fileInf).st_size);
     DBG printf ("count of char = %ld\n", (*fileInf).st_size / sizeof (char));
+    return 1;
     }
 
 // считает количество строк, чтобы каллокнуть массив указателей
@@ -173,23 +198,30 @@ void CounterSymbol (int* nRows, char* Onegin, size_t sizeOfFile, char symbol)
 
 // ф-я инициализирует массив указателей
 
-void InitialisatorPointers (size_t sizeOfFile, PTR* Pointers, char* Onegin, struct PTR* ParamString , int* nPointer)
+void InitialisatorPointers (size_t sizeOfFile, PTR** Pointers, char* Onegin, struct PTR* ParamString , int* nPointer)
     {
     DBG printf ("\nInitialization of Pointers:\n\n");
 
     DBG printf ("&ParamString = <%p>\n", ParamString);
-    DBG printf ("&Pointers    = <%p>\n", Pointers);
+    DBG printf ("&Pointers    = <%p>\n", *Pointers);
 
+    DBG printf ("Onegin = <%p>\n", Onegin);
     ParamString->PtrStart = Onegin;
 
     for (unsigned int i = 0; i < sizeOfFile; i++)
         {
+        DBG printf ("i = <%d>\n", i);
         assert (i < sizeOfFile);
+        DBG printf ("nPointer = <%d>\n", *nPointer);
 
         if (Onegin[i] == '\n')
             {
-            ParamString->lenString = &Onegin[i - 1] - ParamString->PtrStart;
-            Pointers[*nPointer] = *ParamString;
+            ParamString->lenString = (Onegin + i - 1) - ParamString->PtrStart;
+            DBG printf ("lenString = <%d>\n", ParamString->lenString);
+            DBG printf ("nPointer = <%d>\n", *nPointer);
+            (*Pointers)[*nPointer] = *ParamString;
+            printf (" Pointers[i].PtrStart = <%p>\n", ((*Pointers)[*nPointer]).PtrStart);
+            DBG printf ("2\n");
             *nPointer = *nPointer + 1;
             ParamString->PtrStart = &Onegin[i + 1];
             }
