@@ -11,7 +11,7 @@
 
 #include "Onegin.h"
 
-typedef int (*Compare_func_t)(PTR paramFirst, PTR paramSecond);
+typedef int (*Compare_func_t)(const void*, const void*);
 
 int main ()
     {
@@ -29,11 +29,19 @@ int main ()
     PTR* Pointers = NULL;
     const char nameFile[] = "Onegin.txt";
 
-    MakePointers (&Onegin, &sizeOfFile, &nPointer, &Pointers, &ParamString, nameFile); // make PTR* Pointers and his param+
+    int CorrectMakePointers = 0;
 
-    qsort (Pointers, nPointer,sizeof (PTR), Comparator);
+    CorrectMakePointers = MakePointers (&Onegin, &sizeOfFile, &nPointer, &Pointers, &ParamString, nameFile); // make PTR* Pointers and his param+
 
-    //Sorting (Pointers, nPointer, Comparator);
+    if (CorrectMakePointers == 0)
+        {
+        printf ("Error MakePointers");
+        return -1;
+        }
+
+    //qsort (Pointers, nPointer,sizeof (PTR), Comparator);
+
+    Sorting (Pointers, nPointer, Comparator);
 
     printf ("After Sorting\n\n");
     Print (Pointers[2]);
@@ -57,7 +65,7 @@ int main ()
     }
 
 //
-void MakePointers (char** Onegin, size_t* sizeOfFile, int* nPointer, PTR** Pointers, PTR* ParamString, const char* nameFile)
+int MakePointers (char** Onegin, size_t* sizeOfFile, int* nPointer, PTR** Pointers, PTR* ParamString, const char* nameFile)
     {
     InputOnegin (Onegin, sizeOfFile, nameFile);
 
@@ -69,9 +77,17 @@ void MakePointers (char** Onegin, size_t* sizeOfFile, int* nPointer, PTR** Point
 
     *Pointers = (PTR*)calloc (nRows * 2, sizeof (char*));        // каллокаю массив указателей
 
+    if (*Pointers == NULL)
+        {
+        printf ("Error calloc Pointers");
+        return 0;
+        }
+
     InitialisatorPointers (*sizeOfFile, *Pointers, *Onegin, ParamString, nPointer);
 
     printf ("nPointer = <%d>\n", *nPointer);
+
+    return 1;
     }
 
 // читаю из файла в буффер текст Онегина и определяю размер буффера

@@ -9,7 +9,7 @@
 const int EOL = -1;
 const int SOL =  1;
 
-typedef const PTR* cPTR_t;
+typedef const void* cvoid;
 
 // функция сортировки строчек по алфавиту......................................
 
@@ -18,24 +18,24 @@ void Sorting (PTR* Pointers, int nPointer, Compare_func_t CmpFnc)
     for (int i = 0; i < nPointer; i++)
         {
         assert (i < nPointer);
-        for (int row = 0; row < nPointer - 1; row++)
+        for (int elem = 0; elem < nPointer - 1; elem++)
             {
-            printf ("row = <%d>\n", row);
+            printf ("elem = <%d>\n", elem);
             printf ("nPointer = <%d>\n", nPointer);
-            assert (row < nPointer - 1);
+            assert (elem < nPointer - 1);
 
-            int result = CmpFnc (Pointers[row], Pointers[row + 1]);
+            int result = CmpFnc ((const void*)(Pointers + elem), (const void*)(Pointers + elem + 1));
             if (result > 0)                                          // тогда замена строк между собой
                 {
                 printf ("Swapping:\n");
-                Print (Pointers[row]);
+                Print (Pointers[elem]);
                 printf ("and");
-                Print (Pointers[row + 1]);
-                Swapping (&Pointers[row], &Pointers[row + 1]);
+                Print (Pointers[elem + 1]);
+                Swapping (&Pointers[elem], &Pointers[elem + 1]);
                 printf ("After swapping:\n");
-                Print (Pointers[row]);
+                Print (Pointers[elem]);
                 printf ("and");
-                Print (Pointers[row + 1]);
+                Print (Pointers[elem + 1]);
                 }
             printf ("\n");
             }
