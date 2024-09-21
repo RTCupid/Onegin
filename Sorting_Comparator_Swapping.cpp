@@ -13,7 +13,7 @@ typedef const void* cvoid;
 
 // функция сортировки строчек по алфавиту......................................
 
-void Sorting (PTR* Pointers, int nPointer, Compare_func_t CmpFnc)
+void Sorting (void* Pointers, int nPointer, size_t sizeElem, Compare_func_t CmpFnc)
     {
     for (int i = 0; i < nPointer; i++)
         {
@@ -24,19 +24,20 @@ void Sorting (PTR* Pointers, int nPointer, Compare_func_t CmpFnc)
             printf ("nPointer = <%d>\n", nPointer);
             assert (elem < nPointer - 1);
 
-            int result = CmpFnc ((const void*)(Pointers + elem), (const void*)(Pointers + elem + 1));
+            int result = CmpFnc ((const void*)((char*)Pointers + elem * sizeElem), (const void*)((char*)Pointers + (elem + 1) * sizeElem));
             printf ("result = %d\n", result);
+
             if (result > 0)                                          // тогда замена строк между собой
                 {
                 printf ("Swapping:\n");
-                Print (Pointers[elem]);
+                Print (*((PTR*)Pointers + elem));
                 printf ("and\n");
-                Print (Pointers[elem + 1]);
-                Swapping (&Pointers[elem], &Pointers[elem + 1]);
+                Print (*((PTR*)Pointers + elem + 1));
+                SwappingPTR ((PTR*)Pointers + elem, (PTR*)Pointers + elem + 1);
                 printf ("After swapping:\n");
-                Print (Pointers[elem]);
+                Print (*((PTR*)Pointers + elem));
                 printf ("and\n");
-                Print (Pointers[elem + 1]);
+                Print (*((PTR*)Pointers + elem + 1));
                 }
             printf ("\n");
             }
@@ -139,12 +140,17 @@ void SkipMarks (PTR paramString, int* i, int deltai)
 
 // функция обмена строк........................................................
 
-void Swapping (PTR* paramFirst, PTR* paramSecond)
+void SwappingPTR (PTR* paramFirst, PTR* paramSecond)
     {
-    char* ptrSwapp = paramFirst->PtrStart;
+    printf ("in function Swapping:\n");
+    Print (*paramFirst );
+    printf ("and\n");
+    Print (*paramSecond);
+
+    char* ptrSwapp = paramFirst->PtrStart ;
     int   lenSwapp = paramFirst->lenString;
 
-    paramFirst->PtrStart  = paramSecond->PtrStart;
+    paramFirst->PtrStart  = paramSecond->PtrStart ;
     paramFirst->lenString = paramSecond->lenString;
 
     paramSecond->PtrStart  = ptrSwapp;

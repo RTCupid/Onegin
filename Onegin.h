@@ -21,7 +21,7 @@ void CounterSymbol (int* nRow, char* Onegin, size_t sizeOfFile, char symbol);
 
 void InitialisatorPointers (size_t sizeOfFile, PTR* Pointers, char* Onegin, struct PTR* ParamString, int* nPointer);
 
-void Sorting (PTR* Pointers, int nPointer, Compare_func_t CmpFnc);
+void Sorting (void* Pointers, int nPointer, size_t sizeElem, Compare_func_t CmpFnc);
 
 //{
 /// @brief   Comparator - функция, которая сравнивает две строки
@@ -44,7 +44,7 @@ int EOLComparator (const void* paramFirst, const void* paramSecond);
 
 void SkipMarks (const PTR paramString, int* i, int deltai);
 
-void Swapping (PTR* paramFirst, PTR* paramSecond);
+void SwappingPTR (PTR* paramFirst, PTR* paramSecond);
 
 void Print (const PTR paramString);
 

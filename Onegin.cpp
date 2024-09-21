@@ -41,7 +41,7 @@ int main ()
 
     //qsort (Pointers, nPointer,sizeof (PTR), Comparator);
 
-    Sorting (Pointers, nPointer, Comparator);
+    Sorting (Pointers, nPointer, sizeof (PTR), Comparator);
 
     printf ("After Sorting\n\n");
     Print (Pointers[2]);
@@ -53,7 +53,7 @@ int main ()
 
     //qsort (Pointers, nPointer,sizeof (PTR), EOLComparator);
 
-    Sorting (Pointers, nPointer, EOLComparator);
+    Sorting (Pointers, nPointer, sizeof (PTR), EOLComparator);
 
     OutputText (Pointers, nPointer, file);
 
