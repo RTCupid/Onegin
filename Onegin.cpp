@@ -34,7 +34,7 @@ int main ()
 
     CorrectMakePointers = MakePointers (&Onegin, &sizeOfFile, &nPointer, &Pointers, &ParamString, nameFile); // make PTR* Pointers and his param+
 
-    if (CorrectMakePointers == 0)
+    if (CorrectMakePointers != 1)
         {
         printf ("Error MakePointers");
         return -1;
@@ -72,7 +72,8 @@ int main ()
 //
 int MakePointers (char** Onegin, size_t* sizeOfFile, int* nPointer, PTR** Pointers, PTR* ParamString, const char* nameFile)
     {
-    InputOnegin (Onegin, sizeOfFile, nameFile);
+    if (!InputOnegin (Onegin, sizeOfFile, nameFile))
+        return -1;
 
     int nRows = 0;
 
@@ -85,7 +86,7 @@ int MakePointers (char** Onegin, size_t* sizeOfFile, int* nPointer, PTR** Pointe
     if (*Pointers == NULL)
         {
         printf ("Error calloc Pointers");
-        return 0;
+        return -1;
         }
 
     InitialisatorPointers (*sizeOfFile, *Pointers, *Onegin, ParamString, nPointer);
@@ -97,13 +98,19 @@ int MakePointers (char** Onegin, size_t* sizeOfFile, int* nPointer, PTR** Pointe
 
 // читаю из файла в буффер текст Онегина и определяю размер буффера
 
-void InputOnegin (char** Onegin, size_t* sizeOfFile, const char* nameFile)
+bool InputOnegin (char** Onegin, size_t* sizeOfFile, const char* nameFile)
     {
     struct stat fileInf = {};
 
     SizeFile (&fileInf, nameFile);
 
     *Onegin = (char*)calloc (fileInf.st_size + 1, sizeof(char));     // каллочу буффер, чтобы в него считать текст
+
+    if (*Onegin == NULL)
+        {
+        printf ("Onegin = NULL");
+        return 0;
+        }
 
     FILE* file = fopen (nameFile, "rt");
 
@@ -112,6 +119,7 @@ void InputOnegin (char** Onegin, size_t* sizeOfFile, const char* nameFile)
         printf ("File opening error\n");
         printf("errno = <%d>\n", errno);
         perror(nameFile);
+        return 0;
         }
 
     *sizeOfFile = fread (*Onegin, sizeof (char), fileInf.st_size, file); // с помощью fread читаю файл в буффер, сохраняю возвращаемое значение fread ()
@@ -120,6 +128,7 @@ void InputOnegin (char** Onegin, size_t* sizeOfFile, const char* nameFile)
         {
         printf ("errno = <%d>\n", errno);
         perror (nameFile);
+        return 0;
         }
 
     printf ("\n%s\n", *Onegin);                                      // вывожу начальный текст Онегина
@@ -127,6 +136,7 @@ void InputOnegin (char** Onegin, size_t* sizeOfFile, const char* nameFile)
     fclose (file);                                                   // закрываю файл
 
     DBG printf ("sizeOfFile = <%zu>\n\n", *sizeOfFile);
+    return 1;
     }
 
 // функция определения размера файла с помощью стата
@@ -147,6 +157,8 @@ void CounterSymbol (int* nRows, char* Onegin, size_t sizeOfFile, char symbol)
     {
     for (unsigned int i = 0; i < sizeOfFile; i++)                    // посимвольно зачем-то вывожу начальный текст Онегина
         {                                                            // точно, я не просто вывожу, а параллельно считаю количество
+        assert (i < sizeofFile);
+
         if (Onegin[i] == symbol)                                     // строк, равное кличеству '\n'
             {
             DBG printf ("Onegin[%d] = <'%c'>\n", i, symbol);
@@ -172,6 +184,8 @@ void InitialisatorPointers (size_t sizeOfFile, PTR* Pointers, char* Onegin, stru
 
     for (unsigned int i = 0; i < sizeOfFile; i++)
         {
+        assert (i < sizeOfFile);
+
         if (Onegin[i] == '\n')
             {
             ParamString->lenString = &Onegin[i - 1] - ParamString->PtrStart;

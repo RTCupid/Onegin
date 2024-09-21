@@ -15,7 +15,7 @@ typedef int (*Compare_func_t)(const void*, const void*);
 
 int MakePointers (char** Onegin, size_t* sizeOfFile, int* nPointer, PTR** Pointers, PTR* ParamString, const char* namefile);
 
-void InputOnegin (char** Onegin, size_t* sizeofFile, const char* nameFile);
+bool InputOnegin (char** Onegin, size_t* sizeofFile, const char* nameFile);
 
 void SizeFile (struct stat* fileInf, const char* nameFile);
 
